@@ -1,10 +1,109 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MainDB" Class="MainDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MainDB.mdf;Integrated Security=True" SettingsObjectName="RMS.Properties.Settings" SettingsPropertyName="MainDBConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Users" Member="Users">
-    <Type Name="User">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MainDB.mdf;Integrated Security=True" SettingsObjectName="RMS.Properties.Settings" SettingsPropertyName="MainDBConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Administrators" Member="Administrators">
+    <Type Name="Administrator">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Annex" Member="Annexes">
+    <Type Name="Annex">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Annex_Room" Member="Rooms" ThisKey="Id" OtherKey="BelongsToAnnexID" Type="Room" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="User_Flag" Member="Flags" ThisKey="Id" OtherKey="SetByUserID" Type="Flag" />
+      <Association Name="User_Reservation" Member="Reservations" ThisKey="Id" OtherKey="ReserveeID" Type="Reservation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Flag" Member="Flags">
+    <Type Name="Flag">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="SetTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ResolvedTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RoomID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SetByUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User_Flag" Member="User" ThisKey="SetByUserID" OtherKey="Id" Type="User" IsForeignKey="true" />
+      <Association Name="Room_Flag" Member="Room" ThisKey="RoomID" OtherKey="Id" Type="Room" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SemesterDay" Member="SemesterDays">
+    <Type Name="SemesterDay">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="WeekDayID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="WeekDay_SemesterDay" Member="WeekDay" ThisKey="WeekDayID" OtherKey="Id" Type="WeekDay" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MaintenanceStaff" Member="MaintenanceStaffs">
+    <Type Name="MaintenanceStaff">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RegularClass" Member="RegularClasses">
+    <Type Name="RegularClass">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="CourseID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CourseSection" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="WeekDayID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HeldInRoomID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Room_RegularClass" Member="Room" ThisKey="HeldInRoomID" OtherKey="Id" Type="Room" IsForeignKey="true" />
+      <Association Name="WeekDay_RegularClass" Member="WeekDay" ThisKey="WeekDayID" OtherKey="Id" Type="WeekDay" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Reservation" Member="Reservations">
+    <Type Name="Reservation">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ReservedRoomID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReserveeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User_Reservation" Member="User" ThisKey="ReserveeID" OtherKey="Id" Type="User" IsForeignKey="true" />
+      <Association Name="Room_Reservation" Member="Room" ThisKey="ReservedRoomID" OtherKey="Id" Type="Room" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Room" Member="Rooms">
+    <Type Name="Room">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Number" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RoomTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BelongsToAnnexID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RoomCapacity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Room_Flag" Member="Flags" ThisKey="Id" OtherKey="RoomID" Type="Flag" />
+      <Association Name="Room_RegularClass" Member="RegularClasses" ThisKey="Id" OtherKey="HeldInRoomID" Type="RegularClass" />
+      <Association Name="Room_Reservation" Member="Reservations" ThisKey="Id" OtherKey="ReservedRoomID" Type="Reservation" />
+      <Association Name="Annex_Room" Member="Annex" ThisKey="BelongsToAnnexID" OtherKey="Id" Type="Annex" IsForeignKey="true" />
+      <Association Name="RoomType_Room" Member="RoomType" ThisKey="RoomTypeID" OtherKey="Id" Type="RoomType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RoomType" Member="RoomTypes">
+    <Type Name="RoomType">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="RoomType_Room" Member="Rooms" ThisKey="Id" OtherKey="RoomTypeID" Type="Room" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WeekDay" Member="WeekDays">
+    <Type Name="WeekDay">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DayNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="WeekDay_SemesterDay" Member="SemesterDays" ThisKey="Id" OtherKey="WeekDayID" Type="SemesterDay" />
+      <Association Name="WeekDay_RegularClass" Member="RegularClasses" ThisKey="Id" OtherKey="WeekDayID" Type="RegularClass" />
     </Type>
   </Table>
 </Database>
