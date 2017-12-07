@@ -26,32 +26,36 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.AccountsPanelButton = new System.Windows.Forms.Button();
-            this.RoomsButton = new System.Windows.Forms.Button();
-            this.ReservationsButton = new System.Windows.Forms.Button();
-            this.FlagsButton = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.RoomsPanelButton = new System.Windows.Forms.Button();
+            this.ReservationsPanelButton = new System.Windows.Forms.Button();
+            this.FlagsPanelButton = new System.Windows.Forms.Button();
+            this.SemesterDaysPanelButton = new System.Windows.Forms.Button();
             this.MainTabContainer = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.AccountsPanelTabPage = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
+            this.AccountsUsersTabPage = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.MaintenanceStaffTabPage = new System.Windows.Forms.TabPage();
+            this.AccountsAdministratorTabPage = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.MainTabContainer.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.AccountsPanelTabPage.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.AccountsUsersTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -77,10 +81,10 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.AccountsPanelButton, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.RoomsButton, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.ReservationsButton, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.FlagsButton, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.button5, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.RoomsPanelButton, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.ReservationsPanelButton, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.FlagsPanelButton, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.SemesterDaysPanelButton, 0, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -105,58 +109,63 @@
             this.AccountsPanelButton.Text = "Accounts";
             this.AccountsPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AccountsPanelButton.UseVisualStyleBackColor = true;
+            this.AccountsPanelButton.Click += new System.EventHandler(this.AccountsPanelButton_Click);
             // 
-            // RoomsButton
+            // RoomsPanelButton
             // 
-            this.RoomsButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RoomsButton.Location = new System.Drawing.Point(0, 27);
-            this.RoomsButton.Margin = new System.Windows.Forms.Padding(0);
-            this.RoomsButton.Name = "RoomsButton";
-            this.RoomsButton.Size = new System.Drawing.Size(108, 27);
-            this.RoomsButton.TabIndex = 1;
-            this.RoomsButton.Text = "Rooms";
-            this.RoomsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RoomsButton.UseVisualStyleBackColor = true;
+            this.RoomsPanelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RoomsPanelButton.Location = new System.Drawing.Point(0, 27);
+            this.RoomsPanelButton.Margin = new System.Windows.Forms.Padding(0);
+            this.RoomsPanelButton.Name = "RoomsPanelButton";
+            this.RoomsPanelButton.Size = new System.Drawing.Size(108, 27);
+            this.RoomsPanelButton.TabIndex = 1;
+            this.RoomsPanelButton.Text = "Rooms";
+            this.RoomsPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RoomsPanelButton.UseVisualStyleBackColor = true;
+            this.RoomsPanelButton.Click += new System.EventHandler(this.RoomsPanelButton_Click);
             // 
-            // ReservationsButton
+            // ReservationsPanelButton
             // 
-            this.ReservationsButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ReservationsButton.Location = new System.Drawing.Point(0, 54);
-            this.ReservationsButton.Margin = new System.Windows.Forms.Padding(0);
-            this.ReservationsButton.Name = "ReservationsButton";
-            this.ReservationsButton.Size = new System.Drawing.Size(108, 27);
-            this.ReservationsButton.TabIndex = 2;
-            this.ReservationsButton.Text = "Reservations";
-            this.ReservationsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ReservationsButton.UseVisualStyleBackColor = true;
+            this.ReservationsPanelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ReservationsPanelButton.Location = new System.Drawing.Point(0, 54);
+            this.ReservationsPanelButton.Margin = new System.Windows.Forms.Padding(0);
+            this.ReservationsPanelButton.Name = "ReservationsPanelButton";
+            this.ReservationsPanelButton.Size = new System.Drawing.Size(108, 27);
+            this.ReservationsPanelButton.TabIndex = 2;
+            this.ReservationsPanelButton.Text = "Reservations";
+            this.ReservationsPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ReservationsPanelButton.UseVisualStyleBackColor = true;
+            this.ReservationsPanelButton.Click += new System.EventHandler(this.ReservationsPanelButton_Click);
             // 
-            // FlagsButton
+            // FlagsPanelButton
             // 
-            this.FlagsButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FlagsButton.Location = new System.Drawing.Point(0, 81);
-            this.FlagsButton.Margin = new System.Windows.Forms.Padding(0);
-            this.FlagsButton.Name = "FlagsButton";
-            this.FlagsButton.Size = new System.Drawing.Size(108, 27);
-            this.FlagsButton.TabIndex = 3;
-            this.FlagsButton.Text = "Flags";
-            this.FlagsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.FlagsButton.UseVisualStyleBackColor = true;
+            this.FlagsPanelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FlagsPanelButton.Location = new System.Drawing.Point(0, 81);
+            this.FlagsPanelButton.Margin = new System.Windows.Forms.Padding(0);
+            this.FlagsPanelButton.Name = "FlagsPanelButton";
+            this.FlagsPanelButton.Size = new System.Drawing.Size(108, 27);
+            this.FlagsPanelButton.TabIndex = 3;
+            this.FlagsPanelButton.Text = "Flags";
+            this.FlagsPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FlagsPanelButton.UseVisualStyleBackColor = true;
+            this.FlagsPanelButton.Click += new System.EventHandler(this.FlagsPanelButton_Click);
             // 
-            // button5
+            // SemesterDaysPanelButton
             // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.Location = new System.Drawing.Point(0, 108);
-            this.button5.Margin = new System.Windows.Forms.Padding(0);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(108, 27);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Semester Days";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.UseVisualStyleBackColor = true;
+            this.SemesterDaysPanelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SemesterDaysPanelButton.Location = new System.Drawing.Point(0, 108);
+            this.SemesterDaysPanelButton.Margin = new System.Windows.Forms.Padding(0);
+            this.SemesterDaysPanelButton.Name = "SemesterDaysPanelButton";
+            this.SemesterDaysPanelButton.Size = new System.Drawing.Size(108, 27);
+            this.SemesterDaysPanelButton.TabIndex = 4;
+            this.SemesterDaysPanelButton.Text = "Semester Days";
+            this.SemesterDaysPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SemesterDaysPanelButton.UseVisualStyleBackColor = true;
+            this.SemesterDaysPanelButton.Click += new System.EventHandler(this.SemesterDaysPanelButton_Click);
             // 
             // MainTabContainer
             // 
-            this.MainTabContainer.Controls.Add(this.tabPage1);
+            this.MainTabContainer.Controls.Add(this.AccountsPanelTabPage);
             this.MainTabContainer.Controls.Add(this.tabPage2);
             this.MainTabContainer.Controls.Add(this.tabPage3);
             this.MainTabContainer.Controls.Add(this.tabPage4);
@@ -164,23 +173,25 @@
             this.MainTabContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTabContainer.ItemSize = new System.Drawing.Size(50, 20);
             this.MainTabContainer.Location = new System.Drawing.Point(0, 0);
+            this.MainTabContainer.Margin = new System.Windows.Forms.Padding(0);
             this.MainTabContainer.Name = "MainTabContainer";
+            this.MainTabContainer.Padding = new System.Drawing.Point(0, 0);
             this.MainTabContainer.SelectedIndex = 0;
             this.MainTabContainer.Size = new System.Drawing.Size(688, 529);
             this.MainTabContainer.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.MainTabContainer.TabIndex = 0;
             // 
-            // tabPage1
+            // AccountsPanelTabPage
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(680, 501);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Accounts panel";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.AccountsPanelTabPage.BackColor = System.Drawing.Color.Transparent;
+            this.AccountsPanelTabPage.Controls.Add(this.AccountsUsersTabPage);
+            this.AccountsPanelTabPage.Location = new System.Drawing.Point(4, 24);
+            this.AccountsPanelTabPage.Name = "AccountsPanelTabPage";
+            this.AccountsPanelTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.AccountsPanelTabPage.Size = new System.Drawing.Size(680, 501);
+            this.AccountsPanelTabPage.TabIndex = 0;
+            this.AccountsPanelTabPage.Text = "Accounts panel";
+            this.AccountsPanelTabPage.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -203,15 +214,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Accounts";
             // 
             // label2
             // 
@@ -271,6 +273,48 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Semester days";
             // 
+            // AccountsUsersTabPage
+            // 
+            this.AccountsUsersTabPage.Controls.Add(this.tabPage1);
+            this.AccountsUsersTabPage.Controls.Add(this.MaintenanceStaffTabPage);
+            this.AccountsUsersTabPage.Controls.Add(this.AccountsAdministratorTabPage);
+            this.AccountsUsersTabPage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AccountsUsersTabPage.Location = new System.Drawing.Point(3, 3);
+            this.AccountsUsersTabPage.Name = "AccountsUsersTabPage";
+            this.AccountsUsersTabPage.SelectedIndex = 0;
+            this.AccountsUsersTabPage.Size = new System.Drawing.Size(674, 495);
+            this.AccountsUsersTabPage.TabIndex = 1;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(666, 469);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Users";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // MaintenanceStaffTabPage
+            // 
+            this.MaintenanceStaffTabPage.Location = new System.Drawing.Point(4, 22);
+            this.MaintenanceStaffTabPage.Name = "MaintenanceStaffTabPage";
+            this.MaintenanceStaffTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.MaintenanceStaffTabPage.Size = new System.Drawing.Size(666, 469);
+            this.MaintenanceStaffTabPage.TabIndex = 1;
+            this.MaintenanceStaffTabPage.Text = "Maintenance staffs";
+            this.MaintenanceStaffTabPage.UseVisualStyleBackColor = true;
+            // 
+            // AccountsAdministratorTabPage
+            // 
+            this.AccountsAdministratorTabPage.Location = new System.Drawing.Point(4, 22);
+            this.AccountsAdministratorTabPage.Name = "AccountsAdministratorTabPage";
+            this.AccountsAdministratorTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.AccountsAdministratorTabPage.Size = new System.Drawing.Size(666, 469);
+            this.AccountsAdministratorTabPage.TabIndex = 2;
+            this.AccountsAdministratorTabPage.Text = "Administrators";
+            this.AccountsAdministratorTabPage.UseVisualStyleBackColor = true;
+            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,8 +330,7 @@
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.MainTabContainer.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.AccountsPanelTabPage.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
@@ -296,6 +339,7 @@
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.AccountsUsersTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -304,20 +348,23 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button AccountsPanelButton;
-        private System.Windows.Forms.Button RoomsButton;
-        private System.Windows.Forms.Button ReservationsButton;
-        private System.Windows.Forms.Button FlagsButton;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button RoomsPanelButton;
+        private System.Windows.Forms.Button ReservationsPanelButton;
+        private System.Windows.Forms.Button FlagsPanelButton;
+        private System.Windows.Forms.Button SemesterDaysPanelButton;
         private System.Windows.Forms.TabControl MainTabContainer;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage AccountsPanelTabPage;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TabControl AccountsUsersTabPage;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage MaintenanceStaffTabPage;
+        private System.Windows.Forms.TabPage AccountsAdministratorTabPage;
     }
 }

@@ -3,6 +3,7 @@ using System.Windows.Forms;
 
 namespace RMS {
     public partial class AdminPanel : Form {
+
         public AdminPanel() {
             InitializeComponent();
             hideTabHeaders();
@@ -21,6 +22,30 @@ namespace RMS {
 
             
         }
-        
+
+
+        // sidebar navigation button event listeners
+        //The bellow methods are event listeners that change the tab according to pushed button
+        private void AccountsPanelButton_Click(object sender, EventArgs e) {
+            MainTabContainer.SelectedIndex = 0;
+        }
+
+        private void RoomsPanelButton_Click(object sender, EventArgs e) {
+            MainTabContainer.SelectedIndex = 1;
+        }
+
+        private void ReservationsPanelButton_Click(object sender, EventArgs e) {
+            MainTabContainer.SelectedIndex = 2;
+        }
+
+        private void FlagsPanelButton_Click(object sender, EventArgs e) {
+            MainTabContainer.SelectedIndex = 3;
+        }
+
+        private void SemesterDaysPanelButton_Click(object sender, EventArgs e) {
+            MainTabContainer.SelectedIndex = 4;
+        }
+
+        // END of sidebar navigation button event listeners
     }
 }
