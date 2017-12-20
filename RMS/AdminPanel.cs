@@ -23,6 +23,7 @@ namespace RMS {
 
         private void AdminPanel_Load(object sender, EventArgs e) {
             UsersDataGridView.DataSource = db.Users;
+            RoomDataGridView.DataSource = db.Rooms;
         }
 
 
@@ -85,11 +86,15 @@ namespace RMS {
             else {
                 UsersDataGridView.DataSource = from x in db.Users
                                                where x.UserName.Contains(text)
-                                               select x ;
+                                               select x.UserName;
             }
         }
 
         private void AccountTypeComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e) {
 
         }
     }
