@@ -44,5 +44,27 @@ namespace RMS.Properties {
                 return ((string)(this["MainDBConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\bin\\Debug\\Mai" +
+            "nDB.mdf;Integrated Security=True;Connect Timeout=30")]
+        public string MainDBConnectionString2 {
+            get {
+                return ((string)(this["MainDBConnectionString2"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\compilezone\\c#\\RMS\\MainDB." +
+            "mdf;Integrated Security=True;Connect Timeout=30")]
+        public string MainDBConnectionString3 {
+            get {
+                return ((string)(this["MainDBConnectionString3"]));
+            }
+        }
     }
 }

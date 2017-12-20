@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace RMS {
     public partial class AdminPanel : Form {
+        DBDataContext db = new DBDataContext();
 
         public AdminPanel() {
             InitializeComponent();
@@ -18,9 +20,9 @@ namespace RMS {
         private void hideTabHeaders() {
             MainTabContainer.ItemSize = new System.Drawing.Size(0,1);
         }
-        private void AdminPanel_Load(object sender, EventArgs e) {
 
-            
+        private void AdminPanel_Load(object sender, EventArgs e) {
+            UsersDataGridView.DataSource = db.Users;
         }
 
 
@@ -46,6 +48,49 @@ namespace RMS {
             MainTabContainer.SelectedIndex = 4;
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e) {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+
+        }
+
+        private void UsersGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
+        }
+
+        
+
         // END of sidebar navigation button event listeners
+
+        private void tabPage1_Click(object sender, EventArgs e) {
+            
+        }
+
+        private void mainDBDataSetBindingSource_CurrentChanged(object sender, EventArgs e) {
+
+        }
+
+        private void UsersDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
+        }
+
+        private void SearchByNameTextBox_TextChanged(object sender, EventArgs e) {
+            string text = SearchByNameTextBox.Text;
+
+            if(text == "") {
+                UsersDataGridView.DataSource = db.Users;
+            }
+            else {
+                UsersDataGridView.DataSource = from x in db.Users
+                                               where x.UserName.Contains(text)
+                                               select x ;
+            }
+        }
+
+        private void AccountTypeComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+
+        }
     }
 }
