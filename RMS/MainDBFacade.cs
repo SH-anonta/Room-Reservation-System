@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 
 namespace RMS {
-    
-
+   
     class MainDBFacade {
         const string ALL_USER_TYPES_COMBOBOX_ITEM= "All types";
         private DBDataContext db = new DBDataContext();

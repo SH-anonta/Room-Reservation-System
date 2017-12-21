@@ -15,7 +15,8 @@ namespace RMS {
             Application.SetCompatibleTextRenderingDefault(false);
             
             //Application.Run(new LoginForm());
-            Application.Run(new AdminPanel());
+            //Application.Run(new AdminPanel());
+            Application.Run(new UserForm());
         }
     }
 }
