@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace RMS {
     public partial class AdminPanel : Form {
@@ -27,12 +28,16 @@ namespace RMS {
             UsersDataGridView.DataSource = db.Users;
             RoomDataGridView.DataSource = db.Rooms;
             
+            // Load the Account type names to the comboboxes
             var user_type_names = dbFacade.getUserTypeNames().ToList();
             
             CreateAccountTypeTB.DataSource = user_type_names;
 
             user_type_names.Insert(0, ALL_USER_TYPES_COMBOBOX_ITEM);
             AccountTypeCB.DataSource= user_type_names;
+
+            // Make comboboxes readonly
+            //AccountTypeCB.readone
         }
 
 
@@ -82,13 +87,17 @@ namespace RMS {
 
         }
 
+        //IMPORTANT: This event is used to update the UserDatagridView, other methods send event with arguments set to null
         private void SearchByNameTextBox_TextChanged(object sender, EventArgs e) {
             string search_name = SearchByNameTextBox.Text;
             string account_type = AccountTypeCB.Text;
 
             
+            var data = dbFacade.filterUsersByNameAndType(search_name, account_type);
 
-            UsersDataGridView.DataSource= dbFacade.filterUsersByNameAndType(search_name, account_type);
+            var show= data.Select(x => new { UserName = x.UserName, Password= x.Password, UserType= x.UserType.TypeName}).ToList();
+
+            UsersDataGridView.DataSource= show;
         }
 
         private void AccountTypeCB_SelectedIndexChanged(object sender, EventArgs e) {
@@ -108,6 +117,22 @@ namespace RMS {
                 MessageBox.Show("Account Created");
             }
 
+        }
+
+        private void DeleteSelectedAccount_Click(object sender, EventArgs e) {
+            var usernames = new HashSet<string>();
+            
+            foreach(DataGridViewRow  row in UsersDataGridView.SelectedRows) {
+                usernames.Add(row.Cells[0].Value.ToString());
+            }
+
+            
+            foreach (string uname in usernames) {
+                dbFacade.DeleteAccount(uname);
+                
+            }
+
+            SearchByNameTextBox_TextChanged(null, null);
         }
     }
 }

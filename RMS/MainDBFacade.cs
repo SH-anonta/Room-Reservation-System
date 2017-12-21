@@ -23,10 +23,19 @@ namespace RMS {
 
             User u = new User();
             u.UserName = uname;
-            u.Password = password;
+            u.Password = HashGenerator.hasho(password).ToString();
             u.UserTypeID = userTypeID;
 
             db.Users.InsertOnSubmit(u);
+            db.SubmitChanges();
+        }
+
+        public void DeleteAccount(string uname) {
+            User user = db.Users.FirstOrDefault(x => x.UserName == uname);
+
+            if(user == null) return;
+
+            db.Users.DeleteOnSubmit(user);
             db.SubmitChanges();
         }
 
@@ -57,6 +66,12 @@ namespace RMS {
             }
 
             return data;
+        }
+    }
+
+    class DataGridViewFeed {
+        public static void get(List<User> list) {
+            
         }
     }
 
