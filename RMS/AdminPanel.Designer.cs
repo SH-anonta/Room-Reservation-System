@@ -45,9 +45,11 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.UserNameTB = new System.Windows.Forms.TextBox();
+            this.PasswordTB = new System.Windows.Forms.TextBox();
+            this.CreateAccountButton = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.CreateAccountTypeTB = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
@@ -367,19 +369,22 @@
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.6208F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.3792F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.14985F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.85015F));
             this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.label7, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.textBox2, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.button1, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.UserNameTB, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.PasswordTB, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.CreateAccountButton, 1, 3);
+            this.tableLayoutPanel4.Controls.Add(this.label17, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.CreateAccountTypeTB, 1, 2);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(6, 6);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 3;
+            this.tableLayoutPanel4.RowCount = 4;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.08696F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.91304F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 367F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 349F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(654, 464);
             this.tableLayoutPanel4.TabIndex = 0;
@@ -388,7 +393,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 15);
+            this.label1.Location = new System.Drawing.Point(3, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 0;
@@ -398,37 +403,57 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 63);
+            this.label7.Location = new System.Drawing.Point(3, 49);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 1;
             this.label7.Text = "Password";
             // 
-            // textBox1
+            // UserNameTB
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox1.Location = new System.Drawing.Point(79, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(211, 20);
-            this.textBox1.TabIndex = 2;
+            this.UserNameTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.UserNameTB.Location = new System.Drawing.Point(89, 7);
+            this.UserNameTB.Name = "UserNameTB";
+            this.UserNameTB.Size = new System.Drawing.Size(182, 20);
+            this.UserNameTB.TabIndex = 2;
             // 
-            // textBox2
+            // PasswordTB
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox2.Location = new System.Drawing.Point(79, 60);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(211, 20);
-            this.textBox2.TabIndex = 3;
+            this.PasswordTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.PasswordTB.Location = new System.Drawing.Point(89, 45);
+            this.PasswordTB.Name = "PasswordTB";
+            this.PasswordTB.PasswordChar = '*';
+            this.PasswordTB.Size = new System.Drawing.Size(182, 20);
+            this.PasswordTB.TabIndex = 3;
             // 
-            // button1
+            // CreateAccountButton
             // 
-            this.button1.Location = new System.Drawing.Point(79, 99);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Create Account";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.CreateAccountButton.Location = new System.Drawing.Point(89, 117);
+            this.CreateAccountButton.Name = "CreateAccountButton";
+            this.CreateAccountButton.Size = new System.Drawing.Size(129, 23);
+            this.CreateAccountButton.TabIndex = 4;
+            this.CreateAccountButton.Text = "Create Account";
+            this.CreateAccountButton.UseVisualStyleBackColor = true;
+            this.CreateAccountButton.Click += new System.EventHandler(this.CreateAccountButton_Click);
+            // 
+            // label17
+            // 
+            this.label17.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(3, 88);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(74, 13);
+            this.label17.TabIndex = 11;
+            this.label17.Text = "Account Type";
+            // 
+            // CreateAccountTypeTB
+            // 
+            this.CreateAccountTypeTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.CreateAccountTypeTB.FormattingEnabled = true;
+            this.CreateAccountTypeTB.Location = new System.Drawing.Point(89, 84);
+            this.CreateAccountTypeTB.Name = "CreateAccountTypeTB";
+            this.CreateAccountTypeTB.Size = new System.Drawing.Size(177, 21);
+            this.CreateAccountTypeTB.TabIndex = 12;
             // 
             // tabPage2
             // 
@@ -602,7 +627,7 @@
             this.tableLayoutPanel5.ColumnCount = 3;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.81633F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.18367F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 415F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 418F));
             this.tableLayoutPanel5.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label12, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label13, 0, 2);
@@ -681,7 +706,7 @@
             // RoomNumberTB
             // 
             this.RoomNumberTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomNumberTB.Location = new System.Drawing.Point(103, 10);
+            this.RoomNumberTB.Location = new System.Drawing.Point(101, 10);
             this.RoomNumberTB.Name = "RoomNumberTB";
             this.RoomNumberTB.Size = new System.Drawing.Size(121, 20);
             this.RoomNumberTB.TabIndex = 6;
@@ -689,7 +714,7 @@
             // RoomNameTB
             // 
             this.RoomNameTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomNameTB.Location = new System.Drawing.Point(103, 50);
+            this.RoomNameTB.Location = new System.Drawing.Point(101, 50);
             this.RoomNameTB.Name = "RoomNameTB";
             this.RoomNameTB.Size = new System.Drawing.Size(121, 20);
             this.RoomNameTB.TabIndex = 7;
@@ -697,7 +722,7 @@
             // RoomCapacityTB
             // 
             this.RoomCapacityTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomCapacityTB.Location = new System.Drawing.Point(103, 170);
+            this.RoomCapacityTB.Location = new System.Drawing.Point(101, 170);
             this.RoomCapacityTB.Name = "RoomCapacityTB";
             this.RoomCapacityTB.Size = new System.Drawing.Size(121, 20);
             this.RoomCapacityTB.TabIndex = 9;
@@ -706,7 +731,7 @@
             // 
             this.RoomTypeCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.RoomTypeCB.FormattingEnabled = true;
-            this.RoomTypeCB.Location = new System.Drawing.Point(103, 89);
+            this.RoomTypeCB.Location = new System.Drawing.Point(101, 89);
             this.RoomTypeCB.Name = "RoomTypeCB";
             this.RoomTypeCB.Size = new System.Drawing.Size(121, 21);
             this.RoomTypeCB.TabIndex = 10;
@@ -715,14 +740,14 @@
             // 
             this.AnnexCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.AnnexCB.FormattingEnabled = true;
-            this.AnnexCB.Location = new System.Drawing.Point(103, 129);
+            this.AnnexCB.Location = new System.Drawing.Point(101, 129);
             this.AnnexCB.Name = "AnnexCB";
             this.AnnexCB.Size = new System.Drawing.Size(121, 21);
             this.AnnexCB.TabIndex = 11;
             // 
             // CreateRoomButton
             // 
-            this.CreateRoomButton.Location = new System.Drawing.Point(103, 232);
+            this.CreateRoomButton.Location = new System.Drawing.Point(101, 232);
             this.CreateRoomButton.Name = "CreateRoomButton";
             this.CreateRoomButton.Size = new System.Drawing.Size(121, 23);
             this.CreateRoomButton.TabIndex = 5;
@@ -733,7 +758,7 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(247, 7);
+            this.label16.Location = new System.Drawing.Point(244, 7);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(289, 26);
             this.label16.TabIndex = 12;
@@ -875,9 +900,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox UserNameTB;
+        private System.Windows.Forms.TextBox PasswordTB;
+        private System.Windows.Forms.Button CreateAccountButton;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
@@ -905,5 +930,7 @@
         private System.Windows.Forms.ComboBox RoomTypeCB;
         private System.Windows.Forms.ComboBox AnnexCB;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox CreateAccountTypeTB;
     }
 }

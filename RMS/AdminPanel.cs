@@ -6,7 +6,7 @@ namespace RMS {
     public partial class AdminPanel : Form {
         const string ALL_USER_TYPES_COMBOBOX_ITEM= "All types";
         DBDataContext db = new DBDataContext();
-        MainDBFacade dBFacade = new MainDBFacade();
+        MainDBFacade dbFacade = new MainDBFacade();
 
         public AdminPanel() {
             InitializeComponent();
@@ -27,7 +27,10 @@ namespace RMS {
             UsersDataGridView.DataSource = db.Users;
             RoomDataGridView.DataSource = db.Rooms;
             
-            var user_type_names = dBFacade.getUserTypeNames().ToList();
+            var user_type_names = dbFacade.getUserTypeNames().ToList();
+            
+            CreateAccountTypeTB.DataSource = user_type_names;
+
             user_type_names.Insert(0, ALL_USER_TYPES_COMBOBOX_ITEM);
             AccountTypeCB.DataSource= user_type_names;
         }
@@ -54,11 +57,7 @@ namespace RMS {
         private void SemesterDaysPanelButton_Click(object sender, EventArgs e) {
             MainTabContainer.SelectedIndex = 4;
         }
-
-        private void groupBox1_Enter(object sender, EventArgs e) {
-
-        }
-
+        
         private void button1_Click(object sender, EventArgs e) {
 
         }
@@ -84,23 +83,30 @@ namespace RMS {
         }
 
         private void SearchByNameTextBox_TextChanged(object sender, EventArgs e) {
-            string text = SearchByNameTextBox.Text;
+            string search_name = SearchByNameTextBox.Text;
+            string account_type = AccountTypeCB.Text;
 
-            if(text == "") {
-                UsersDataGridView.DataSource = db.Users;
-            }
-            else {
-                UsersDataGridView.DataSource = from x in db.Users
-                                               where x.UserName.Contains(text)
-                                               select x;
-            }
-        }
+            
 
-        private void button1_Click_1(object sender, EventArgs e) {
-
+            UsersDataGridView.DataSource= dbFacade.filterUsersByNameAndType(search_name, account_type);
         }
 
         private void AccountTypeCB_SelectedIndexChanged(object sender, EventArgs e) {
+            // this even reilies the TextBox text changed event to update the Users Data grid view
+            SearchByNameTextBox_TextChanged(null, null);
+        }
+
+        private void CreateAccountButton_Click(object sender, EventArgs e) {
+            string uname = UserNameTB.Text;
+            string pass = PasswordTB.Text;
+            string user_type_name = CreateAccountTypeTB.Text;
+
+            if(dbFacade.UserNameExists(uname))
+                MessageBox.Show("This username is not avalable");
+            else {
+                dbFacade.createAccount(uname, pass, dbFacade.UserTypeNameToID(user_type_name));
+                MessageBox.Show("Account Created");
+            }
 
         }
     }
