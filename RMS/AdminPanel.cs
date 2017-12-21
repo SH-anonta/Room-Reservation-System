@@ -4,7 +4,9 @@ using System.Linq;
 
 namespace RMS {
     public partial class AdminPanel : Form {
+        const string ALL_USER_TYPES_COMBOBOX_ITEM= "All types";
         DBDataContext db = new DBDataContext();
+        MainDBFacade dBFacade = new MainDBFacade();
 
         public AdminPanel() {
             InitializeComponent();
@@ -24,6 +26,10 @@ namespace RMS {
         private void AdminPanel_Load(object sender, EventArgs e) {
             UsersDataGridView.DataSource = db.Users;
             RoomDataGridView.DataSource = db.Rooms;
+            
+            var user_type_names = dBFacade.getUserTypeNames().ToList();
+            user_type_names.Insert(0, ALL_USER_TYPES_COMBOBOX_ITEM);
+            AccountTypeCB.DataSource= user_type_names;
         }
 
 
@@ -86,15 +92,15 @@ namespace RMS {
             else {
                 UsersDataGridView.DataSource = from x in db.Users
                                                where x.UserName.Contains(text)
-                                               select x.UserName;
+                                               select x;
             }
         }
 
-        private void AccountTypeComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+        private void button1_Click_1(object sender, EventArgs e) {
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e) {
+        private void AccountTypeCB_SelectedIndexChanged(object sender, EventArgs e) {
 
         }
     }

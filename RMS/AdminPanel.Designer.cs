@@ -38,50 +38,50 @@
             this.UsersDataGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.SearchByNameTextBox = new System.Windows.Forms.TextBox();
-            this.AccountTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.AccountTypeCB = new System.Windows.Forms.ComboBox();
             this.searchlable = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.RoomDataGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.RoomDataGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.CreateRoomButton = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
             this.RoomNumberTB = new System.Windows.Forms.TextBox();
             this.RoomNameTB = new System.Windows.Forms.TextBox();
             this.RoomCapacityTB = new System.Windows.Forms.TextBox();
             this.RoomTypeCB = new System.Windows.Forms.ComboBox();
             this.AnnexCB = new System.Windows.Forms.ComboBox();
+            this.CreateRoomButton = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -95,18 +95,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.UsersDataGridView)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RoomDataGridView)).BeginInit();
+            this.tableLayoutPanel7.SuspendLayout();
+            this.tabPage8.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.tabControl2.SuspendLayout();
-            this.tabPage7.SuspendLayout();
-            this.tabPage8.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RoomDataGridView)).BeginInit();
-            this.tableLayoutPanel6.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -298,9 +298,9 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 257F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 312F));
             this.tableLayoutPanel3.Controls.Add(this.SearchByNameTextBox, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.AccountTypeComboBox, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.AccountTypeCB, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.searchlable, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label6, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -322,15 +322,16 @@
             this.SearchByNameTextBox.TabIndex = 6;
             this.SearchByNameTextBox.TextChanged += new System.EventHandler(this.SearchByNameTextBox_TextChanged);
             // 
-            // AccountTypeComboBox
+            // AccountTypeCB
             // 
-            this.AccountTypeComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.AccountTypeComboBox.FormattingEnabled = true;
-            this.AccountTypeComboBox.Location = new System.Drawing.Point(93, 54);
-            this.AccountTypeComboBox.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
-            this.AccountTypeComboBox.Name = "AccountTypeComboBox";
-            this.AccountTypeComboBox.Size = new System.Drawing.Size(152, 21);
-            this.AccountTypeComboBox.TabIndex = 7;
+            this.AccountTypeCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.AccountTypeCB.FormattingEnabled = true;
+            this.AccountTypeCB.Location = new System.Drawing.Point(93, 54);
+            this.AccountTypeCB.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
+            this.AccountTypeCB.Name = "AccountTypeCB";
+            this.AccountTypeCB.Size = new System.Drawing.Size(152, 21);
+            this.AccountTypeCB.TabIndex = 7;
+            this.AccountTypeCB.SelectedIndexChanged += new System.EventHandler(this.AccountTypeCB_SelectedIndexChanged);
             // 
             // searchlable
             // 
@@ -362,77 +363,6 @@
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Create";
             this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.tabControl2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(680, 501);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.label3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(680, 501);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Reservations";
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.label4);
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(680, 501);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 17);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Flags";
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.label5);
-            this.tabPage5.Location = new System.Drawing.Point(4, 24);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(680, 501);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "tabPage5";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 17);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Semester days";
             // 
             // tableLayoutPanel4
             // 
@@ -500,6 +430,17 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.tabControl2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(680, 501);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.tabPage7);
@@ -522,58 +463,6 @@
             this.tabPage7.Text = "Edit";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // tabPage8
-            // 
-            this.tabPage8.Controls.Add(this.tableLayoutPanel5);
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(666, 469);
-            this.tabPage8.TabIndex = 1;
-            this.tabPage8.Text = "Create";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 3;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.81633F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.18367F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 414F));
-            this.tableLayoutPanel5.Controls.Add(this.label11, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label12, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.label13, 0, 2);
-            this.tableLayoutPanel5.Controls.Add(this.label15, 0, 3);
-            this.tableLayoutPanel5.Controls.Add(this.label14, 0, 4);
-            this.tableLayoutPanel5.Controls.Add(this.RoomNumberTB, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.RoomNameTB, 1, 1);
-            this.tableLayoutPanel5.Controls.Add(this.RoomCapacityTB, 1, 4);
-            this.tableLayoutPanel5.Controls.Add(this.RoomTypeCB, 1, 2);
-            this.tableLayoutPanel5.Controls.Add(this.AnnexCB, 1, 3);
-            this.tableLayoutPanel5.Controls.Add(this.CreateRoomButton, 1, 6);
-            this.tableLayoutPanel5.Controls.Add(this.label16, 2, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 7;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 234F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(660, 463);
-            this.tableLayoutPanel5.TabIndex = 0;
-            // 
-            // RoomDataGridView
-            // 
-            this.RoomDataGridView.AllowUserToOrderColumns = true;
-            this.RoomDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RoomDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RoomDataGridView.Location = new System.Drawing.Point(3, 98);
-            this.RoomDataGridView.Name = "RoomDataGridView";
-            this.RoomDataGridView.Size = new System.Drawing.Size(654, 362);
-            this.RoomDataGridView.TabIndex = 0;
-            // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 1;
@@ -588,6 +477,16 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.26566F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(660, 463);
             this.tableLayoutPanel6.TabIndex = 1;
+            // 
+            // RoomDataGridView
+            // 
+            this.RoomDataGridView.AllowUserToOrderColumns = true;
+            this.RoomDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RoomDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RoomDataGridView.Location = new System.Drawing.Point(3, 98);
+            this.RoomDataGridView.Name = "RoomDataGridView";
+            this.RoomDataGridView.Size = new System.Drawing.Size(654, 362);
+            this.RoomDataGridView.TabIndex = 0;
             // 
             // tableLayoutPanel7
             // 
@@ -623,16 +522,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Room Number";
             // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(361, 15);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 13);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Room Type";
-            // 
             // textBox3
             // 
             this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -640,25 +529,6 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(149, 20);
             this.textBox3.TabIndex = 2;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(429, 11);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(140, 21);
-            this.comboBox1.TabIndex = 3;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 60);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(66, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Room Name";
             // 
             // label10
             // 
@@ -670,6 +540,15 @@
             this.label10.TabIndex = 5;
             this.label10.Text = "Annex";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(429, 11);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(140, 21);
+            this.comboBox1.TabIndex = 3;
+            // 
             // textBox4
             // 
             this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -677,6 +556,26 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(149, 20);
             this.textBox4.TabIndex = 6;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 60);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(66, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Room Name";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(361, 15);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(62, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Room Type";
             // 
             // comboBox2
             // 
@@ -686,6 +585,48 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(140, 21);
             this.comboBox2.TabIndex = 7;
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.tableLayoutPanel5);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(666, 469);
+            this.tabPage8.TabIndex = 1;
+            this.tabPage8.Text = "Create";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.81633F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.18367F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 415F));
+            this.tableLayoutPanel5.Controls.Add(this.label11, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label12, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.label13, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.label15, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.label14, 0, 4);
+            this.tableLayoutPanel5.Controls.Add(this.RoomNumberTB, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.RoomNameTB, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.RoomCapacityTB, 1, 4);
+            this.tableLayoutPanel5.Controls.Add(this.RoomTypeCB, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.AnnexCB, 1, 3);
+            this.tableLayoutPanel5.Controls.Add(this.CreateRoomButton, 1, 6);
+            this.tableLayoutPanel5.Controls.Add(this.label16, 2, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 7;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 234F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(660, 463);
+            this.tableLayoutPanel5.TabIndex = 0;
             // 
             // label11
             // 
@@ -717,16 +658,6 @@
             this.label13.TabIndex = 2;
             this.label13.Text = "Room Type";
             // 
-            // label14
-            // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(3, 173);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(79, 13);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "Room Capacity";
-            // 
             // label15
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -737,14 +668,15 @@
             this.label15.TabIndex = 4;
             this.label15.Text = "Annex";
             // 
-            // CreateRoomButton
+            // label14
             // 
-            this.CreateRoomButton.Location = new System.Drawing.Point(103, 232);
-            this.CreateRoomButton.Name = "CreateRoomButton";
-            this.CreateRoomButton.Size = new System.Drawing.Size(121, 23);
-            this.CreateRoomButton.TabIndex = 5;
-            this.CreateRoomButton.Text = "Create Room";
-            this.CreateRoomButton.UseVisualStyleBackColor = true;
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(3, 173);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(79, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Room Capacity";
             // 
             // RoomNumberTB
             // 
@@ -788,16 +720,85 @@
             this.AnnexCB.Size = new System.Drawing.Size(121, 21);
             this.AnnexCB.TabIndex = 11;
             // 
+            // CreateRoomButton
+            // 
+            this.CreateRoomButton.Location = new System.Drawing.Point(103, 232);
+            this.CreateRoomButton.Name = "CreateRoomButton";
+            this.CreateRoomButton.Size = new System.Drawing.Size(121, 23);
+            this.CreateRoomButton.TabIndex = 5;
+            this.CreateRoomButton.Text = "Create Room";
+            this.CreateRoomButton.UseVisualStyleBackColor = true;
+            // 
             // label16
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(248, 7);
+            this.label16.Location = new System.Drawing.Point(247, 7);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(289, 26);
             this.label16.TabIndex = 12;
             this.label16.Text = "GIve comma separeted values for creating a range of rooms\r\nIn that case room name" +
     "s will be set to room numbers:";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(680, 501);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(26, 30);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Reservations";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.label4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(680, 501);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(22, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Flags";
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.label5);
+            this.tabPage5.Location = new System.Drawing.Point(4, 24);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(680, 501);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "tabPage5";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(24, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Semester days";
             // 
             // AdminPanel
             // 
@@ -822,24 +823,24 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tabPage6.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.RoomDataGridView)).EndInit();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
-            this.tabControl2.ResumeLayout(false);
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage8.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RoomDataGridView)).EndInit();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -860,7 +861,7 @@
         private System.Windows.Forms.DataGridView UsersDataGridView;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TextBox SearchByNameTextBox;
-        private System.Windows.Forms.ComboBox AccountTypeComboBox;
+        private System.Windows.Forms.ComboBox AccountTypeCB;
         private System.Windows.Forms.Label searchlable;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage tabPage6;
