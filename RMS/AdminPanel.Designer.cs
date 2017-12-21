@@ -271,15 +271,15 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.UsersDataGridView, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.60606F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.39394F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 88F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(660, 463);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
@@ -290,9 +290,9 @@
             this.UsersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.UsersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UsersDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UsersDataGridView.Location = new System.Drawing.Point(3, 98);
+            this.UsersDataGridView.Location = new System.Drawing.Point(3, 91);
             this.UsersDataGridView.Name = "UsersDataGridView";
-            this.UsersDataGridView.Size = new System.Drawing.Size(654, 362);
+            this.UsersDataGridView.Size = new System.Drawing.Size(654, 369);
             this.UsersDataGridView.TabIndex = 4;
             // 
             // tableLayoutPanel3
@@ -309,9 +309,9 @@
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.31579F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.68421F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(654, 89);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(654, 82);
             this.tableLayoutPanel3.TabIndex = 5;
             // 
             // SearchByNameTextBox
@@ -328,7 +328,7 @@
             // 
             this.AccountTypeCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.AccountTypeCB.FormattingEnabled = true;
-            this.AccountTypeCB.Location = new System.Drawing.Point(93, 54);
+            this.AccountTypeCB.Location = new System.Drawing.Point(93, 50);
             this.AccountTypeCB.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
             this.AccountTypeCB.Name = "AccountTypeCB";
             this.AccountTypeCB.Size = new System.Drawing.Size(152, 21);
@@ -339,7 +339,7 @@
             // 
             this.searchlable.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.searchlable.AutoSize = true;
-            this.searchlable.Location = new System.Drawing.Point(3, 14);
+            this.searchlable.Location = new System.Drawing.Point(3, 13);
             this.searchlable.Name = "searchlable";
             this.searchlable.Size = new System.Drawing.Size(41, 13);
             this.searchlable.TabIndex = 9;
@@ -349,7 +349,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 58);
+            this.label6.Location = new System.Drawing.Point(3, 54);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 13);
             this.label6.TabIndex = 10;
@@ -627,7 +627,7 @@
             this.tableLayoutPanel5.ColumnCount = 3;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.81633F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.18367F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 418F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 419F));
             this.tableLayoutPanel5.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label12, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label13, 0, 2);
@@ -758,7 +758,7 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(244, 7);
+            this.label16.Location = new System.Drawing.Point(243, 7);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(289, 26);
             this.label16.TabIndex = 12;

@@ -44,6 +44,24 @@ namespace RMS {
             return db.Users.FirstOrDefault(x => x.UserName == uname) != null;
         }
 
+        public List<User> filterUsersByNameAndType(string name, string type) {
+            List<User> data= db.Users.ToList();
+            
+            if(type != ALL_USER_TYPES_COMBOBOX_ITEM) {
+                int type_id= UserTypeNameToID(type);
+                data = db.UserTypes.First(x => x.Id == type_id).Users.ToList();
+            }
+
+            if(name != "") {
+                data = data.Where(x => x.UserName.Contains(name)).ToList();
+            }
+
+            return data;
+        }
+    }
+
+    class HashGenerator {
+        
         public static ulong mul(ulong b, ulong p, ulong MOD)
         {
             if (p == 0) return 0;
@@ -70,21 +88,6 @@ namespace RMS {
             return hashx;
         }
 
-
-        public List<User> filterUsersByNameAndType(string name, string type) {
-            List<User> data= db.Users.ToList();
-            
-            if(type != ALL_USER_TYPES_COMBOBOX_ITEM) {
-                int type_id= UserTypeNameToID(type);
-                data = db.UserTypes.First(x => x.Id == type_id).Users.ToList();
-            }
-
-            if(name != "") {
-                data = data.Where(x => x.UserName.Contains(name)).ToList();
-            }
-
-            return data;
-        }
     }
 
 }
