@@ -317,6 +317,8 @@
             this.UsersDataGridView.Name = "UsersDataGridView";
             this.UsersDataGridView.Size = new System.Drawing.Size(654, 369);
             this.UsersDataGridView.TabIndex = 4;
+            this.UsersDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UsersDataGridView_CellContentClick);
+            this.UsersDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UsersDataGridView_CellDoubleClick);
             // 
             // tableLayoutPanel3
             // 
@@ -667,7 +669,7 @@
             this.tableLayoutPanel5.ColumnCount = 3;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.81633F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.18367F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 423F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 425F));
             this.tableLayoutPanel5.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label12, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label13, 0, 2);
@@ -746,7 +748,7 @@
             // RoomNumberTB
             // 
             this.RoomNumberTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomNumberTB.Location = new System.Drawing.Point(99, 10);
+            this.RoomNumberTB.Location = new System.Drawing.Point(98, 10);
             this.RoomNumberTB.Name = "RoomNumberTB";
             this.RoomNumberTB.Size = new System.Drawing.Size(121, 20);
             this.RoomNumberTB.TabIndex = 6;
@@ -754,7 +756,7 @@
             // RoomNameTB
             // 
             this.RoomNameTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomNameTB.Location = new System.Drawing.Point(99, 50);
+            this.RoomNameTB.Location = new System.Drawing.Point(98, 50);
             this.RoomNameTB.Name = "RoomNameTB";
             this.RoomNameTB.Size = new System.Drawing.Size(121, 20);
             this.RoomNameTB.TabIndex = 7;
@@ -762,7 +764,7 @@
             // RoomCapacityTB
             // 
             this.RoomCapacityTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomCapacityTB.Location = new System.Drawing.Point(99, 170);
+            this.RoomCapacityTB.Location = new System.Drawing.Point(98, 170);
             this.RoomCapacityTB.Name = "RoomCapacityTB";
             this.RoomCapacityTB.Size = new System.Drawing.Size(121, 20);
             this.RoomCapacityTB.TabIndex = 9;
@@ -771,7 +773,7 @@
             // 
             this.RoomTypeCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.RoomTypeCB.FormattingEnabled = true;
-            this.RoomTypeCB.Location = new System.Drawing.Point(99, 89);
+            this.RoomTypeCB.Location = new System.Drawing.Point(98, 89);
             this.RoomTypeCB.Name = "RoomTypeCB";
             this.RoomTypeCB.Size = new System.Drawing.Size(121, 21);
             this.RoomTypeCB.TabIndex = 10;
@@ -780,14 +782,14 @@
             // 
             this.AnnexCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.AnnexCB.FormattingEnabled = true;
-            this.AnnexCB.Location = new System.Drawing.Point(99, 129);
+            this.AnnexCB.Location = new System.Drawing.Point(98, 129);
             this.AnnexCB.Name = "AnnexCB";
             this.AnnexCB.Size = new System.Drawing.Size(121, 21);
             this.AnnexCB.TabIndex = 11;
             // 
             // CreateRoomButton
             // 
-            this.CreateRoomButton.Location = new System.Drawing.Point(99, 232);
+            this.CreateRoomButton.Location = new System.Drawing.Point(98, 232);
             this.CreateRoomButton.Name = "CreateRoomButton";
             this.CreateRoomButton.Size = new System.Drawing.Size(121, 23);
             this.CreateRoomButton.TabIndex = 5;
@@ -798,7 +800,7 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(239, 7);
+            this.label16.Location = new System.Drawing.Point(237, 7);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(289, 26);
             this.label16.TabIndex = 12;

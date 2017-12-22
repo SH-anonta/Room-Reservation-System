@@ -77,7 +77,7 @@ namespace RMS {
         }
 
         private void UsersDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-
+            
         }
 
         //IMPORTANT: This event is used to update the UserDatagridView, other methods send event with arguments set to null
@@ -212,5 +212,13 @@ namespace RMS {
             AnnexFilterCB.DataSource= annex_names;
         }
 
+        private void UsersDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+            int clicked_row = e.RowIndex;
+            string uname = (string) UsersDataGridView.Rows[clicked_row].Cells[0].Value;
+
+            User user = dbFacade.getUser(uname);
+            AccountEditForm profile = new AccountEditForm(user);
+            profile.Show();
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace RMS {
             //Application.Run(new LoginForm());
             Application.Run(new AdminPanel());
             //Application.Run(new UserForm());
+            //Application.Run(new MaintenanceStaffForm());
         }
     }
 }

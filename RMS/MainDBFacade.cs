@@ -59,6 +59,11 @@ namespace RMS {
             return data.ToList();
         }
 
+        public User getUser(string username) {
+            return db.Users.First(x=> x.UserName == username);
+        }
+
+
         // Filters (getters that return bsed on constraints)
         public List<User> filterUsersByNameAndType(string name, string type) {
             List<User> data= db.Users.ToList();
@@ -100,6 +105,10 @@ namespace RMS {
         }
 
         // Updaters
+
+        private void updateUserAccount(User user) {
+            //db.Users.
+        }
 
         // Deleters
         public void DeleteAccount(string uname) {

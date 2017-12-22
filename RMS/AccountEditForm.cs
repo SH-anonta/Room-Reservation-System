@@ -10,8 +10,32 @@ using System.Windows.Forms;
 
 namespace RMS {
     public partial class AccountEditForm : Form {
-        public AccountEditForm() {
+        MainDBFacade db = new MainDBFacade();
+        private User user_acocunt;
+
+        public AccountEditForm(User user) {
             InitializeComponent();
+            user_acocunt = user;
+            loadFormData();
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e) {
+
+        }
+
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e) {
+
+        }
+
+        private void AccountEditForm_Load(object sender, EventArgs e) {
+
+        }
+
+        private void loadFormData() {
+            UserNameTB.Text = user_acocunt.UserName;
+
+            UserAccountType.DataSource = db.getUserTypeNames();
+            UserAccountType.Text= user_acocunt.UserType.TypeName;
         }
     }
 }
