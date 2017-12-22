@@ -27,9 +27,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.AccountsPanelButton = new System.Windows.Forms.Button();
             this.RoomsPanelButton = new System.Windows.Forms.Button();
-            this.ReservationsPanelButton = new System.Windows.Forms.Button();
-            this.FlagsPanelButton = new System.Windows.Forms.Button();
             this.SemesterDaysPanelButton = new System.Windows.Forms.Button();
+            this.FlagsPanelButton = new System.Windows.Forms.Button();
+            this.ReservationsPanelButton = new System.Windows.Forms.Button();
+            this.AnnexPanelButton = new System.Windows.Forms.Button();
             this.MainTabContainer = new System.Windows.Forms.TabControl();
             this.AccountsPanelTabPage = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -58,13 +59,13 @@
             this.RoomDataGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.RoomNumberSearchTB = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.RoomTypeFIlterCB = new System.Windows.Forms.ComboBox();
+            this.RoomNameSearchTB = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.AnnexFilterCB = new System.Windows.Forms.ComboBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
@@ -85,7 +86,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
-            this.AnnexPanelButton = new System.Windows.Forms.Button();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -184,18 +184,18 @@
             this.RoomsPanelButton.UseVisualStyleBackColor = true;
             this.RoomsPanelButton.Click += new System.EventHandler(this.RoomsPanelButton_Click);
             // 
-            // ReservationsPanelButton
+            // SemesterDaysPanelButton
             // 
-            this.ReservationsPanelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ReservationsPanelButton.Location = new System.Drawing.Point(0, 90);
-            this.ReservationsPanelButton.Margin = new System.Windows.Forms.Padding(0);
-            this.ReservationsPanelButton.Name = "ReservationsPanelButton";
-            this.ReservationsPanelButton.Size = new System.Drawing.Size(108, 30);
-            this.ReservationsPanelButton.TabIndex = 2;
-            this.ReservationsPanelButton.Text = "Reservations";
-            this.ReservationsPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ReservationsPanelButton.UseVisualStyleBackColor = true;
-            this.ReservationsPanelButton.Click += new System.EventHandler(this.ReservationsPanelButton_Click);
+            this.SemesterDaysPanelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SemesterDaysPanelButton.Location = new System.Drawing.Point(0, 150);
+            this.SemesterDaysPanelButton.Margin = new System.Windows.Forms.Padding(0);
+            this.SemesterDaysPanelButton.Name = "SemesterDaysPanelButton";
+            this.SemesterDaysPanelButton.Size = new System.Drawing.Size(108, 30);
+            this.SemesterDaysPanelButton.TabIndex = 4;
+            this.SemesterDaysPanelButton.Text = "Semester Days";
+            this.SemesterDaysPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SemesterDaysPanelButton.UseVisualStyleBackColor = true;
+            this.SemesterDaysPanelButton.Click += new System.EventHandler(this.SemesterDaysPanelButton_Click);
             // 
             // FlagsPanelButton
             // 
@@ -210,18 +210,33 @@
             this.FlagsPanelButton.UseVisualStyleBackColor = true;
             this.FlagsPanelButton.Click += new System.EventHandler(this.FlagsPanelButton_Click);
             // 
-            // SemesterDaysPanelButton
+            // ReservationsPanelButton
             // 
-            this.SemesterDaysPanelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SemesterDaysPanelButton.Location = new System.Drawing.Point(0, 150);
-            this.SemesterDaysPanelButton.Margin = new System.Windows.Forms.Padding(0);
-            this.SemesterDaysPanelButton.Name = "SemesterDaysPanelButton";
-            this.SemesterDaysPanelButton.Size = new System.Drawing.Size(108, 30);
-            this.SemesterDaysPanelButton.TabIndex = 4;
-            this.SemesterDaysPanelButton.Text = "Semester Days";
-            this.SemesterDaysPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SemesterDaysPanelButton.UseVisualStyleBackColor = true;
-            this.SemesterDaysPanelButton.Click += new System.EventHandler(this.SemesterDaysPanelButton_Click);
+            this.ReservationsPanelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ReservationsPanelButton.Location = new System.Drawing.Point(0, 90);
+            this.ReservationsPanelButton.Margin = new System.Windows.Forms.Padding(0);
+            this.ReservationsPanelButton.Name = "ReservationsPanelButton";
+            this.ReservationsPanelButton.Size = new System.Drawing.Size(108, 30);
+            this.ReservationsPanelButton.TabIndex = 2;
+            this.ReservationsPanelButton.Text = "Reservations";
+            this.ReservationsPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ReservationsPanelButton.UseVisualStyleBackColor = true;
+            this.ReservationsPanelButton.Click += new System.EventHandler(this.ReservationsPanelButton_Click);
+            // 
+            // AnnexPanelButton
+            // 
+            this.AnnexPanelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AnnexPanelButton.Location = new System.Drawing.Point(0, 60);
+            this.AnnexPanelButton.Margin = new System.Windows.Forms.Padding(0);
+            this.AnnexPanelButton.Name = "AnnexPanelButton";
+            this.AnnexPanelButton.Size = new System.Drawing.Size(108, 30);
+            this.AnnexPanelButton.TabIndex = 5;
+            this.AnnexPanelButton.Text = "Annex";
+            this.AnnexPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AnnexPanelButton.UseVisualStyleBackColor = true;
+            this.AnnexPanelButton.Click += new System.EventHandler(this.AnnexPanelButton_Click);
             // 
             // MainTabContainer
             // 
@@ -471,7 +486,7 @@
             this.CreateAccountTypeTB.FormattingEnabled = true;
             this.CreateAccountTypeTB.Location = new System.Drawing.Point(89, 84);
             this.CreateAccountTypeTB.Name = "CreateAccountTypeTB";
-            this.CreateAccountTypeTB.Size = new System.Drawing.Size(177, 21);
+            this.CreateAccountTypeTB.Size = new System.Drawing.Size(182, 21);
             this.CreateAccountTypeTB.TabIndex = 12;
             // 
             // tabPage2
@@ -510,50 +525,53 @@
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 1;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Controls.Add(this.RoomDataGridView, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.73434F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.26566F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 92F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(660, 463);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // RoomDataGridView
             // 
             this.RoomDataGridView.AllowUserToOrderColumns = true;
+            this.RoomDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RoomDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RoomDataGridView.Cursor = System.Windows.Forms.Cursors.Default;
             this.RoomDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RoomDataGridView.Location = new System.Drawing.Point(3, 98);
+            this.RoomDataGridView.Location = new System.Drawing.Point(3, 95);
             this.RoomDataGridView.Name = "RoomDataGridView";
-            this.RoomDataGridView.Size = new System.Drawing.Size(654, 362);
+            this.RoomDataGridView.Size = new System.Drawing.Size(654, 365);
             this.RoomDataGridView.TabIndex = 0;
+            this.RoomDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RoomDataGridView_CellContentClick);
             // 
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 4;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 68F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 228F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 206F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 442F));
             this.tableLayoutPanel7.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.textBox3, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.RoomNumberSearchTB, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.label10, 2, 1);
-            this.tableLayoutPanel7.Controls.Add(this.comboBox1, 3, 0);
-            this.tableLayoutPanel7.Controls.Add(this.textBox4, 1, 1);
+            this.tableLayoutPanel7.Controls.Add(this.RoomTypeFIlterCB, 3, 0);
+            this.tableLayoutPanel7.Controls.Add(this.RoomNameSearchTB, 1, 1);
             this.tableLayoutPanel7.Controls.Add(this.label9, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.label8, 2, 0);
-            this.tableLayoutPanel7.Controls.Add(this.comboBox2, 3, 1);
+            this.tableLayoutPanel7.Controls.Add(this.AnnexFilterCB, 3, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(654, 89);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(654, 86);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // label2
@@ -566,46 +584,48 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Room Number";
             // 
-            // textBox3
+            // RoomNumberSearchTB
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox3.Location = new System.Drawing.Point(84, 12);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(149, 20);
-            this.textBox3.TabIndex = 2;
+            this.RoomNumberSearchTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.RoomNumberSearchTB.Location = new System.Drawing.Point(85, 11);
+            this.RoomNumberSearchTB.Name = "RoomNumberSearchTB";
+            this.RoomNumberSearchTB.Size = new System.Drawing.Size(149, 20);
+            this.RoomNumberSearchTB.TabIndex = 2;
+            this.RoomNumberSearchTB.TextChanged += new System.EventHandler(this.RoomNumberSearchTB_TextChanged);
             // 
             // label10
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(361, 60);
+            this.label10.Location = new System.Drawing.Point(291, 58);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(37, 13);
             this.label10.TabIndex = 5;
             this.label10.Text = "Annex";
             // 
-            // comboBox1
+            // RoomTypeFIlterCB
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(429, 11);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(140, 21);
-            this.comboBox1.TabIndex = 3;
+            this.RoomTypeFIlterCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.RoomTypeFIlterCB.FormattingEnabled = true;
+            this.RoomTypeFIlterCB.Location = new System.Drawing.Point(361, 11);
+            this.RoomTypeFIlterCB.Name = "RoomTypeFIlterCB";
+            this.RoomTypeFIlterCB.Size = new System.Drawing.Size(140, 21);
+            this.RoomTypeFIlterCB.TabIndex = 3;
+            this.RoomTypeFIlterCB.SelectedIndexChanged += new System.EventHandler(this.RoomTypeFIlterCB_SelectedIndexChanged);
             // 
-            // textBox4
+            // RoomNameSearchTB
             // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox4.Location = new System.Drawing.Point(84, 56);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(149, 20);
-            this.textBox4.TabIndex = 6;
+            this.RoomNameSearchTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.RoomNameSearchTB.Location = new System.Drawing.Point(85, 54);
+            this.RoomNameSearchTB.Name = "RoomNameSearchTB";
+            this.RoomNameSearchTB.Size = new System.Drawing.Size(149, 20);
+            this.RoomNameSearchTB.TabIndex = 6;
             // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 60);
+            this.label9.Location = new System.Drawing.Point(3, 58);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(66, 13);
             this.label9.TabIndex = 4;
@@ -615,20 +635,21 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(361, 15);
+            this.label8.Location = new System.Drawing.Point(291, 15);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 13);
             this.label8.TabIndex = 1;
             this.label8.Text = "Room Type";
             // 
-            // comboBox2
+            // AnnexFilterCB
             // 
-            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(429, 56);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(140, 21);
-            this.comboBox2.TabIndex = 7;
+            this.AnnexFilterCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.AnnexFilterCB.FormattingEnabled = true;
+            this.AnnexFilterCB.Location = new System.Drawing.Point(361, 54);
+            this.AnnexFilterCB.Name = "AnnexFilterCB";
+            this.AnnexFilterCB.Size = new System.Drawing.Size(140, 21);
+            this.AnnexFilterCB.TabIndex = 7;
+            this.AnnexFilterCB.SelectedIndexChanged += new System.EventHandler(this.AnnexFilterCB_SelectedIndexChanged);
             // 
             // tabPage8
             // 
@@ -646,7 +667,7 @@
             this.tableLayoutPanel5.ColumnCount = 3;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.81633F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.18367F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 422F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 423F));
             this.tableLayoutPanel5.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label12, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label13, 0, 2);
@@ -725,7 +746,7 @@
             // RoomNumberTB
             // 
             this.RoomNumberTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomNumberTB.Location = new System.Drawing.Point(100, 10);
+            this.RoomNumberTB.Location = new System.Drawing.Point(99, 10);
             this.RoomNumberTB.Name = "RoomNumberTB";
             this.RoomNumberTB.Size = new System.Drawing.Size(121, 20);
             this.RoomNumberTB.TabIndex = 6;
@@ -733,7 +754,7 @@
             // RoomNameTB
             // 
             this.RoomNameTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomNameTB.Location = new System.Drawing.Point(100, 50);
+            this.RoomNameTB.Location = new System.Drawing.Point(99, 50);
             this.RoomNameTB.Name = "RoomNameTB";
             this.RoomNameTB.Size = new System.Drawing.Size(121, 20);
             this.RoomNameTB.TabIndex = 7;
@@ -741,7 +762,7 @@
             // RoomCapacityTB
             // 
             this.RoomCapacityTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomCapacityTB.Location = new System.Drawing.Point(100, 170);
+            this.RoomCapacityTB.Location = new System.Drawing.Point(99, 170);
             this.RoomCapacityTB.Name = "RoomCapacityTB";
             this.RoomCapacityTB.Size = new System.Drawing.Size(121, 20);
             this.RoomCapacityTB.TabIndex = 9;
@@ -750,7 +771,7 @@
             // 
             this.RoomTypeCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.RoomTypeCB.FormattingEnabled = true;
-            this.RoomTypeCB.Location = new System.Drawing.Point(100, 89);
+            this.RoomTypeCB.Location = new System.Drawing.Point(99, 89);
             this.RoomTypeCB.Name = "RoomTypeCB";
             this.RoomTypeCB.Size = new System.Drawing.Size(121, 21);
             this.RoomTypeCB.TabIndex = 10;
@@ -759,14 +780,14 @@
             // 
             this.AnnexCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.AnnexCB.FormattingEnabled = true;
-            this.AnnexCB.Location = new System.Drawing.Point(100, 129);
+            this.AnnexCB.Location = new System.Drawing.Point(99, 129);
             this.AnnexCB.Name = "AnnexCB";
             this.AnnexCB.Size = new System.Drawing.Size(121, 21);
             this.AnnexCB.TabIndex = 11;
             // 
             // CreateRoomButton
             // 
-            this.CreateRoomButton.Location = new System.Drawing.Point(100, 232);
+            this.CreateRoomButton.Location = new System.Drawing.Point(99, 232);
             this.CreateRoomButton.Name = "CreateRoomButton";
             this.CreateRoomButton.Size = new System.Drawing.Size(121, 23);
             this.CreateRoomButton.TabIndex = 5;
@@ -777,7 +798,7 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(240, 7);
+            this.label16.Location = new System.Drawing.Point(239, 7);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(289, 26);
             this.label16.TabIndex = 12;
@@ -843,21 +864,6 @@
             this.label5.Size = new System.Drawing.Size(76, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "Semester days";
-            // 
-            // AnnexPanelButton
-            // 
-            this.AnnexPanelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AnnexPanelButton.Location = new System.Drawing.Point(0, 60);
-            this.AnnexPanelButton.Margin = new System.Windows.Forms.Padding(0);
-            this.AnnexPanelButton.Name = "AnnexPanelButton";
-            this.AnnexPanelButton.Size = new System.Drawing.Size(108, 30);
-            this.AnnexPanelButton.TabIndex = 5;
-            this.AnnexPanelButton.Text = "Annex";
-            this.AnnexPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AnnexPanelButton.UseVisualStyleBackColor = true;
-            this.AnnexPanelButton.Click += new System.EventHandler(this.AnnexPanelButton_Click);
             // 
             // tabPage9
             // 
@@ -967,13 +973,11 @@
         private System.Windows.Forms.DataGridView RoomDataGridView;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox RoomNumberSearchTB;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox RoomTypeFIlterCB;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox AnnexFilterCB;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
@@ -992,5 +996,7 @@
         private System.Windows.Forms.Button AnnexPanelButton;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox RoomNameSearchTB;
+        private System.Windows.Forms.Label label9;
     }
 }

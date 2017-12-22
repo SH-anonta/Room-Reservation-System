@@ -8,13 +8,19 @@ using System.Diagnostics;
 namespace RMS {
    
     class MainDBFacade {
-        const string ALL_USER_TYPES_COMBOBOX_ITEM= "All types";
+        // This constant string is used thorugh out the application's Comboboxes to imply all results should be shown
+        public const string COMBOBOX_ALL_OPTIOPNS_NAME= "Any";
+
         private DBDataContext db = new DBDataContext();
 
         public MainDBFacade() {
 
         }
 
+
+        
+
+        // Cretors
         
         public void createAccount(string uname, string password, int userTypeID) {
             if(UserNameExists(uname) == true) {
@@ -30,33 +36,34 @@ namespace RMS {
             db.SubmitChanges();
         }
 
-        public void DeleteAccount(string uname) {
-            User user = db.Users.FirstOrDefault(x => x.UserName == uname);
 
-            if(user == null) return;
-
-            db.Users.DeleteOnSubmit(user);
-            db.SubmitChanges();
-        }
-
+        // Readers
         public IEnumerable<string> getUserTypeNames() {
             return from x in db.UserTypes
                     select x.TypeName;
         }
 
-        public int UserTypeNameToID(string type_name) {
-            
-            return db.UserTypes.FirstOrDefault(x => x.TypeName == type_name).Id;
+        
+        public List<string> getRoomTypeNames() {
+            var data = from x in db.RoomTypes
+                       select x.TypeName;
+
+            return data.ToList();
         }
 
-        public bool UserNameExists(string uname) {
-            return db.Users.FirstOrDefault(x => x.UserName == uname) != null;
+        
+        public List<string> getAnnexNames(){
+            var data = from x in db.Annexes
+                       select x.Name;
+
+            return data.ToList();
         }
 
+        // Filters (getters that return bsed on constraints)
         public List<User> filterUsersByNameAndType(string name, string type) {
             List<User> data= db.Users.ToList();
             
-            if(type != ALL_USER_TYPES_COMBOBOX_ITEM) {
+            if(type != COMBOBOX_ALL_OPTIOPNS_NAME) {
                 int type_id= UserTypeNameToID(type);
                 data = db.UserTypes.First(x => x.Id == type_id).Users.ToList();
             }
@@ -67,6 +74,64 @@ namespace RMS {
 
             return data;
         }
+
+        public List<Room> filterRoomsByNumberTypeAnnex(string number, string type, string annex_name) {
+            var data = db.Rooms.ToList();
+
+            if(number != "") {
+                 data = (from x in data
+                       where x.Number.Contains(number)
+                       select x).ToList();
+            }
+
+            if(type != COMBOBOX_ALL_OPTIOPNS_NAME) {
+                data = (from x in data
+                       where x.RoomType.TypeName == type
+                       select x).ToList();
+            }
+            
+            if(annex_name != COMBOBOX_ALL_OPTIOPNS_NAME) {
+                data = (from x in data
+                       where x.Annex.Name == annex_name
+                       select x).ToList();
+            }
+
+            return data;
+        }
+
+        // Updaters
+
+        // Deleters
+        public void DeleteAccount(string uname) {
+            User user = db.Users.FirstOrDefault(x => x.UserName == uname);
+
+            if(user == null) return;
+
+            db.Users.DeleteOnSubmit(user);
+            db.SubmitChanges();
+        }
+
+        //  Utility
+
+        public int UserTypeNameToID(string type_name) {
+            return db.UserTypes.FirstOrDefault(x => x.TypeName == type_name).Id;
+        }
+
+        public bool UserNameExists(string uname) {
+            return db.Users.FirstOrDefault(x => x.UserName == uname) != null;
+        }
+
+        /*
+         * User name:
+         *  length must be between 4-20 characters long (inclusive)
+         *  characters can only be alhabets, (numbers, spaces, and symbols are not allowed)
+         */
+
+        /*
+         * Password:
+         *  length must be between 8-50 characters long (inclusive)
+         *  All characters are allowed
+         */
     }
     
 

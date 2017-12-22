@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace RMS {
     public partial class AdminPanel : Form {
-        const string ALL_USER_TYPES_COMBOBOX_ITEM= "All types";
         DBDataContext db = new DBDataContext();
         MainDBFacade dbFacade = new MainDBFacade();
+        const string COMBOBOX_ALLOPTIOPNS_NAME= MainDBFacade.COMBOBOX_ALL_OPTIOPNS_NAME;
 
         public AdminPanel() {
             InitializeComponent();
@@ -25,19 +25,7 @@ namespace RMS {
         }
 
         private void AdminPanel_Load(object sender, EventArgs e) {
-            UsersDataGridView.DataSource = db.Users;
-            RoomDataGridView.DataSource = db.Rooms;
-            
-            // Load the Account type names to the comboboxes
-            var user_type_names = dbFacade.getUserTypeNames().ToList();
-            
-            CreateAccountTypeTB.DataSource = user_type_names;
-
-            user_type_names.Insert(0, ALL_USER_TYPES_COMBOBOX_ITEM);
-            AccountTypeCB.DataSource= user_type_names;
-
-            // Make comboboxes readonly
-            //AccountTypeCB.readone
+            reloadAllFormData();
         }
 
 
@@ -114,7 +102,6 @@ namespace RMS {
                 MessageBox.Show("Account Created");
 
             }
-
         }
 
         private void DeleteSelectedAccount_Click(object sender, EventArgs e) {
@@ -130,21 +117,99 @@ namespace RMS {
                 dbFacade.DeleteAccount(uname);
             }
 
-            // update the UserDataGridView
             UpdateUserDataGridView();
         }
 
+        
+        private void RoomNumberSearchTB_TextChanged(object sender, EventArgs e) {
+            UpdateRoomDataGridView();
+        }
+
+        private void RoomTypeFIlterCB_SelectedIndexChanged(object sender, EventArgs e) {
+            UpdateRoomDataGridView();
+        }
+
+        private void AnnexFilterCB_SelectedIndexChanged(object sender, EventArgs e) {
+            UpdateRoomDataGridView();
+        }
+
+        // Data grid view updaters
         private void UpdateUserDataGridView() {
-            //This is done 
             string search_name = SearchByNameTextBox.Text;
             string account_type = AccountTypeCB.Text;
 
-            
             var data = dbFacade.filterUsersByNameAndType(search_name, account_type);
-
-            var show= data.Select(x => new { UserName = x.UserName, Password= x.Password, UserType= x.UserType.TypeName}).ToList();
+            var show= data.Select(x => new { 
+                                UserName = x.UserName,
+                                Password= x.Password,
+                                UserType= x.UserType.TypeName
+                            }).ToList();
 
             UsersDataGridView.DataSource= show;
+        }
+
+        private void UpdateRoomDataGridView() {
+            string roomNumber = RoomNumberSearchTB.Text;
+            string annex = AnnexFilterCB.Text;
+            string type = RoomTypeFIlterCB.Text;
+
+            var data = dbFacade.filterRoomsByNumberTypeAnnex(roomNumber, type, annex);
+            var show = data.Select(x => new {
+                                RoomNumber = x.Number,
+                                Name = x.Name,
+                                Type = x.RoomType.TypeName,
+                                Annex = x.Annex.Name,
+                                Capacity = x.RoomCapacity,
+                            }).ToList();
+            
+            RoomDataGridView.DataSource = show;
+        }
+
+        private void RoomDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
+        }
+
+
+        // Form component data loading methods...
+        // CB -> combobox, TB-> TextBox, DGV-> DataGridview
+
+        private void reloadAllFormData() {           
+            loadRoomTypesCB();
+            loadUserTypeCB();
+            loadAnnxCB();
+
+            // Make comboboxes readonly
+            //AccountTypeCB.readone
+
+
+            //IMPORTANT: These methods need to be invoked as they load data based on other component settings
+            UpdateUserDataGridView();
+            UpdateRoomDataGridView();
+        }
+
+        private void loadUserTypeCB() {
+            var user_type_names = dbFacade.getUserTypeNames().ToList();
+            CreateAccountTypeTB.DataSource = user_type_names;
+            
+            // the seearch filter combobox has an extra "all" types option
+            user_type_names.Insert(0, COMBOBOX_ALLOPTIOPNS_NAME);
+            AccountTypeCB.DataSource= user_type_names;
+        }
+
+        private void loadRoomTypesCB() {
+            var type_names = dbFacade.getRoomTypeNames();
+            RoomTypeCB.DataSource = type_names;
+
+            type_names.Insert(0, COMBOBOX_ALLOPTIOPNS_NAME);
+            RoomTypeFIlterCB.DataSource = type_names;
+        }
+
+        private void loadAnnxCB() {
+            var annex_names = dbFacade.getAnnexNames();
+            AnnexCB.DataSource = annex_names;
+
+            annex_names.Insert(0, COMBOBOX_ALLOPTIOPNS_NAME);
+            AnnexFilterCB.DataSource= annex_names;
         }
 
     }
