@@ -218,6 +218,20 @@ namespace RMS {
             User user = dbFacade.getUser(uname);
             AccountEditForm profile = new AccountEditForm(user);
             profile.Show();
+
+        }
+
+        private void CreateRoomButton_Click(object sender, EventArgs e) {
+            string room_number = RoomNumberTB.Text;
+            string room_name  = RoomNameTB.Text;
+            if(room_name == "") {
+                room_name = room_number;
+            }
+
+            
+            dbFacade.createRoom(room_number, room_name, RoomTypeCB.Text, AnnexCB.Text, int.Parse(RoomCapacityTB.Text));
+            UpdateRoomDataGridView();
+            MessageBox.Show("Room Created");
         }
     }
 }

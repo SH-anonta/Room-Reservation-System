@@ -25,12 +25,12 @@
         private void InitializeComponent() {
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.UserNameTB = new System.Windows.Forms.TextBox();
-            this.PasswordTB = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.UserAccountType = new System.Windows.Forms.ComboBox();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.UserAccountTypeCB = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.PasswordTB = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +43,7 @@
             this.tableLayoutPanel4.Controls.Add(this.UserNameTB, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.SaveButton, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.label17, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.UserAccountType, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.UserAccountTypeCB, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.label7, 0, 2);
             this.tableLayoutPanel4.Controls.Add(this.PasswordTB, 1, 2);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -70,16 +70,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "User Name";
             // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 118);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "New Password";
-            // 
             // UserNameTB
             // 
             this.UserNameTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -87,34 +77,6 @@
             this.UserNameTB.Name = "UserNameTB";
             this.UserNameTB.Size = new System.Drawing.Size(182, 20);
             this.UserNameTB.TabIndex = 2;
-            // 
-            // PasswordTB
-            // 
-            this.PasswordTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.PasswordTB.Location = new System.Drawing.Point(99, 115);
-            this.PasswordTB.Name = "PasswordTB";
-            this.PasswordTB.PasswordChar = '*';
-            this.PasswordTB.Size = new System.Drawing.Size(182, 20);
-            this.PasswordTB.TabIndex = 3;
-            // 
-            // label17
-            // 
-            this.label17.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 68);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(74, 13);
-            this.label17.TabIndex = 11;
-            this.label17.Text = "Account Type";
-            // 
-            // UserAccountType
-            // 
-            this.UserAccountType.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.UserAccountType.FormattingEnabled = true;
-            this.UserAccountType.Location = new System.Drawing.Point(99, 64);
-            this.UserAccountType.Name = "UserAccountType";
-            this.UserAccountType.Size = new System.Drawing.Size(182, 21);
-            this.UserAccountType.TabIndex = 12;
             // 
             // SaveButton
             // 
@@ -128,6 +90,44 @@
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
+            // label17
+            // 
+            this.label17.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(3, 68);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(74, 13);
+            this.label17.TabIndex = 11;
+            this.label17.Text = "Account Type";
+            // 
+            // UserAccountTypeCB
+            // 
+            this.UserAccountTypeCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.UserAccountTypeCB.FormattingEnabled = true;
+            this.UserAccountTypeCB.Location = new System.Drawing.Point(99, 64);
+            this.UserAccountTypeCB.Name = "UserAccountTypeCB";
+            this.UserAccountTypeCB.Size = new System.Drawing.Size(182, 21);
+            this.UserAccountTypeCB.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 118);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "New Password";
+            // 
+            // PasswordTB
+            // 
+            this.PasswordTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.PasswordTB.Location = new System.Drawing.Point(99, 115);
+            this.PasswordTB.Name = "PasswordTB";
+            this.PasswordTB.PasswordChar = '*';
+            this.PasswordTB.Size = new System.Drawing.Size(182, 20);
+            this.PasswordTB.TabIndex = 3;
+            // 
             // AccountEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -137,6 +137,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AccountEditForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AccountEditForm";
             this.Load += new System.EventHandler(this.AccountEditForm_Load);
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -153,7 +154,7 @@
         private System.Windows.Forms.TextBox UserNameTB;
         private System.Windows.Forms.TextBox PasswordTB;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox UserAccountType;
+        private System.Windows.Forms.ComboBox UserAccountTypeCB;
         private System.Windows.Forms.Button SaveButton;
     }
 }

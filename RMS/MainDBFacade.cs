@@ -27,11 +27,7 @@ namespace RMS {
 
         }
 
-
-        
-
         // Cretors
-        
         public void createAccount(string uname, string password, int userTypeID) {
             if(UserNameExists(uname) == true) {
                 throw new Exception("Username already exists in database");
@@ -46,6 +42,17 @@ namespace RMS {
             db.SubmitChanges();
         }
 
+        public void createRoom(string number, string name, string type, string annex, int capacity) {
+            Room room = new Room();
+            room.Number = number;
+            room.Name = name;
+            room.RoomType = db.RoomTypes.First(x => x.TypeName == type);
+            room.Annex = db.Annexes.First(x => x.Name == annex);
+            room.RoomCapacity = capacity;
+
+            db.Rooms.InsertOnSubmit(room);
+            db.SubmitChanges();
+        }
 
         // Readers
         public IEnumerable<string> getUserTypeNames() {
@@ -116,8 +123,19 @@ namespace RMS {
 
         // Updaters
 
-        private void updateUserAccount(User user) {
-            //db.Users.
+        public User updateUserAccount(string old_name, string new_name, string new_type, string new_password ) {
+            User user= db.Users.First(x => x.UserName == old_name);
+
+            user.UserName = new_name;
+            user.UserType = db.UserTypes.First(x => x.TypeName == new_type);
+            
+            // if new password is blank, leave the acocunt's password unchanged
+            if(new_password != "") {
+                user.Password = HashGenerator.hasho(new_password).ToString();
+            }
+            
+            db.SubmitChanges();
+            return user;
         }
 
         // Deleters

@@ -20,7 +20,9 @@ namespace RMS {
         }
 
         private void SaveButton_Click(object sender, EventArgs e) {
-
+            // The modified user entry is returned
+            user_acocunt = db.updateUserAccount(user_acocunt.UserName, UserNameTB.Text, UserAccountTypeCB.Text, PasswordTB.Text);
+            MessageBox.Show("Changes Saved");
         }
 
         private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e) {
@@ -34,8 +36,8 @@ namespace RMS {
         private void loadFormData() {
             UserNameTB.Text = user_acocunt.UserName;
 
-            UserAccountType.DataSource = db.getUserTypeNames();
-            UserAccountType.Text= user_acocunt.UserType.TypeName;
+            UserAccountTypeCB.DataSource = db.getUserTypeNames();
+            UserAccountTypeCB.Text= user_acocunt.UserType.TypeName;
         }
     }
 }
