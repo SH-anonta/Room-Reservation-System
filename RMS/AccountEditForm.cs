@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace RMS {
     public partial class AccountEditForm : Form {
-        MainDBFacade db = new MainDBFacade();
+        MainDBFacade db = MainDBFacade.getMainDBFacade();
         private User user_acocunt;
 
         public AccountEditForm(User user) {

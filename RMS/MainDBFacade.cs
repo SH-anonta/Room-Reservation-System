@@ -6,14 +6,24 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 
 namespace RMS {
-   
+   // Singleton class that handles all db query and update operation for this application
     class MainDBFacade {
         // This constant string is used thorugh out the application's Comboboxes to imply all results should be shown
         public const string COMBOBOX_ALL_OPTIOPNS_NAME= "Any";
 
         private DBDataContext db = new DBDataContext();
 
-        public MainDBFacade() {
+        private static MainDBFacade single_object;
+
+        public static MainDBFacade getMainDBFacade() {
+            if(single_object == null) {
+                single_object = new MainDBFacade();
+            }
+
+            return single_object;
+        }
+
+        private MainDBFacade() {
 
         }
 

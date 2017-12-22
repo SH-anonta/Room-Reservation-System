@@ -5,8 +5,7 @@ using System.Collections.Generic;
 
 namespace RMS {
     public partial class AdminPanel : Form {
-        DBDataContext db = new DBDataContext();
-        MainDBFacade dbFacade = new MainDBFacade();
+        MainDBFacade dbFacade = MainDBFacade.getMainDBFacade();
         const string COMBOBOX_ALLOPTIOPNS_NAME= MainDBFacade.COMBOBOX_ALL_OPTIOPNS_NAME;
 
         public AdminPanel() {
