@@ -41,6 +41,7 @@
             this.AccountTypeCB = new System.Windows.Forms.ComboBox();
             this.searchlable = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.DeleteSelectedAccount = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -84,7 +85,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
-            this.DeleteSelectedAccount = new System.Windows.Forms.Button();
+            this.AnnexPanelButton = new System.Windows.Forms.Button();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -110,6 +113,7 @@
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage9.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -136,19 +140,21 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.AccountsPanelButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.RoomsPanelButton, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.ReservationsPanelButton, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.FlagsPanelButton, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.SemesterDaysPanelButton, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.SemesterDaysPanelButton, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.FlagsPanelButton, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.ReservationsPanelButton, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.AnnexPanelButton, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.68421F));
+            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(108, 529);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -158,7 +164,7 @@
             this.AccountsPanelButton.Location = new System.Drawing.Point(0, 0);
             this.AccountsPanelButton.Margin = new System.Windows.Forms.Padding(0);
             this.AccountsPanelButton.Name = "AccountsPanelButton";
-            this.AccountsPanelButton.Size = new System.Drawing.Size(108, 27);
+            this.AccountsPanelButton.Size = new System.Drawing.Size(108, 30);
             this.AccountsPanelButton.TabIndex = 0;
             this.AccountsPanelButton.Text = "Accounts";
             this.AccountsPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -168,10 +174,10 @@
             // RoomsPanelButton
             // 
             this.RoomsPanelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RoomsPanelButton.Location = new System.Drawing.Point(0, 27);
+            this.RoomsPanelButton.Location = new System.Drawing.Point(0, 30);
             this.RoomsPanelButton.Margin = new System.Windows.Forms.Padding(0);
             this.RoomsPanelButton.Name = "RoomsPanelButton";
-            this.RoomsPanelButton.Size = new System.Drawing.Size(108, 27);
+            this.RoomsPanelButton.Size = new System.Drawing.Size(108, 30);
             this.RoomsPanelButton.TabIndex = 1;
             this.RoomsPanelButton.Text = "Rooms";
             this.RoomsPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -181,10 +187,10 @@
             // ReservationsPanelButton
             // 
             this.ReservationsPanelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ReservationsPanelButton.Location = new System.Drawing.Point(0, 54);
+            this.ReservationsPanelButton.Location = new System.Drawing.Point(0, 90);
             this.ReservationsPanelButton.Margin = new System.Windows.Forms.Padding(0);
             this.ReservationsPanelButton.Name = "ReservationsPanelButton";
-            this.ReservationsPanelButton.Size = new System.Drawing.Size(108, 27);
+            this.ReservationsPanelButton.Size = new System.Drawing.Size(108, 30);
             this.ReservationsPanelButton.TabIndex = 2;
             this.ReservationsPanelButton.Text = "Reservations";
             this.ReservationsPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -194,10 +200,10 @@
             // FlagsPanelButton
             // 
             this.FlagsPanelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FlagsPanelButton.Location = new System.Drawing.Point(0, 81);
+            this.FlagsPanelButton.Location = new System.Drawing.Point(0, 120);
             this.FlagsPanelButton.Margin = new System.Windows.Forms.Padding(0);
             this.FlagsPanelButton.Name = "FlagsPanelButton";
-            this.FlagsPanelButton.Size = new System.Drawing.Size(108, 27);
+            this.FlagsPanelButton.Size = new System.Drawing.Size(108, 30);
             this.FlagsPanelButton.TabIndex = 3;
             this.FlagsPanelButton.Text = "Flags";
             this.FlagsPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -207,10 +213,10 @@
             // SemesterDaysPanelButton
             // 
             this.SemesterDaysPanelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SemesterDaysPanelButton.Location = new System.Drawing.Point(0, 108);
+            this.SemesterDaysPanelButton.Location = new System.Drawing.Point(0, 150);
             this.SemesterDaysPanelButton.Margin = new System.Windows.Forms.Padding(0);
             this.SemesterDaysPanelButton.Name = "SemesterDaysPanelButton";
-            this.SemesterDaysPanelButton.Size = new System.Drawing.Size(108, 27);
+            this.SemesterDaysPanelButton.Size = new System.Drawing.Size(108, 30);
             this.SemesterDaysPanelButton.TabIndex = 4;
             this.SemesterDaysPanelButton.Text = "Semester Days";
             this.SemesterDaysPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -224,6 +230,7 @@
             this.MainTabContainer.Controls.Add(this.tabPage3);
             this.MainTabContainer.Controls.Add(this.tabPage4);
             this.MainTabContainer.Controls.Add(this.tabPage5);
+            this.MainTabContainer.Controls.Add(this.tabPage9);
             this.MainTabContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTabContainer.ItemSize = new System.Drawing.Size(50, 20);
             this.MainTabContainer.Location = new System.Drawing.Point(0, 0);
@@ -300,8 +307,8 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 257F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 312F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 356F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 213F));
             this.tableLayoutPanel3.Controls.Add(this.SearchByNameTextBox, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.AccountTypeCB, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.searchlable, 0, 0);
@@ -355,6 +362,17 @@
             this.label6.Size = new System.Drawing.Size(74, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "Account Type";
+            // 
+            // DeleteSelectedAccount
+            // 
+            this.DeleteSelectedAccount.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.DeleteSelectedAccount.Location = new System.Drawing.Point(540, 49);
+            this.DeleteSelectedAccount.Name = "DeleteSelectedAccount";
+            this.DeleteSelectedAccount.Size = new System.Drawing.Size(111, 23);
+            this.DeleteSelectedAccount.TabIndex = 11;
+            this.DeleteSelectedAccount.Text = "Delete selected";
+            this.DeleteSelectedAccount.UseVisualStyleBackColor = true;
+            this.DeleteSelectedAccount.Click += new System.EventHandler(this.DeleteSelectedAccount_Click);
             // 
             // tabPage6
             // 
@@ -464,7 +482,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(680, 501);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Rooms";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabControl2
@@ -628,7 +646,7 @@
             this.tableLayoutPanel5.ColumnCount = 3;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.81633F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.18367F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 420F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 422F));
             this.tableLayoutPanel5.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label12, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label13, 0, 2);
@@ -759,7 +777,7 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(242, 7);
+            this.label16.Location = new System.Drawing.Point(240, 7);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(289, 26);
             this.label16.TabIndex = 12;
@@ -774,7 +792,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(680, 501);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "Reservations";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -794,7 +812,7 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(680, 501);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.Text = "Flags";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -814,7 +832,7 @@
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(680, 501);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "tabPage5";
+            this.tabPage5.Text = "Semester Days";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // label5
@@ -826,16 +844,40 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Semester days";
             // 
-            // DeleteSelectedAccount
+            // AnnexPanelButton
             // 
-            this.DeleteSelectedAccount.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.DeleteSelectedAccount.Location = new System.Drawing.Point(540, 49);
-            this.DeleteSelectedAccount.Name = "DeleteSelectedAccount";
-            this.DeleteSelectedAccount.Size = new System.Drawing.Size(111, 23);
-            this.DeleteSelectedAccount.TabIndex = 11;
-            this.DeleteSelectedAccount.Text = "Delete selected";
-            this.DeleteSelectedAccount.UseVisualStyleBackColor = true;
-            this.DeleteSelectedAccount.Click += new System.EventHandler(this.DeleteSelectedAccount_Click);
+            this.AnnexPanelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AnnexPanelButton.Location = new System.Drawing.Point(0, 60);
+            this.AnnexPanelButton.Margin = new System.Windows.Forms.Padding(0);
+            this.AnnexPanelButton.Name = "AnnexPanelButton";
+            this.AnnexPanelButton.Size = new System.Drawing.Size(108, 30);
+            this.AnnexPanelButton.TabIndex = 5;
+            this.AnnexPanelButton.Text = "Annex";
+            this.AnnexPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AnnexPanelButton.UseVisualStyleBackColor = true;
+            this.AnnexPanelButton.Click += new System.EventHandler(this.AnnexPanelButton_Click);
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.label18);
+            this.tabPage9.Location = new System.Drawing.Point(4, 24);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(680, 501);
+            this.tabPage9.TabIndex = 5;
+            this.tabPage9.Text = "Annex";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(26, 71);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(66, 13);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Annex panel";
             // 
             // AdminPanel
             // 
@@ -878,6 +920,8 @@
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -945,5 +989,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox CreateAccountTypeTB;
         private System.Windows.Forms.Button DeleteSelectedAccount;
+        private System.Windows.Forms.Button AnnexPanelButton;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.Label label18;
     }
 }

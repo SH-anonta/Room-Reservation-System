@@ -68,12 +68,7 @@ namespace RMS {
             return data;
         }
     }
-
-    class DataGridViewFeed {
-        public static void get(List<User> list) {
-            
-        }
-    }
+    
 
     class HashGenerator {
         

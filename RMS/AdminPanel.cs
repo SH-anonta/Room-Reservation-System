@@ -62,6 +62,11 @@ namespace RMS {
         private void SemesterDaysPanelButton_Click(object sender, EventArgs e) {
             MainTabContainer.SelectedIndex = 4;
         }
+
+        
+        private void AnnexPanelButton_Click(object sender, EventArgs e) {
+            MainTabContainer.SelectedIndex = 5;
+        }
         
         private void button1_Click(object sender, EventArgs e) {
 
@@ -89,20 +94,12 @@ namespace RMS {
 
         //IMPORTANT: This event is used to update the UserDatagridView, other methods send event with arguments set to null
         private void SearchByNameTextBox_TextChanged(object sender, EventArgs e) {
-            string search_name = SearchByNameTextBox.Text;
-            string account_type = AccountTypeCB.Text;
-
-            
-            var data = dbFacade.filterUsersByNameAndType(search_name, account_type);
-
-            var show= data.Select(x => new { UserName = x.UserName, Password= x.Password, UserType= x.UserType.TypeName}).ToList();
-
-            UsersDataGridView.DataSource= show;
+            UpdateUserDataGridView();
         }
 
         private void AccountTypeCB_SelectedIndexChanged(object sender, EventArgs e) {
             // this even reilies the TextBox text changed event to update the Users Data grid view
-            SearchByNameTextBox_TextChanged(null, null);
+            UpdateUserDataGridView();
         }
 
         private void CreateAccountButton_Click(object sender, EventArgs e) {
@@ -115,6 +112,7 @@ namespace RMS {
             else {
                 dbFacade.createAccount(uname, pass, dbFacade.UserTypeNameToID(user_type_name));
                 MessageBox.Show("Account Created");
+
             }
 
         }
@@ -122,6 +120,7 @@ namespace RMS {
         private void DeleteSelectedAccount_Click(object sender, EventArgs e) {
             var usernames = new HashSet<string>();
             
+            // Collect which usersnames need to be deleted
             foreach(DataGridViewRow  row in UsersDataGridView.SelectedRows) {
                 usernames.Add(row.Cells[0].Value.ToString());
             }
@@ -129,10 +128,24 @@ namespace RMS {
             
             foreach (string uname in usernames) {
                 dbFacade.DeleteAccount(uname);
-                
             }
 
-            SearchByNameTextBox_TextChanged(null, null);
+            // update the UserDataGridView
+            UpdateUserDataGridView();
         }
+
+        private void UpdateUserDataGridView() {
+            //This is done 
+            string search_name = SearchByNameTextBox.Text;
+            string account_type = AccountTypeCB.Text;
+
+            
+            var data = dbFacade.filterUsersByNameAndType(search_name, account_type);
+
+            var show= data.Select(x => new { UserName = x.UserName, Password= x.Password, UserType= x.UserType.TypeName}).ToList();
+
+            UsersDataGridView.DataSource= show;
+        }
+
     }
 }
