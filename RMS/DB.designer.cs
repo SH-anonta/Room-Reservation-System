@@ -51,6 +51,9 @@ namespace RMS
     partial void InsertRoomType(RoomType instance);
     partial void UpdateRoomType(RoomType instance);
     partial void DeleteRoomType(RoomType instance);
+    partial void InsertRoutineException(RoutineException instance);
+    partial void UpdateRoutineException(RoutineException instance);
+    partial void DeleteRoutineException(RoutineException instance);
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
@@ -142,6 +145,14 @@ namespace RMS
 			get
 			{
 				return this.GetTable<RoomType>();
+			}
+		}
+		
+		public System.Data.Linq.Table<RoutineException> RoutineExceptions
+		{
+			get
+			{
+				return this.GetTable<RoutineException>();
 			}
 		}
 		
@@ -290,6 +301,8 @@ namespace RMS
 		
 		private EntitySet<RegularClass> _RegularClasses;
 		
+		private EntitySet<RoutineException> _RoutineExceptions;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -305,6 +318,7 @@ namespace RMS
 		public WeekDay()
 		{
 			this._RegularClasses = new EntitySet<RegularClass>(new Action<RegularClass>(this.attach_RegularClasses), new Action<RegularClass>(this.detach_RegularClasses));
+			this._RoutineExceptions = new EntitySet<RoutineException>(new Action<RoutineException>(this.attach_RoutineExceptions), new Action<RoutineException>(this.detach_RoutineExceptions));
 			OnCreated();
 		}
 		
@@ -381,6 +395,19 @@ namespace RMS
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="WeekDay_RoutineException", Storage="_RoutineExceptions", ThisKey="Id", OtherKey="WeekDayID")]
+		public EntitySet<RoutineException> RoutineExceptions
+		{
+			get
+			{
+				return this._RoutineExceptions;
+			}
+			set
+			{
+				this._RoutineExceptions.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -408,6 +435,18 @@ namespace RMS
 		}
 		
 		private void detach_RegularClasses(RegularClass entity)
+		{
+			this.SendPropertyChanging();
+			entity.WeekDay = null;
+		}
+		
+		private void attach_RoutineExceptions(RoutineException entity)
+		{
+			this.SendPropertyChanging();
+			entity.WeekDay = this;
+		}
+		
+		private void detach_RoutineExceptions(RoutineException entity)
 		{
 			this.SendPropertyChanging();
 			entity.WeekDay = null;
@@ -1754,6 +1793,157 @@ namespace RMS
 		{
 			this.SendPropertyChanging();
 			entity.RoomType = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RoutineExceptions")]
+	public partial class RoutineException : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.DateTime _Date;
+		
+		private int _WeekDayID;
+		
+		private EntityRef<WeekDay> _WeekDay;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnDateChanging(System.DateTime value);
+    partial void OnDateChanged();
+    partial void OnWeekDayIDChanging(int value);
+    partial void OnWeekDayIDChanged();
+    #endregion
+		
+		public RoutineException()
+		{
+			this._WeekDay = default(EntityRef<WeekDay>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WeekDayID", DbType="Int NOT NULL")]
+		public int WeekDayID
+		{
+			get
+			{
+				return this._WeekDayID;
+			}
+			set
+			{
+				if ((this._WeekDayID != value))
+				{
+					if (this._WeekDay.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnWeekDayIDChanging(value);
+					this.SendPropertyChanging();
+					this._WeekDayID = value;
+					this.SendPropertyChanged("WeekDayID");
+					this.OnWeekDayIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="WeekDay_RoutineException", Storage="_WeekDay", ThisKey="WeekDayID", OtherKey="Id", IsForeignKey=true)]
+		public WeekDay WeekDay
+		{
+			get
+			{
+				return this._WeekDay.Entity;
+			}
+			set
+			{
+				WeekDay previousValue = this._WeekDay.Entity;
+				if (((previousValue != value) 
+							|| (this._WeekDay.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._WeekDay.Entity = null;
+						previousValue.RoutineExceptions.Remove(this);
+					}
+					this._WeekDay.Entity = value;
+					if ((value != null))
+					{
+						value.RoutineExceptions.Add(this);
+						this._WeekDayID = value.Id;
+					}
+					else
+					{
+						this._WeekDayID = default(int);
+					}
+					this.SendPropertyChanged("WeekDay");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

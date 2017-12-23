@@ -75,6 +75,12 @@
     <Compile Include="AdminPanel.Designer.cs">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateRoutineExceptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateRoutineExceptionForm.Designer.cs">
+      <DependentUpon>CreateRoutineExceptionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminPanel.resx">
       <DependentUpon>AdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateRoutineExceptionForm.resx">
+      <DependentUpon>CreateRoutineExceptionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

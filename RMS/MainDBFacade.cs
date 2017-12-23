@@ -59,6 +59,7 @@ namespace RMS {
             db.SubmitChanges();
         }
 
+        // create multiple rooms provided a range of room nunmbers
         public void createRooms(string number_start, string number_end, string type, string annex, int capacity) {
             int start = int.Parse(number_start.Trim());
             int end = int.Parse(number_end.Trim());
@@ -77,6 +78,19 @@ namespace RMS {
             }
 
 
+        }
+
+        public void createRoutineException(DateTime date, string weekday) {
+            if (RoutineExceptionWihDateExists(date)) {
+                throw new DuplicateRecordException("A routine exception with specified date already exists");
+            }
+
+            RoutineException re = new RoutineException();
+            re.Date = date.Date;
+            re.WeekDay = db.WeekDays.First(x=>x.Name == weekday);
+
+            db.RoutineExceptions.InsertOnSubmit(re);
+            db.SubmitChanges();
         }
 
         // Readers
@@ -105,6 +119,18 @@ namespace RMS {
             return db.Users.First(x=> x.UserName == username);
         }
 
+        public List<RoutineException> getAllRoutineExceptions() {
+            return db.RoutineExceptions.ToList();
+        }
+
+        public List<string> getWeekDayNames() {
+            return db.WeekDays.Select(x=>x.Name).ToList();
+        }
+
+        // Return Routine exceptions that have a date set to today's or later
+        public List<RoutineException> getFutureRoutineExceptions() {
+            return db.RoutineExceptions.Where(x => x.Date.Date >= DateTime.Now.Date).ToList();
+        }
 
         // Filters (getters that return bsed on constraints)
         public List<User> filterUsersByNameAndType(string name, string type) {
@@ -197,6 +223,9 @@ namespace RMS {
             return false;
         }
 
+        public bool RoutineExceptionWihDateExists(DateTime date) {
+            return db.RoutineExceptions.FirstOrDefault(x => x.Date.Date == date.Date) != null;
+        }
 
         /*
          * User name:

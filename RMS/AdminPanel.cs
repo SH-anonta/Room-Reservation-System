@@ -164,6 +164,25 @@ namespace RMS {
             RoomDataGridView.DataSource = show;
         }
 
+        private void UpdateRoutineExceptionGridView() {
+
+            List<RoutineException> data= null;
+
+            if (RoutineExceptionsShowEntriesCHB.Checked) {
+                data= dbFacade.getAllRoutineExceptions();
+            }
+            else {
+                data= dbFacade.getFutureRoutineExceptions();
+            }
+            
+            var show = data.Select(x => new {
+                                Date = x.Date,
+                                Day = x.WeekDay.Name
+                            }).ToList();
+            
+            RoutineExceptionsGridView.DataSource= show;
+        }
+
         private void RoomDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
 
         }
@@ -184,6 +203,7 @@ namespace RMS {
             //IMPORTANT: These methods need to be invoked as they load data based on other component settings
             UpdateUserDataGridView();
             UpdateRoomDataGridView();
+            UpdateRoutineExceptionGridView();
         }
 
         private void loadUserTypeCB() {
@@ -261,6 +281,19 @@ namespace RMS {
                 MessageBox.Show("Room Created");
             }
             
+        }
+
+        private void CreateRoutineException_Click(object sender, EventArgs e) {
+            CreateRoutineExceptionForm creator = new CreateRoutineExceptionForm();
+            creator.Show();
+        }
+
+        private void RoutineExceptionsShowEntriesCHB_CheckedChanged(object sender, EventArgs e) {
+            UpdateRoutineExceptionGridView();
+        }
+
+        private void RoutineExceptionsGridView_DoubleClick(object sender, EventArgs e) {
+
         }
     }
 }

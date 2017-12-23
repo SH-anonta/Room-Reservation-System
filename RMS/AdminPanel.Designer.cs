@@ -28,8 +28,8 @@
             this.AccountsPanelButton = new System.Windows.Forms.Button();
             this.RoomsPanelButton = new System.Windows.Forms.Button();
             this.ReservationsPanelButton = new System.Windows.Forms.Button();
-            this.AnnexPanelButton = new System.Windows.Forms.Button();
             this.RoutineExceptionPanelButton = new System.Windows.Forms.Button();
+            this.AnnexPanelButton = new System.Windows.Forms.Button();
             this.MainTabContainer = new System.Windows.Forms.TabControl();
             this.AccountsPanelTabPage = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -85,14 +85,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.RoutineExceptionsGridView = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.RoutineExceptionsShowEntriesCHB = new System.Windows.Forms.CheckBox();
+            this.CreateRoutineException = new System.Windows.Forms.Button();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.label18 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.SemesterDayPastEntriesCHB = new System.Windows.Forms.CheckBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -119,9 +117,9 @@
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
-            this.tabPage9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RoutineExceptionsGridView)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
+            this.tabPage9.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -204,6 +202,19 @@
             this.ReservationsPanelButton.UseVisualStyleBackColor = true;
             this.ReservationsPanelButton.Click += new System.EventHandler(this.ReservationsPanelButton_Click);
             // 
+            // RoutineExceptionPanelButton
+            // 
+            this.RoutineExceptionPanelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RoutineExceptionPanelButton.Location = new System.Drawing.Point(0, 120);
+            this.RoutineExceptionPanelButton.Margin = new System.Windows.Forms.Padding(0);
+            this.RoutineExceptionPanelButton.Name = "RoutineExceptionPanelButton";
+            this.RoutineExceptionPanelButton.Size = new System.Drawing.Size(108, 30);
+            this.RoutineExceptionPanelButton.TabIndex = 4;
+            this.RoutineExceptionPanelButton.Text = "Routine Exceptions";
+            this.RoutineExceptionPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RoutineExceptionPanelButton.UseVisualStyleBackColor = true;
+            this.RoutineExceptionPanelButton.Click += new System.EventHandler(this.SemesterDaysPanelButton_Click);
+            // 
             // AnnexPanelButton
             // 
             this.AnnexPanelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -218,19 +229,6 @@
             this.AnnexPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AnnexPanelButton.UseVisualStyleBackColor = true;
             this.AnnexPanelButton.Click += new System.EventHandler(this.AnnexPanelButton_Click);
-            // 
-            // RoutineExceptionPanelButton
-            // 
-            this.RoutineExceptionPanelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RoutineExceptionPanelButton.Location = new System.Drawing.Point(0, 120);
-            this.RoutineExceptionPanelButton.Margin = new System.Windows.Forms.Padding(0);
-            this.RoutineExceptionPanelButton.Name = "RoutineExceptionPanelButton";
-            this.RoutineExceptionPanelButton.Size = new System.Drawing.Size(108, 30);
-            this.RoutineExceptionPanelButton.TabIndex = 4;
-            this.RoutineExceptionPanelButton.Text = "Routine Exceptions";
-            this.RoutineExceptionPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RoutineExceptionPanelButton.UseVisualStyleBackColor = true;
-            this.RoutineExceptionPanelButton.Click += new System.EventHandler(this.SemesterDaysPanelButton_Click);
             // 
             // MainTabContainer
             // 
@@ -663,7 +661,7 @@
             this.tableLayoutPanel5.ColumnCount = 3;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.81633F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.18367F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 429F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 430F));
             this.tableLayoutPanel5.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label12, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label13, 0, 2);
@@ -742,7 +740,7 @@
             // RoomNumberTB
             // 
             this.RoomNumberTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomNumberTB.Location = new System.Drawing.Point(97, 10);
+            this.RoomNumberTB.Location = new System.Drawing.Point(96, 10);
             this.RoomNumberTB.Name = "RoomNumberTB";
             this.RoomNumberTB.Size = new System.Drawing.Size(121, 20);
             this.RoomNumberTB.TabIndex = 6;
@@ -750,7 +748,7 @@
             // RoomNameTB
             // 
             this.RoomNameTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomNameTB.Location = new System.Drawing.Point(97, 50);
+            this.RoomNameTB.Location = new System.Drawing.Point(96, 50);
             this.RoomNameTB.Name = "RoomNameTB";
             this.RoomNameTB.Size = new System.Drawing.Size(121, 20);
             this.RoomNameTB.TabIndex = 7;
@@ -758,7 +756,7 @@
             // RoomCapacityTB
             // 
             this.RoomCapacityTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomCapacityTB.Location = new System.Drawing.Point(97, 170);
+            this.RoomCapacityTB.Location = new System.Drawing.Point(96, 170);
             this.RoomCapacityTB.Name = "RoomCapacityTB";
             this.RoomCapacityTB.Size = new System.Drawing.Size(121, 20);
             this.RoomCapacityTB.TabIndex = 9;
@@ -767,7 +765,7 @@
             // 
             this.RoomTypeCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.RoomTypeCB.FormattingEnabled = true;
-            this.RoomTypeCB.Location = new System.Drawing.Point(97, 89);
+            this.RoomTypeCB.Location = new System.Drawing.Point(96, 89);
             this.RoomTypeCB.Name = "RoomTypeCB";
             this.RoomTypeCB.Size = new System.Drawing.Size(121, 21);
             this.RoomTypeCB.TabIndex = 10;
@@ -776,14 +774,14 @@
             // 
             this.AnnexCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.AnnexCB.FormattingEnabled = true;
-            this.AnnexCB.Location = new System.Drawing.Point(97, 129);
+            this.AnnexCB.Location = new System.Drawing.Point(96, 129);
             this.AnnexCB.Name = "AnnexCB";
             this.AnnexCB.Size = new System.Drawing.Size(121, 21);
             this.AnnexCB.TabIndex = 11;
             // 
             // CreateRoomButton
             // 
-            this.CreateRoomButton.Location = new System.Drawing.Point(97, 232);
+            this.CreateRoomButton.Location = new System.Drawing.Point(96, 232);
             this.CreateRoomButton.Name = "CreateRoomButton";
             this.CreateRoomButton.Size = new System.Drawing.Size(121, 23);
             this.CreateRoomButton.TabIndex = 5;
@@ -795,7 +793,7 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(233, 7);
+            this.label16.Location = new System.Drawing.Point(232, 7);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(289, 26);
             this.label16.TabIndex = 12;
@@ -857,7 +855,7 @@
             // 
             this.tableLayoutPanel8.ColumnCount = 1;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Controls.Add(this.dataGridView1, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.RoutineExceptionsGridView, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 0, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
@@ -867,6 +865,58 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(674, 495);
             this.tableLayoutPanel8.TabIndex = 0;
+            // 
+            // RoutineExceptionsGridView
+            // 
+            this.RoutineExceptionsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.RoutineExceptionsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RoutineExceptionsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RoutineExceptionsGridView.Location = new System.Drawing.Point(3, 87);
+            this.RoutineExceptionsGridView.Name = "RoutineExceptionsGridView";
+            this.RoutineExceptionsGridView.ReadOnly = true;
+            this.RoutineExceptionsGridView.Size = new System.Drawing.Size(668, 405);
+            this.RoutineExceptionsGridView.TabIndex = 0;
+            this.RoutineExceptionsGridView.DoubleClick += new System.EventHandler(this.RoutineExceptionsGridView_DoubleClick);
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 3;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.63112F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.36887F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 178F));
+            this.tableLayoutPanel9.Controls.Add(this.CreateRoutineException, 2, 1);
+            this.tableLayoutPanel9.Controls.Add(this.RoutineExceptionsShowEntriesCHB, 2, 0);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 2;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.42735F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.57265F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(668, 78);
+            this.tableLayoutPanel9.TabIndex = 1;
+            // 
+            // RoutineExceptionsShowEntriesCHB
+            // 
+            this.RoutineExceptionsShowEntriesCHB.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.RoutineExceptionsShowEntriesCHB.AutoSize = true;
+            this.RoutineExceptionsShowEntriesCHB.Location = new System.Drawing.Point(584, 11);
+            this.RoutineExceptionsShowEntriesCHB.Name = "RoutineExceptionsShowEntriesCHB";
+            this.RoutineExceptionsShowEntriesCHB.Size = new System.Drawing.Size(81, 17);
+            this.RoutineExceptionsShowEntriesCHB.TabIndex = 1;
+            this.RoutineExceptionsShowEntriesCHB.Text = "Past entries";
+            this.RoutineExceptionsShowEntriesCHB.UseVisualStyleBackColor = true;
+            this.RoutineExceptionsShowEntriesCHB.CheckedChanged += new System.EventHandler(this.RoutineExceptionsShowEntriesCHB_CheckedChanged);
+            // 
+            // CreateRoutineException
+            // 
+            this.CreateRoutineException.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.CreateRoutineException.Location = new System.Drawing.Point(573, 47);
+            this.CreateRoutineException.Name = "CreateRoutineException";
+            this.CreateRoutineException.Size = new System.Drawing.Size(92, 23);
+            this.CreateRoutineException.TabIndex = 3;
+            this.CreateRoutineException.Text = "Add new";
+            this.CreateRoutineException.UseVisualStyleBackColor = true;
+            this.CreateRoutineException.Click += new System.EventHandler(this.CreateRoutineException_Click);
             // 
             // tabPage9
             // 
@@ -887,74 +937,6 @@
             this.label18.Size = new System.Drawing.Size(66, 13);
             this.label18.TabIndex = 0;
             this.label18.Text = "Annex panel";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 87);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(668, 405);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // tableLayoutPanel9
-            // 
-            this.tableLayoutPanel9.ColumnCount = 3;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.63112F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.36887F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
-            this.tableLayoutPanel9.Controls.Add(this.label5, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.SemesterDayPastEntriesCHB, 0, 1);
-            this.tableLayoutPanel9.Controls.Add(this.dateTimePicker1, 1, 0);
-            this.tableLayoutPanel9.Controls.Add(this.button1, 2, 1);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 2;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.42735F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.57265F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(668, 78);
-            this.tableLayoutPanel9.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 13);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Find Date";
-            // 
-            // SemesterDayPastEntriesCHB
-            // 
-            this.SemesterDayPastEntriesCHB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.SemesterDayPastEntriesCHB.AutoSize = true;
-            this.SemesterDayPastEntriesCHB.Location = new System.Drawing.Point(3, 50);
-            this.SemesterDayPastEntriesCHB.Name = "SemesterDayPastEntriesCHB";
-            this.SemesterDayPastEntriesCHB.Size = new System.Drawing.Size(81, 17);
-            this.SemesterDayPastEntriesCHB.TabIndex = 1;
-            this.SemesterDayPastEntriesCHB.Text = "Past entries";
-            this.SemesterDayPastEntriesCHB.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(119, 9);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(90, 20);
-            this.dateTimePicker1.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button1.Location = new System.Drawing.Point(573, 47);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Add new";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // AdminPanel
             // 
@@ -997,11 +979,11 @@
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
-            this.tabPage9.ResumeLayout(false);
-            this.tabPage9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RoutineExceptionsGridView)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1071,11 +1053,9 @@
         private System.Windows.Forms.TextBox RoomNameSearchTB;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView RoutineExceptionsGridView;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox SemesterDayPastEntriesCHB;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox RoutineExceptionsShowEntriesCHB;
+        private System.Windows.Forms.Button CreateRoutineException;
     }
 }
