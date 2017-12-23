@@ -12,7 +12,7 @@ namespace RMS {
     public partial class EditRoutineExceptionForm : Form {
         MainDBFacade db = MainDBFacade.getMainDBFacade();
         RoutineException routine_exception; 
-
+        string CUSTOM_DATE_FORMAT = "dd-MMM-yy";
 
         public EditRoutineExceptionForm(RoutineException routine_exception) {
             this.routine_exception = routine_exception;
@@ -22,18 +22,20 @@ namespace RMS {
 
 
         private void loadFormData() {
-            
+            ShowDateTB.Text= routine_exception.Date.ToString(CUSTOM_DATE_FORMAT);
+            WeekDayCB.DataSource = db.getWeekDayNames();
         }
 
-        private void CreateButton_Click(object sender, EventArgs e) {
-            if (true) {
-                MessageBox.Show("Routine exception created");
-            }
-            
-        }
 
         private void DeleteButton_Click(object sender, EventArgs e) {
+            db.DeleteRoutineException(routine_exception.Id);
+            this.Close();
+        }
 
+        private void SaveButton_Click(object sender, EventArgs e) {
+            db.UpdateRoutineException(routine_exception, WeekDayCB.Text);
+            MessageBox.Show("Changes saved");
+            this.Close();
         }
     }
 }

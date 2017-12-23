@@ -29,7 +29,13 @@ namespace RMS {
             }
             catch(DuplicateRecordException ex) {
                 success = false;
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error");
+            }
+
+            
+            if(success){
+                MessageBox.Show("Room exception created");
+
             }
         }
     }

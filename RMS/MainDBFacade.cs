@@ -127,8 +127,8 @@ namespace RMS {
             return db.WeekDays.Select(x=>x.Name).ToList();
         }
 
-        public RoutineException getRoutineException(string date) {
-            return db.RoutineExceptions.First(x => x.Date.ToString() == date);
+        public RoutineException getRoutineException(int id) {
+            return db.RoutineExceptions.First(x => x.Id == id);
         }
 
         // Return Routine exceptions that have a date set to today's or later
@@ -193,6 +193,11 @@ namespace RMS {
             return user;
         }
 
+        public void UpdateRoutineException(RoutineException row, string new_weekday) {
+            row.WeekDay = db.WeekDays.First(x=>x.Name == new_weekday);
+            db.SubmitChanges();
+        }
+
         // Deleters
         public void DeleteAccount(string uname) {
             User user = db.Users.FirstOrDefault(x => x.UserName == uname);
@@ -203,8 +208,8 @@ namespace RMS {
             db.SubmitChanges();
         }
 
-        public void DeleteRoutineException(string date) {
-            RoutineException to_delete = getRoutineException(date);
+        public void DeleteRoutineException(int id) {
+            RoutineException to_delete = getRoutineException(id);
 
             db.RoutineExceptions.DeleteOnSubmit(to_delete);
             db.SubmitChanges();

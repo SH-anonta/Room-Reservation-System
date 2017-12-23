@@ -87,8 +87,8 @@
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.RoutineExceptionsGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.RoutineExceptionsShowEntriesCHB = new System.Windows.Forms.CheckBox();
             this.CreateRoutineException = new System.Windows.Forms.Button();
+            this.RoutineExceptionsShowEntriesCHB = new System.Windows.Forms.CheckBox();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -309,7 +309,6 @@
             this.UsersDataGridView.Name = "UsersDataGridView";
             this.UsersDataGridView.Size = new System.Drawing.Size(654, 369);
             this.UsersDataGridView.TabIndex = 4;
-            this.UsersDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UsersDataGridView_CellContentClick);
             this.UsersDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UsersDataGridView_CellDoubleClick);
             // 
             // tableLayoutPanel3
@@ -661,7 +660,7 @@
             this.tableLayoutPanel5.ColumnCount = 3;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.81633F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.18367F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 430F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 432F));
             this.tableLayoutPanel5.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label12, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label13, 0, 2);
@@ -793,7 +792,7 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(232, 7);
+            this.label16.Location = new System.Drawing.Point(230, 7);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(289, 26);
             this.label16.TabIndex = 12;
@@ -876,14 +875,14 @@
             this.RoutineExceptionsGridView.ReadOnly = true;
             this.RoutineExceptionsGridView.Size = new System.Drawing.Size(668, 405);
             this.RoutineExceptionsGridView.TabIndex = 0;
-            this.RoutineExceptionsGridView.DoubleClick += new System.EventHandler(this.RoutineExceptionsGridView_DoubleClick);
+            this.RoutineExceptionsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RoutineExceptionsGridView_CellDoubleClick);
             // 
             // tableLayoutPanel9
             // 
             this.tableLayoutPanel9.ColumnCount = 3;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.63112F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.36887F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 178F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
             this.tableLayoutPanel9.Controls.Add(this.CreateRoutineException, 2, 1);
             this.tableLayoutPanel9.Controls.Add(this.RoutineExceptionsShowEntriesCHB, 2, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -895,28 +894,28 @@
             this.tableLayoutPanel9.Size = new System.Drawing.Size(668, 78);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
-            // RoutineExceptionsShowEntriesCHB
-            // 
-            this.RoutineExceptionsShowEntriesCHB.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.RoutineExceptionsShowEntriesCHB.AutoSize = true;
-            this.RoutineExceptionsShowEntriesCHB.Location = new System.Drawing.Point(584, 11);
-            this.RoutineExceptionsShowEntriesCHB.Name = "RoutineExceptionsShowEntriesCHB";
-            this.RoutineExceptionsShowEntriesCHB.Size = new System.Drawing.Size(81, 17);
-            this.RoutineExceptionsShowEntriesCHB.TabIndex = 1;
-            this.RoutineExceptionsShowEntriesCHB.Text = "Past entries";
-            this.RoutineExceptionsShowEntriesCHB.UseVisualStyleBackColor = true;
-            this.RoutineExceptionsShowEntriesCHB.CheckedChanged += new System.EventHandler(this.RoutineExceptionsShowEntriesCHB_CheckedChanged);
-            // 
             // CreateRoutineException
             // 
             this.CreateRoutineException.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.CreateRoutineException.Location = new System.Drawing.Point(573, 47);
+            this.CreateRoutineException.Location = new System.Drawing.Point(555, 47);
             this.CreateRoutineException.Name = "CreateRoutineException";
-            this.CreateRoutineException.Size = new System.Drawing.Size(92, 23);
+            this.CreateRoutineException.Size = new System.Drawing.Size(110, 23);
             this.CreateRoutineException.TabIndex = 3;
             this.CreateRoutineException.Text = "Add new";
             this.CreateRoutineException.UseVisualStyleBackColor = true;
             this.CreateRoutineException.Click += new System.EventHandler(this.CreateRoutineException_Click);
+            // 
+            // RoutineExceptionsShowEntriesCHB
+            // 
+            this.RoutineExceptionsShowEntriesCHB.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.RoutineExceptionsShowEntriesCHB.AutoSize = true;
+            this.RoutineExceptionsShowEntriesCHB.Location = new System.Drawing.Point(555, 11);
+            this.RoutineExceptionsShowEntriesCHB.Name = "RoutineExceptionsShowEntriesCHB";
+            this.RoutineExceptionsShowEntriesCHB.Size = new System.Drawing.Size(110, 17);
+            this.RoutineExceptionsShowEntriesCHB.TabIndex = 1;
+            this.RoutineExceptionsShowEntriesCHB.Text = "Show past entries";
+            this.RoutineExceptionsShowEntriesCHB.UseVisualStyleBackColor = true;
+            this.RoutineExceptionsShowEntriesCHB.CheckedChanged += new System.EventHandler(this.RoutineExceptionsShowEntriesCHB_CheckedChanged);
             // 
             // tabPage9
             // 

@@ -294,14 +294,13 @@ namespace RMS {
             UpdateRoutineExceptionGridView();
         }
 
-        private void RoutineExceptionsGridView_DoubleClick(object sender, EventArgs e) {
+        
+        private void RoutineExceptionsGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+            int row_index= e.RowIndex;
 
-            var cell = (DataGridViewCell) sender;
-            int row = cell.RowIndex;
+            int id = (int) RoutineExceptionsGridView.Rows[row_index].Cells[0].Value;
 
-            string date = RoutineExceptionsGridView.Rows[row].Cells[0].Value.ToString();
-
-            RoutineException exception = dbFacade.getRoutineException(date );
+            RoutineException exception = dbFacade.getRoutineException(id);
             var editor = new EditRoutineExceptionForm(exception);
             editor.Show();
         }
