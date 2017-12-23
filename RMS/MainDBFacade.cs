@@ -30,7 +30,7 @@ namespace RMS {
         // Cretors
         public void createAccount(string uname, string password, int userTypeID) {
             if(UserNameExists(uname) == true) {
-                throw new Exception("Username already exists in database");
+                throw new DuplicateRecordException(string.Format("Username {0} already exists in database", uname));
             }
 
             User u = new User();
@@ -43,6 +43,11 @@ namespace RMS {
         }
 
         public void createRoom(string number, string name, string type, string annex, int capacity) {
+
+            if (RoomExists(number)) {
+                throw new DuplicateRecordException(string.Format("Room number {0} already exists in database", number));
+            }
+
             Room room = new Room();
             room.Number = number;
             room.Name = name;
@@ -52,6 +57,26 @@ namespace RMS {
 
             db.Rooms.InsertOnSubmit(room);
             db.SubmitChanges();
+        }
+
+        public void createRooms(string number_start, string number_end, string type, string annex, int capacity) {
+            int start = int.Parse(number_start.Trim());
+            int end = int.Parse(number_end.Trim());
+
+            if(start > end) {
+                throw new Exception("Invalid range.. start is greater than end ");
+            }
+
+            if (AnyRoomInRangeExists(start, end)) {
+                throw new DuplicateRecordException("One or more rooms with specified numbers already exist in database");
+            }
+
+            for(int i= start; i<= end; i++) {
+                string room_name_number = i.ToString();
+                createRoom(room_name_number, room_name_number, type, annex, capacity);
+            }
+
+
         }
 
         // Readers
@@ -158,6 +183,21 @@ namespace RMS {
             return db.Users.FirstOrDefault(x => x.UserName == uname) != null;
         }
 
+        public bool RoomExists(string room_number) {
+            return db.Rooms.FirstOrDefault(x => x.Number == room_number) != null;
+        }
+
+        public bool AnyRoomInRangeExists(int start, int end) {
+            for(int i= start; i<= end; i++) {
+                if (RoomExists(i.ToString())) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
         /*
          * User name:
          *  length must be between 4-20 characters long (inclusive)
@@ -169,6 +209,11 @@ namespace RMS {
          *  length must be between 8-50 characters long (inclusive)
          *  All characters are allowed
          */
+    }
+
+    class DuplicateRecordException: Exception {
+        public DuplicateRecordException(){}
+        public DuplicateRecordException(string msg): base(msg) {}
     }
     
 

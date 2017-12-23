@@ -223,15 +223,44 @@ namespace RMS {
 
         private void CreateRoomButton_Click(object sender, EventArgs e) {
             string room_number = RoomNumberTB.Text;
-            string room_name  = RoomNameTB.Text;
-            if(room_name == "") {
-                room_name = room_number;
+
+            bool operation_successfull= true;
+
+            // if a range of numbers in given
+            if (room_number.Contains(",")){
+                string l = room_number.Split(',')[0];
+                string r = room_number.Split(',')[1];
+
+                try {
+                    dbFacade.createRooms(l, r, RoomTypeCB.Text, AnnexCB.Text, int.Parse(RoomCapacityTB.Text));
+                }
+                catch(DuplicateRecordException exc) {
+                    MessageBox.Show(String.Format("{0}", exc.Message), "Error");
+                    operation_successfull= false;
+                }
+            }
+            else {
+                string room_name  = RoomNameTB.Text;
+                if(room_name == "") {
+                    room_name = room_number;
+                }
+
+                try {
+                    dbFacade.createRoom(room_number, room_name, RoomTypeCB.Text, AnnexCB.Text, int.Parse(RoomCapacityTB.Text));
+                }
+                catch(DuplicateRecordException exc) {
+                    MessageBox.Show(String.Format("{0}", exc.Message), "Error");
+                    operation_successfull= false;
+                }
+                
             }
 
+
+            if (operation_successfull) {
+                UpdateRoomDataGridView();
+                MessageBox.Show("Room Created");
+            }
             
-            dbFacade.createRoom(room_number, room_name, RoomTypeCB.Text, AnnexCB.Text, int.Parse(RoomCapacityTB.Text));
-            UpdateRoomDataGridView();
-            MessageBox.Show("Room Created");
         }
     }
 }

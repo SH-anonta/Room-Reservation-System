@@ -28,7 +28,6 @@
             this.AccountsPanelButton = new System.Windows.Forms.Button();
             this.RoomsPanelButton = new System.Windows.Forms.Button();
             this.SemesterDaysPanelButton = new System.Windows.Forms.Button();
-            this.FlagsPanelButton = new System.Windows.Forms.Button();
             this.ReservationsPanelButton = new System.Windows.Forms.Button();
             this.AnnexPanelButton = new System.Windows.Forms.Button();
             this.MainTabContainer = new System.Windows.Forms.TabControl();
@@ -140,10 +139,9 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.AccountsPanelButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.RoomsPanelButton, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.SemesterDaysPanelButton, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.FlagsPanelButton, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.ReservationsPanelButton, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.AnnexPanelButton, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.ReservationsPanelButton, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.AnnexPanelButton, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.SemesterDaysPanelButton, 0, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -186,8 +184,7 @@
             // 
             // SemesterDaysPanelButton
             // 
-            this.SemesterDaysPanelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SemesterDaysPanelButton.Location = new System.Drawing.Point(0, 150);
+            this.SemesterDaysPanelButton.Location = new System.Drawing.Point(0, 120);
             this.SemesterDaysPanelButton.Margin = new System.Windows.Forms.Padding(0);
             this.SemesterDaysPanelButton.Name = "SemesterDaysPanelButton";
             this.SemesterDaysPanelButton.Size = new System.Drawing.Size(108, 30);
@@ -197,23 +194,9 @@
             this.SemesterDaysPanelButton.UseVisualStyleBackColor = true;
             this.SemesterDaysPanelButton.Click += new System.EventHandler(this.SemesterDaysPanelButton_Click);
             // 
-            // FlagsPanelButton
-            // 
-            this.FlagsPanelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FlagsPanelButton.Location = new System.Drawing.Point(0, 120);
-            this.FlagsPanelButton.Margin = new System.Windows.Forms.Padding(0);
-            this.FlagsPanelButton.Name = "FlagsPanelButton";
-            this.FlagsPanelButton.Size = new System.Drawing.Size(108, 30);
-            this.FlagsPanelButton.TabIndex = 3;
-            this.FlagsPanelButton.Text = "Flags";
-            this.FlagsPanelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.FlagsPanelButton.UseVisualStyleBackColor = true;
-            this.FlagsPanelButton.Click += new System.EventHandler(this.FlagsPanelButton_Click);
-            // 
             // ReservationsPanelButton
             // 
-            this.ReservationsPanelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ReservationsPanelButton.Location = new System.Drawing.Point(0, 90);
+            this.ReservationsPanelButton.Location = new System.Drawing.Point(0, 60);
             this.ReservationsPanelButton.Margin = new System.Windows.Forms.Padding(0);
             this.ReservationsPanelButton.Name = "ReservationsPanelButton";
             this.ReservationsPanelButton.Size = new System.Drawing.Size(108, 30);
@@ -228,7 +211,7 @@
             this.AnnexPanelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.AnnexPanelButton.Location = new System.Drawing.Point(0, 60);
+            this.AnnexPanelButton.Location = new System.Drawing.Point(0, 90);
             this.AnnexPanelButton.Margin = new System.Windows.Forms.Padding(0);
             this.AnnexPanelButton.Name = "AnnexPanelButton";
             this.AnnexPanelButton.Size = new System.Drawing.Size(108, 30);
@@ -669,7 +652,7 @@
             this.tableLayoutPanel5.ColumnCount = 3;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.81633F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.18367F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 426F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 427F));
             this.tableLayoutPanel5.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label12, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label13, 0, 2);
@@ -801,7 +784,7 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(236, 7);
+            this.label16.Location = new System.Drawing.Point(235, 7);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(289, 26);
             this.label16.TabIndex = 12;
@@ -941,7 +924,6 @@
         private System.Windows.Forms.Button AccountsPanelButton;
         private System.Windows.Forms.Button RoomsPanelButton;
         private System.Windows.Forms.Button ReservationsPanelButton;
-        private System.Windows.Forms.Button FlagsPanelButton;
         private System.Windows.Forms.Button SemesterDaysPanelButton;
         private System.Windows.Forms.TabControl MainTabContainer;
         private System.Windows.Forms.TabPage AccountsPanelTabPage;
