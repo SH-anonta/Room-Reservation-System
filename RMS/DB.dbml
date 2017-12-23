@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MainDB" Class="DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\compilezone\c#\RMS\MainDB.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="RMS.Properties.Settings" SettingsPropertyName="MainDBConnectionString3" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MainDB.mdf;Integrated Security=True" SettingsObjectName="RMS.Properties.Settings" SettingsPropertyName="MainDBConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Annex" Member="Annexes">
+    <Type Name="Annex">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Annex_Room" Member="Rooms" ThisKey="Id" OtherKey="BelongsToAnnexID" Type="Room" />
+    </Type>
+  </Table>
   <Table Name="dbo.WeekDay" Member="WeekDays">
     <Type Name="WeekDay">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -7,13 +14,6 @@
       <Column Name="DayNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="WeekDay_RegularClass" Member="RegularClasses" ThisKey="Id" OtherKey="WeekDayID" Type="RegularClass" />
       <Association Name="WeekDay_SemesterDay" Member="SemesterDays" ThisKey="Id" OtherKey="WeekDayID" Type="SemesterDay" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Annex" Member="Annexes">
-    <Type Name="Annex">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Annex_Room" Member="Rooms" ThisKey="Id" OtherKey="BelongsToAnnexID" Type="Room" />
     </Type>
   </Table>
   <Table Name="dbo.Flag" Member="Flags">
