@@ -13,16 +13,18 @@ namespace RMS {
 
         // spaces are prepended to the format so the text appears at the center
         private const string TIME_PICKER_FORMAT= "         hh:mm tt";
-        private const string DATE_PICKER_FORMAT= "  dd-MMMM-yyyy";
+        private const string DATE_PICKER_FORMAT= " dd-MMMM-yyyy";
 
         public UserForm() {
             InitializeComponent();
             DatePicker.Format = DateTimePickerFormat.Custom;
             DatePicker.CustomFormat = DATE_PICKER_FORMAT;
 
-            TimePicker.Format  = DateTimePickerFormat.Custom;
-            TimePicker.CustomFormat= TIME_PICKER_FORMAT;
+            StartTimePicker.Format  = DateTimePickerFormat.Custom;
+            StartTimePicker.CustomFormat= TIME_PICKER_FORMAT;
 
+            EndTimePicker.Format = DateTimePickerFormat.Custom;
+            EndTimePicker.CustomFormat = TIME_PICKER_FORMAT;
 
         }
 
@@ -43,6 +45,10 @@ namespace RMS {
 
         private void labelTime_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void buttonMake_Click(object sender, EventArgs e) {
 
         }
     }

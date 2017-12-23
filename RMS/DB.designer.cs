@@ -790,9 +790,9 @@ namespace RMS
 		
 		private int _Id;
 		
-		private System.TimeSpan _StartTime;
+		private System.DateTime _StartTime;
 		
-		private System.TimeSpan _EndTime;
+		private System.DateTime _EndTime;
 		
 		private string _CourseID;
 		
@@ -812,9 +812,9 @@ namespace RMS
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnStartTimeChanging(System.TimeSpan value);
+    partial void OnStartTimeChanging(System.DateTime value);
     partial void OnStartTimeChanged();
-    partial void OnEndTimeChanging(System.TimeSpan value);
+    partial void OnEndTimeChanging(System.DateTime value);
     partial void OnEndTimeChanged();
     partial void OnCourseIDChanging(string value);
     partial void OnCourseIDChanged();
@@ -853,8 +853,8 @@ namespace RMS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartTime", DbType="Time NOT NULL")]
-		public System.TimeSpan StartTime
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartTime", DbType="DateTime NOT NULL")]
+		public System.DateTime StartTime
 		{
 			get
 			{
@@ -873,8 +873,8 @@ namespace RMS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndTime", DbType="Time NOT NULL")]
-		public System.TimeSpan EndTime
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndTime", DbType="DateTime NOT NULL")]
+		public System.DateTime EndTime
 		{
 			get
 			{
@@ -1390,7 +1390,7 @@ namespace RMS
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int Id
 		{
 			get
