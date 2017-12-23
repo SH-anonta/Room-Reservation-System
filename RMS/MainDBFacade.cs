@@ -127,7 +127,7 @@ namespace RMS {
 
             if(number != "") {
                  data = (from x in data
-                       where x.Number.Contains(number)
+                       where x.Number.StartsWith(number)
                        select x).ToList();
             }
 

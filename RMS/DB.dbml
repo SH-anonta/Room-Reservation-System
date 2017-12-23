@@ -13,7 +13,6 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="DayNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="WeekDay_RegularClass" Member="RegularClasses" ThisKey="Id" OtherKey="WeekDayID" Type="RegularClass" />
-      <Association Name="WeekDay_SemesterDay" Member="SemesterDays" ThisKey="Id" OtherKey="WeekDayID" Type="SemesterDay" />
     </Type>
   </Table>
   <Table Name="dbo.Flag" Member="Flags">
@@ -75,14 +74,6 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TypeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="RoomType_Room" Member="Rooms" ThisKey="Id" OtherKey="RoomTypeID" Type="Room" />
-    </Type>
-  </Table>
-  <Table Name="dbo.SemesterDay" Member="SemesterDays">
-    <Type Name="SemesterDay">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="WeekDayID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="WeekDay_SemesterDay" Member="WeekDay" ThisKey="WeekDayID" OtherKey="Id" Type="WeekDay" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Users" Member="Users">

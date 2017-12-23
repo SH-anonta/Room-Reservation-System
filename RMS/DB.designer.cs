@@ -51,9 +51,6 @@ namespace RMS
     partial void InsertRoomType(RoomType instance);
     partial void UpdateRoomType(RoomType instance);
     partial void DeleteRoomType(RoomType instance);
-    partial void InsertSemesterDay(SemesterDay instance);
-    partial void UpdateSemesterDay(SemesterDay instance);
-    partial void DeleteSemesterDay(SemesterDay instance);
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
@@ -145,14 +142,6 @@ namespace RMS
 			get
 			{
 				return this.GetTable<RoomType>();
-			}
-		}
-		
-		public System.Data.Linq.Table<SemesterDay> SemesterDays
-		{
-			get
-			{
-				return this.GetTable<SemesterDay>();
 			}
 		}
 		
@@ -301,8 +290,6 @@ namespace RMS
 		
 		private EntitySet<RegularClass> _RegularClasses;
 		
-		private EntitySet<SemesterDay> _SemesterDays;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -318,7 +305,6 @@ namespace RMS
 		public WeekDay()
 		{
 			this._RegularClasses = new EntitySet<RegularClass>(new Action<RegularClass>(this.attach_RegularClasses), new Action<RegularClass>(this.detach_RegularClasses));
-			this._SemesterDays = new EntitySet<SemesterDay>(new Action<SemesterDay>(this.attach_SemesterDays), new Action<SemesterDay>(this.detach_SemesterDays));
 			OnCreated();
 		}
 		
@@ -395,19 +381,6 @@ namespace RMS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="WeekDay_SemesterDay", Storage="_SemesterDays", ThisKey="Id", OtherKey="WeekDayID")]
-		public EntitySet<SemesterDay> SemesterDays
-		{
-			get
-			{
-				return this._SemesterDays;
-			}
-			set
-			{
-				this._SemesterDays.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -435,18 +408,6 @@ namespace RMS
 		}
 		
 		private void detach_RegularClasses(RegularClass entity)
-		{
-			this.SendPropertyChanging();
-			entity.WeekDay = null;
-		}
-		
-		private void attach_SemesterDays(SemesterDay entity)
-		{
-			this.SendPropertyChanging();
-			entity.WeekDay = this;
-		}
-		
-		private void detach_SemesterDays(SemesterDay entity)
 		{
 			this.SendPropertyChanging();
 			entity.WeekDay = null;
@@ -1793,157 +1754,6 @@ namespace RMS
 		{
 			this.SendPropertyChanging();
 			entity.RoomType = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SemesterDay")]
-	public partial class SemesterDay : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private System.DateTime _Date;
-		
-		private int _WeekDayID;
-		
-		private EntityRef<WeekDay> _WeekDay;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnDateChanging(System.DateTime value);
-    partial void OnDateChanged();
-    partial void OnWeekDayIDChanging(int value);
-    partial void OnWeekDayIDChanged();
-    #endregion
-		
-		public SemesterDay()
-		{
-			this._WeekDay = default(EntityRef<WeekDay>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
-		public System.DateTime Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WeekDayID", DbType="Int NOT NULL")]
-		public int WeekDayID
-		{
-			get
-			{
-				return this._WeekDayID;
-			}
-			set
-			{
-				if ((this._WeekDayID != value))
-				{
-					if (this._WeekDay.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnWeekDayIDChanging(value);
-					this.SendPropertyChanging();
-					this._WeekDayID = value;
-					this.SendPropertyChanged("WeekDayID");
-					this.OnWeekDayIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="WeekDay_SemesterDay", Storage="_WeekDay", ThisKey="WeekDayID", OtherKey="Id", IsForeignKey=true)]
-		public WeekDay WeekDay
-		{
-			get
-			{
-				return this._WeekDay.Entity;
-			}
-			set
-			{
-				WeekDay previousValue = this._WeekDay.Entity;
-				if (((previousValue != value) 
-							|| (this._WeekDay.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._WeekDay.Entity = null;
-						previousValue.SemesterDays.Remove(this);
-					}
-					this._WeekDay.Entity = value;
-					if ((value != null))
-					{
-						value.SemesterDays.Add(this);
-						this._WeekDayID = value.Id;
-					}
-					else
-					{
-						this._WeekDayID = default(int);
-					}
-					this.SendPropertyChanged("WeekDay");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	
