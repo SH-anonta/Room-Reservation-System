@@ -304,5 +304,9 @@ namespace RMS {
             var editor = new EditRoutineExceptionForm(exception);
             editor.Show();
         }
+
+        private void tableLayoutPanel11_Paint(object sender, PaintEventArgs e) {
+
+        }
     }
 }

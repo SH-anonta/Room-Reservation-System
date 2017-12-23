@@ -120,7 +120,7 @@ namespace RMS {
         }
 
         public List<RoutineException> getAllRoutineExceptions() {
-            return db.RoutineExceptions.ToList();
+            return db.RoutineExceptions.OrderBy(x=>x.Date).ToList();
         }
 
         public List<string> getWeekDayNames() {
@@ -133,7 +133,7 @@ namespace RMS {
 
         // Return Routine exceptions that have a date set to today's or later
         public List<RoutineException> getFutureRoutineExceptions() {
-            return db.RoutineExceptions.Where(x => x.Date.Date >= DateTime.Now.Date).ToList();
+            return db.RoutineExceptions.Where(x => x.Date.Date >= DateTime.Now.Date).OrderBy(x=>x.Date).ToList();
         }
 
         // Filters (getters that return bsed on constraints)
