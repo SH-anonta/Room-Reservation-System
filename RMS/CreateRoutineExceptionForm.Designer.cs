@@ -26,9 +26,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.CreateButton = new System.Windows.Forms.Button();
-            this.RoutineExceptionDateDTP = new System.Windows.Forms.DateTimePicker();
             this.WeekDayCB = new System.Windows.Forms.ComboBox();
+            this.CreateButton = new System.Windows.Forms.Button();
+            this.ExceptionDateDTP = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -36,12 +36,12 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 79F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 153F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.RoutineExceptionDateDTP, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.WeekDayCB, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.CreateButton, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.ExceptionDateDTP, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -50,7 +50,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(232, 157);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // label1
             // 
@@ -72,6 +72,15 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Week day";
             // 
+            // WeekDayCB
+            // 
+            this.WeekDayCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.WeekDayCB.FormattingEnabled = true;
+            this.WeekDayCB.Location = new System.Drawing.Point(82, 49);
+            this.WeekDayCB.Name = "WeekDayCB";
+            this.WeekDayCB.Size = new System.Drawing.Size(99, 21);
+            this.WeekDayCB.TabIndex = 4;
+            // 
             // CreateButton
             // 
             this.CreateButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -85,23 +94,14 @@
             this.CreateButton.UseVisualStyleBackColor = true;
             this.CreateButton.Click += new System.EventHandler(this.CreateButton_Click);
             // 
-            // RoutineExceptionDateDTP
+            // ExceptionDateDTP
             // 
-            this.RoutineExceptionDateDTP.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoutineExceptionDateDTP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.RoutineExceptionDateDTP.Location = new System.Drawing.Point(82, 10);
-            this.RoutineExceptionDateDTP.Name = "RoutineExceptionDateDTP";
-            this.RoutineExceptionDateDTP.Size = new System.Drawing.Size(99, 20);
-            this.RoutineExceptionDateDTP.TabIndex = 3;
-            // 
-            // WeekDayCB
-            // 
-            this.WeekDayCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.WeekDayCB.FormattingEnabled = true;
-            this.WeekDayCB.Location = new System.Drawing.Point(82, 49);
-            this.WeekDayCB.Name = "WeekDayCB";
-            this.WeekDayCB.Size = new System.Drawing.Size(99, 21);
-            this.WeekDayCB.TabIndex = 4;
+            this.ExceptionDateDTP.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ExceptionDateDTP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.ExceptionDateDTP.Location = new System.Drawing.Point(82, 10);
+            this.ExceptionDateDTP.Name = "ExceptionDateDTP";
+            this.ExceptionDateDTP.Size = new System.Drawing.Size(99, 20);
+            this.ExceptionDateDTP.TabIndex = 5;
             // 
             // CreateRoutineExceptionForm
             // 
@@ -111,7 +111,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "CreateRoutineExceptionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Create Routine Excepiton";
+            this.Text = "Create ";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -123,8 +123,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button CreateButton;
-        private System.Windows.Forms.DateTimePicker RoutineExceptionDateDTP;
         private System.Windows.Forms.ComboBox WeekDayCB;
+        private System.Windows.Forms.Button CreateButton;
+        private System.Windows.Forms.DateTimePicker ExceptionDateDTP;
     }
 }

@@ -176,6 +176,7 @@ namespace RMS {
             }
             
             var show = data.Select(x => new {
+                                Id = x.Id,
                                 Date = x.Date,
                                 Day = x.WeekDay.Name
                             }).ToList();
@@ -284,6 +285,7 @@ namespace RMS {
         }
 
         private void CreateRoutineException_Click(object sender, EventArgs e) {
+            
             CreateRoutineExceptionForm creator = new CreateRoutineExceptionForm();
             creator.Show();
         }
@@ -294,6 +296,14 @@ namespace RMS {
 
         private void RoutineExceptionsGridView_DoubleClick(object sender, EventArgs e) {
 
+            var cell = (DataGridViewCell) sender;
+            int row = cell.RowIndex;
+
+            string date = RoutineExceptionsGridView.Rows[row].Cells[0].Value.ToString();
+
+            RoutineException exception = dbFacade.getRoutineException(date );
+            var editor = new EditRoutineExceptionForm(exception);
+            editor.Show();
         }
     }
 }

@@ -75,16 +75,22 @@
     <Compile Include="AdminPanel.Designer.cs">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateRoutineExceptionForm.cs">
+    <Compile Include="EditRoutineExceptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateRoutineExceptionForm.Designer.cs">
-      <DependentUpon>CreateRoutineExceptionForm.cs</DependentUpon>
+    <Compile Include="EditRoutineExceptionForm.Designer.cs">
+      <DependentUpon>EditRoutineExceptionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DB.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateRoutineExceptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateRoutineExceptionForm.Designer.cs">
+      <DependentUpon>CreateRoutineExceptionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminPanel.resx">
       <DependentUpon>AdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditRoutineExceptionForm.resx">
+      <DependentUpon>EditRoutineExceptionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateRoutineExceptionForm.resx">
       <DependentUpon>CreateRoutineExceptionForm.cs</DependentUpon>

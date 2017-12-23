@@ -17,27 +17,20 @@ namespace RMS {
             loadFormData();
         }
 
-
         private void loadFormData() {
             WeekDayCB.DataSource = db.getWeekDayNames();
         }
 
         private void CreateButton_Click(object sender, EventArgs e) {
-
             bool success = true;
 
             try {
-                db.createRoutineException(RoutineExceptionDateDTP.Value ,WeekDayCB.Text);
+                db.createRoutineException(ExceptionDateDTP.Value, WeekDayCB.Text);
             }
-            catch(DuplicateRecordException ex){
-                MessageBox.Show(ex.Message);
+            catch(DuplicateRecordException ex) {
                 success = false;
+                MessageBox.Show(ex.Message);
             }
-
-            if (success) {
-                MessageBox.Show("Routine exception created");
-            }
-            
         }
     }
 }
