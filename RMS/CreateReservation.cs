@@ -37,6 +37,16 @@ namespace RMS {
         }
 
         private void PicRandomRoomButton_Click(object sender, EventArgs e) {
+            DateTime date = DatePicker.Value;
+            DateTime start  = StartTimePicker.Value;
+            DateTime end  = EndTimePicker.Value;
+
+            // create datetimes with given date and time of day. second is always 0
+            DateTime start_time = new DateTime(date.Year, date.Month, date.Day, start.Hour, start.Minute, 0);
+            DateTime end_time = new DateTime(date.Year, date.Month, date.Day, end.Hour, end.Minute, 0);
+
+            string picked_room = db.getRandomAvalableRoom(start_time, end_time, db.getRoomTypeIdfromName(RoomTypeCB.Text));
+            RoomNumberTB.Text= picked_room;
 
         }
 

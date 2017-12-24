@@ -54,5 +54,9 @@ namespace RMS {
         private void buttonMake_Click(object sender, EventArgs e) {
 
         }
+
+        private void buttonPick_Click(object sender, EventArgs e) {
+
+        }
     }
 }

@@ -10,6 +10,7 @@ namespace RMS {
     class MainDBFacade {
         const string USER_TYPE_NAME_ADMIN= "Admin";
         const string USER_TYPE_NAME= "User";
+        static Random RandomNumberGen= new Random();
 
         // This constant string is used thorugh out the application's Comboboxes to imply all results should be shown
         public const string COMBOBOX_ALL_OPTIOPNS_NAME= "Any";
@@ -162,6 +163,10 @@ namespace RMS {
             return db.RoutineExceptions.First(x => x.Id == id);
         }
 
+        public int getRoomTypeIdfromName(string name) {
+            return db.RoomTypes.First(x=>x.TypeName == name).Id;
+        }
+
         public RoutineException getRoutineExceptionOfDate(DateTime date) {
             date = date.Date;   // important so only dates are compared their not time 
             return db.RoutineExceptions.FirstOrDefault(x=> x.Date.Date == date);
@@ -202,6 +207,28 @@ namespace RMS {
             DateTime today = DateTime.Now.Date;
             return db.Reservations.Where(x=> x.StartTime.Date >= today).ToList();
         }
+
+        
+        public Reservation getRservation(int id) {
+            return db.Reservations.First(x=>x.Id == id);
+        }
+
+        public RoomType getRoomType(int id) {
+            return db.RoomTypes.First(x=>x.Id == id);
+        }
+
+        //returns room number as staring
+        public string getRandomAvalableRoom(DateTime start, DateTime end, int room_type_id) {
+            RoomType room_type = getRoomType(room_type_id);
+
+            //get rooms that are of room_type and are avalable during the start and end time interval
+            List<string> rooms = room_type.Rooms.Where(x=> !roomIsOccupied(start, end, x.Id)).Select(x=>x.Number).ToList();
+            int count = rooms.Count;
+            int picked = RandomNumberGen.Next(count);
+
+            return rooms[picked];
+        }
+
 
         // Filters (getters that return bsed on constraints)
         public List<User> filterUsersByNameAndType(string name, string type) {
@@ -281,6 +308,13 @@ namespace RMS {
             RoutineException to_delete = getRoutineException(id);
 
             db.RoutineExceptions.DeleteOnSubmit(to_delete);
+            db.SubmitChanges();
+        }
+
+        public void deleteReservation(int id) {
+            var res = db.Reservations.First();
+            
+            db.Reservations.DeleteOnSubmit(res);
             db.SubmitChanges();
         }
 

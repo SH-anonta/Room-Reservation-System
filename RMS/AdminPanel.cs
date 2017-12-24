@@ -366,6 +366,13 @@ namespace RMS {
             updateRegularClassesDGV();
         }
 
-        
+        private void ReservationsGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+            int row = e.RowIndex;
+
+            int reservation_id = (int) ReservationsGridView.Rows[row].Cells[0].Value;
+
+            EditReservationForm editor = new EditReservationForm(reservation_id, loggedInUserName);
+            editor.Show();
+        }
     }
 }

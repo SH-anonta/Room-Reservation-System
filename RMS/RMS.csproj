@@ -81,6 +81,12 @@
     <Compile Include="CreateReservation.Designer.cs">
       <DependentUpon>CreateReservation.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditReservationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditReservationForm.Designer.cs">
+      <DependentUpon>EditReservationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditRoutineExceptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateReservation.resx">
       <DependentUpon>CreateReservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditReservationForm.resx">
+      <DependentUpon>EditReservationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditRoutineExceptionForm.resx">
       <DependentUpon>EditRoutineExceptionForm.cs</DependentUpon>

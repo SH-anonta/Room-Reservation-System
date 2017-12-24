@@ -91,7 +91,6 @@
             this.ShowPastReservationsCHB = new System.Windows.Forms.CheckBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.CreateReservationButton = new System.Windows.Forms.Button();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.RoutineExceptionsGridView = new System.Windows.Forms.DataGridView();
@@ -100,6 +99,8 @@
             this.RoutineExceptionsShowEntriesCHB = new System.Windows.Forms.CheckBox();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.RefreshRegularClassesDGV = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.RegularClassesDGV = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -132,6 +133,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.RoutineExceptionsGridView)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
             this.tabPage9.SuspendLayout();
+            this.tableLayoutPanel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RegularClassesDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -504,7 +506,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(660, 501);
+            this.tabPage2.Size = new System.Drawing.Size(689, 501);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Rooms";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -517,7 +519,7 @@
             this.tabControl2.Location = new System.Drawing.Point(3, 3);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(654, 495);
+            this.tabControl2.Size = new System.Drawing.Size(683, 495);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPage7
@@ -526,7 +528,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(646, 469);
+            this.tabPage7.Size = new System.Drawing.Size(675, 469);
             this.tabPage7.TabIndex = 0;
             this.tabPage7.Text = "Edit";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -543,7 +545,7 @@
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 92F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(640, 463);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(669, 463);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // RoomDataGridView
@@ -555,7 +557,7 @@
             this.RoomDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RoomDataGridView.Location = new System.Drawing.Point(3, 95);
             this.RoomDataGridView.Name = "RoomDataGridView";
-            this.RoomDataGridView.Size = new System.Drawing.Size(634, 365);
+            this.RoomDataGridView.Size = new System.Drawing.Size(663, 365);
             this.RoomDataGridView.TabIndex = 0;
             this.RoomDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RoomDataGridView_CellContentClick);
             // 
@@ -580,7 +582,7 @@
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(634, 86);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(663, 86);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // label2
@@ -821,7 +823,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(660, 501);
+            this.tabPage3.Size = new System.Drawing.Size(689, 501);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Reservations";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -838,7 +840,7 @@
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 103F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 97F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(654, 495);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(683, 495);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // ReservationsGridView
@@ -848,16 +850,17 @@
             this.ReservationsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ReservationsGridView.Location = new System.Drawing.Point(3, 106);
             this.ReservationsGridView.Name = "ReservationsGridView";
-            this.ReservationsGridView.Size = new System.Drawing.Size(648, 386);
+            this.ReservationsGridView.Size = new System.Drawing.Size(677, 386);
             this.ReservationsGridView.TabIndex = 0;
+            this.ReservationsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ReservationsGridView_CellDoubleClick);
             // 
             // tableLayoutPanel11
             // 
             this.tableLayoutPanel11.ColumnCount = 4;
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 283F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 724F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 331F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 650F));
             this.tableLayoutPanel11.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel11.Controls.Add(this.label5, 0, 1);
             this.tableLayoutPanel11.Controls.Add(this.textBox1, 1, 0);
@@ -872,7 +875,7 @@
             this.tableLayoutPanel11.RowCount = 2;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(648, 97);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(677, 97);
             this.tableLayoutPanel11.TabIndex = 1;
             this.tableLayoutPanel11.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel11_Paint);
             // 
@@ -916,7 +919,7 @@
             // 
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(391, 18);
+            this.label19.Location = new System.Drawing.Point(439, 18);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(30, 13);
             this.label19.TabIndex = 4;
@@ -926,9 +929,9 @@
             // 
             this.ShowPastReservationsCHB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ShowPastReservationsCHB.AutoSize = true;
-            this.ShowPastReservationsCHB.Location = new System.Drawing.Point(391, 64);
+            this.ShowPastReservationsCHB.Location = new System.Drawing.Point(439, 64);
             this.ShowPastReservationsCHB.Name = "ShowPastReservationsCHB";
-            this.ShowPastReservationsCHB.Size = new System.Drawing.Size(82, 17);
+            this.ShowPastReservationsCHB.Size = new System.Drawing.Size(98, 17);
             this.ShowPastReservationsCHB.TabIndex = 5;
             this.ShowPastReservationsCHB.Text = "show past data";
             this.ShowPastReservationsCHB.UseVisualStyleBackColor = true;
@@ -938,7 +941,7 @@
             // 
             this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(479, 14);
+            this.dateTimePicker1.Location = new System.Drawing.Point(553, 14);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(112, 20);
             this.dateTimePicker1.TabIndex = 6;
@@ -946,7 +949,7 @@
             // CreateReservationButton
             // 
             this.CreateReservationButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.CreateReservationButton.Location = new System.Drawing.Point(479, 61);
+            this.CreateReservationButton.Location = new System.Drawing.Point(553, 61);
             this.CreateReservationButton.Name = "CreateReservationButton";
             this.CreateReservationButton.Size = new System.Drawing.Size(112, 23);
             this.CreateReservationButton.TabIndex = 7;
@@ -954,23 +957,13 @@
             this.CreateReservationButton.UseVisualStyleBackColor = true;
             this.CreateReservationButton.Click += new System.EventHandler(this.CreateReservationButton_Click);
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(660, 501);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Flags";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.tableLayoutPanel8);
             this.tabPage5.Location = new System.Drawing.Point(4, 24);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(660, 501);
+            this.tabPage5.Size = new System.Drawing.Size(689, 501);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Exceptions";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -987,7 +980,7 @@
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(654, 495);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(683, 495);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // RoutineExceptionsGridView
@@ -998,7 +991,7 @@
             this.RoutineExceptionsGridView.Location = new System.Drawing.Point(3, 87);
             this.RoutineExceptionsGridView.Name = "RoutineExceptionsGridView";
             this.RoutineExceptionsGridView.ReadOnly = true;
-            this.RoutineExceptionsGridView.Size = new System.Drawing.Size(648, 405);
+            this.RoutineExceptionsGridView.Size = new System.Drawing.Size(677, 405);
             this.RoutineExceptionsGridView.TabIndex = 0;
             this.RoutineExceptionsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RoutineExceptionsGridView_CellDoubleClick);
             // 
@@ -1016,13 +1009,13 @@
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.42735F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.57265F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(648, 78);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(677, 78);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // CreateRoutineException
             // 
             this.CreateRoutineException.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.CreateRoutineException.Location = new System.Drawing.Point(535, 47);
+            this.CreateRoutineException.Location = new System.Drawing.Point(564, 47);
             this.CreateRoutineException.Name = "CreateRoutineException";
             this.CreateRoutineException.Size = new System.Drawing.Size(110, 23);
             this.CreateRoutineException.TabIndex = 3;
@@ -1034,7 +1027,7 @@
             // 
             this.RoutineExceptionsShowEntriesCHB.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.RoutineExceptionsShowEntriesCHB.AutoSize = true;
-            this.RoutineExceptionsShowEntriesCHB.Location = new System.Drawing.Point(535, 11);
+            this.RoutineExceptionsShowEntriesCHB.Location = new System.Drawing.Point(564, 11);
             this.RoutineExceptionsShowEntriesCHB.Name = "RoutineExceptionsShowEntriesCHB";
             this.RoutineExceptionsShowEntriesCHB.Size = new System.Drawing.Size(110, 17);
             this.RoutineExceptionsShowEntriesCHB.TabIndex = 1;
@@ -1044,19 +1037,19 @@
             // 
             // tabPage9
             // 
-            this.tabPage9.Controls.Add(this.RefreshRegularClassesDGV);
-            this.tabPage9.Controls.Add(this.RegularClassesDGV);
+            this.tabPage9.Controls.Add(this.tableLayoutPanel12);
             this.tabPage9.Location = new System.Drawing.Point(4, 24);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(660, 501);
+            this.tabPage9.Size = new System.Drawing.Size(689, 501);
             this.tabPage9.TabIndex = 5;
             this.tabPage9.Text = "RegularClasses";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
             // RefreshRegularClassesDGV
             // 
-            this.RefreshRegularClassesDGV.Location = new System.Drawing.Point(545, 43);
+            this.RefreshRegularClassesDGV.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.RefreshRegularClassesDGV.Location = new System.Drawing.Point(605, 23);
             this.RefreshRegularClassesDGV.Name = "RefreshRegularClassesDGV";
             this.RefreshRegularClassesDGV.Size = new System.Drawing.Size(75, 23);
             this.RefreshRegularClassesDGV.TabIndex = 3;
@@ -1064,13 +1057,40 @@
             this.RefreshRegularClassesDGV.UseVisualStyleBackColor = true;
             this.RefreshRegularClassesDGV.Click += new System.EventHandler(this.RefreshRegularClassesDGV_Click);
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(689, 501);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Flags";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.ColumnCount = 1;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.Controls.Add(this.RegularClassesDGV, 0, 1);
+            this.tableLayoutPanel12.Controls.Add(this.RefreshRegularClassesDGV, 0, 0);
+            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 2;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.93939F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.06061F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(683, 495);
+            this.tableLayoutPanel12.TabIndex = 4;
+            // 
             // RegularClassesDGV
             // 
+            this.RegularClassesDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RegularClassesDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RegularClassesDGV.Location = new System.Drawing.Point(7, 82);
+            this.RegularClassesDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RegularClassesDGV.Location = new System.Drawing.Point(3, 72);
             this.RegularClassesDGV.Name = "RegularClassesDGV";
-            this.RegularClassesDGV.Size = new System.Drawing.Size(613, 390);
-            this.RegularClassesDGV.TabIndex = 2;
+            this.RegularClassesDGV.Size = new System.Drawing.Size(677, 420);
+            this.RegularClassesDGV.TabIndex = 3;
             // 
             // AdminPanel
             // 
@@ -1118,6 +1138,7 @@
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
             this.tabPage9.ResumeLayout(false);
+            this.tableLayoutPanel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RegularClassesDGV)).EndInit();
             this.ResumeLayout(false);
 
@@ -1144,7 +1165,6 @@
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label1;
@@ -1201,6 +1221,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button CreateReservationButton;
         private System.Windows.Forms.Button RefreshRegularClassesDGV;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private System.Windows.Forms.DataGridView RegularClassesDGV;
     }
 }

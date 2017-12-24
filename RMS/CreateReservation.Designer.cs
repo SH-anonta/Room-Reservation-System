@@ -157,6 +157,7 @@
             this.RoomNumberTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.RoomNumberTB.Location = new System.Drawing.Point(92, 170);
             this.RoomNumberTB.Name = "RoomNumberTB";
+            this.RoomNumberTB.ReadOnly = true;
             this.RoomNumberTB.Size = new System.Drawing.Size(181, 20);
             this.RoomNumberTB.TabIndex = 4;
             // 
