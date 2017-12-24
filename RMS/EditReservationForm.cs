@@ -41,6 +41,7 @@ namespace RMS {
         private void CancleReservationButton_Click(object sender, EventArgs e) {
             db.deleteReservation(reservation_id);
             MessageBox.Show("Reservation cancled");
+            this.Close();
         }
     }
 }

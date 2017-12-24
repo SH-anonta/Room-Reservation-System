@@ -23,6 +23,7 @@ namespace RMS {
             // The modified user entry is returned
             user_acocunt = db.updateUserAccount(user_acocunt.UserName, UserNameTB.Text, UserAccountTypeCB.Text, PasswordTB.Text);
             MessageBox.Show("Changes Saved");
+            this.Close();
         }
 
         private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e) {

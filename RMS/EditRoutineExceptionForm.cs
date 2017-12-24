@@ -24,11 +24,13 @@ namespace RMS {
         private void loadFormData() {
             ShowDateTB.Text= routine_exception.Date.ToString(CUSTOM_DATE_FORMAT);
             WeekDayCB.DataSource = db.getWeekDayNames();
+            WeekDayCB.Text = routine_exception.WeekDay.Name;
         }
 
 
         private void DeleteButton_Click(object sender, EventArgs e) {
             db.DeleteRoutineException(routine_exception.Id);
+            MessageBox.Show("Routine exception deleted");
             this.Close();
         }
 

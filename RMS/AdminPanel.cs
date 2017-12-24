@@ -187,7 +187,7 @@ namespace RMS {
             RoutineExceptionsGridView.DataSource= show;
         }
 
-        private void UpdteResevationsGridview() {
+        private void UpdteReservationsGridview() {
             const string DATE_FORMAT= "dd-MMMM-yy";
             
             bool show_past_records = ShowPastReservationsCHB.Checked;
@@ -230,7 +230,7 @@ namespace RMS {
             UpdateUserDataGridView();
             UpdateRoomDataGridView();
             UpdateRoutineExceptionGridView();
-            UpdteResevationsGridview();
+            UpdteReservationsGridview();
             updateRegularClassesDGV();
         }
 
@@ -264,8 +264,9 @@ namespace RMS {
             string uname = (string) UsersDataGridView.Rows[clicked_row].Cells[0].Value;
 
             User user = dbFacade.getUser(uname);
-            AccountEditForm profile = new AccountEditForm(user);
-            profile.Show();
+            AccountEditForm editor = new AccountEditForm(user);
+            editor.Show();
+            editor.FormClosed += (x,y) => UpdateUserDataGridView();
 
         }
 
@@ -330,6 +331,8 @@ namespace RMS {
             RoutineException exception = dbFacade.getRoutineException(id);
             var editor = new EditRoutineExceptionForm(exception);
             editor.Show();
+
+            editor.FormClosed += (x, y) => UpdateRoutineExceptionGridView();
         }
 
         private void tableLayoutPanel11_Paint(object sender, PaintEventArgs e) {
@@ -337,7 +340,7 @@ namespace RMS {
         }
 
         private void ShowPastReservationsCHB_CheckedChanged(object sender, EventArgs e) {
-            UpdteResevationsGridview();
+            UpdteReservationsGridview();
         }
 
         private void CreateReservationButton_Click(object sender, EventArgs e) {
@@ -373,6 +376,7 @@ namespace RMS {
 
             EditReservationForm editor = new EditReservationForm(reservation_id, loggedInUserName);
             editor.Show();
+            editor.FormClosed += (x,y) => UpdteReservationsGridview();
         }
 
         private void RoomDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
