@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace RMS {
     public partial class AdminPanel : Form {
-        MainDBFacade dbFacade = MainDBFacade.getMainDBFacade();
+        private MainDBFacade dbFacade = MainDBFacade.getMainDBFacade();
         const string COMBOBOX_ALLOPTIOPNS_NAME= MainDBFacade.COMBOBOX_ALL_OPTIOPNS_NAME;
         private readonly string loggedInUserName;
 
@@ -373,6 +373,16 @@ namespace RMS {
 
             EditReservationForm editor = new EditReservationForm(reservation_id, loggedInUserName);
             editor.Show();
+        }
+
+        private void RoomDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+            int row = e.RowIndex;
+
+            string room_number = (string) RoomDataGridView.Rows[row].Cells[0].Value;
+
+            EditRoomForm editor = new EditRoomForm(room_number);
+            editor.Show();
+            editor.FormClosed += (x, y) => UpdateRoomDataGridView();
         }
     }
 }

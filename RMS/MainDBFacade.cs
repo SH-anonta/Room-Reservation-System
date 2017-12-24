@@ -63,6 +63,8 @@ namespace RMS {
             db.SubmitChanges();
         }
 
+        
+
         public void createReservation(DateTime start, DateTime end, int reservee_user_id, int room_id, string description) {
 
             if (roomIsOccupied(start, end, room_id)) {
@@ -116,6 +118,20 @@ namespace RMS {
         }
 
         // Readers
+        public List<Reservation> getAllReservationsofUser(int id) {
+            User user = getUserById(id);
+            return user.Reservations.OrderBy(x=>x.StartTime).ToList();
+        }
+
+        public List<Reservation> getFutureReservationsofUser(int id) {
+            User user = getUserById(id);
+            DateTime today = DateTime.Now.Date;
+            return user.Reservations.Where(x=>x.StartTime >= today).OrderBy(x=>x.StartTime).ToList();
+        }
+
+        public int UserNameToID(string user_name) {
+            return db.Users.First(x=>x.UserName == user_name).Id;
+        }
         public User getUserById(int id) {
             return db.Users.FirstOrDefault(x=> x.Id == id);
         }
@@ -224,6 +240,10 @@ namespace RMS {
             //get rooms that are of room_type and are avalable during the start and end time interval
             List<string> rooms = room_type.Rooms.Where(x=> !roomIsOccupied(start, end, x.Id)).Select(x=>x.Number).ToList();
             int count = rooms.Count;
+
+            if(count == 0) {
+                throw new NoRoomFoundException("No room of specified type is avalable during this time");
+            }
             int picked = RandomNumberGen.Next(count);
 
             return rooms[picked];
@@ -294,6 +314,17 @@ namespace RMS {
             db.SubmitChanges();
         }
 
+        public void updateRoom(string number, string name, string type, string annex, int capacity) {
+            Room room = db.Rooms.First(x=>x.Number == number);
+            room.Number = number;
+            room.Name = name;
+            room.RoomType = db.RoomTypes.First(x => x.TypeName == type);
+            room.Annex = db.Annexes.First(x => x.Name == annex);
+            room.RoomCapacity = capacity;
+
+            db.SubmitChanges();
+        }
+
         // Deleters
         public void DeleteAccount(string uname) {
             User user = db.Users.FirstOrDefault(x => x.UserName == uname);
@@ -316,6 +347,14 @@ namespace RMS {
             
             db.Reservations.DeleteOnSubmit(res);
             db.SubmitChanges();
+        }
+
+        public void deleteRoom(string room_number) {
+            Room to_delete = db.Rooms.First(x=> x.Number == room_number);
+            
+            db.Rooms.DeleteOnSubmit(to_delete);
+            db.SubmitChanges();
+
         }
 
         //  Utility
@@ -419,6 +458,10 @@ namespace RMS {
         public RoomUnavalableException(string msg): base(msg) {}
     }
     
+    class NoRoomFoundException: Exception {
+        public NoRoomFoundException(){}
+        public NoRoomFoundException(string msg): base(msg) {}
+    }
 
     class HashGenerator {
         

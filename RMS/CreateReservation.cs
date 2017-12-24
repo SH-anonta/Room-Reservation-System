@@ -45,8 +45,14 @@ namespace RMS {
             DateTime start_time = new DateTime(date.Year, date.Month, date.Day, start.Hour, start.Minute, 0);
             DateTime end_time = new DateTime(date.Year, date.Month, date.Day, end.Hour, end.Minute, 0);
 
-            string picked_room = db.getRandomAvalableRoom(start_time, end_time, db.getRoomTypeIdfromName(RoomTypeCB.Text));
-            RoomNumberTB.Text= picked_room;
+            try {
+                string picked_room = db.getRandomAvalableRoom(start_time, end_time, db.getRoomTypeIdfromName(RoomTypeCB.Text));
+                RoomNumberTB.Text= picked_room;
+            }
+            catch (NoRoomFoundException ex) {
+                MessageBox.Show(ex.Message);
+            }
+            
 
         }
 

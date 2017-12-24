@@ -10,53 +10,57 @@ using System.Windows.Forms;
 
 namespace RMS {
     public partial class UserForm : Form {
+        MainDBFacade db = MainDBFacade.getMainDBFacade();
 
         // spaces are prepended to the format so the text appears at the center
-        private const string TIME_PICKER_FORMAT= "         hh:mm tt";
-        private const string DATE_PICKER_FORMAT= " dd-MMMM-yyyy";
         private string loggedInAsUser;
+
         public UserForm(string user_name) {
             loggedInAsUser= user_name;
             
             InitializeComponent();
+            UpdteResevationsGridview();
+        }
+        
+        private void UpdteResevationsGridview() {
+            const string DATE_FORMAT= "dd-MMMM-yy";
+            int user_id = db.UserNameToID(loggedInAsUser);
+
+            bool show_past_records = ShowPastReservationsCHB.Checked;
             
-            DatePicker.Format = DateTimePickerFormat.Custom;
-            DatePicker.CustomFormat = DATE_PICKER_FORMAT;
+            List<Reservation> data = null;
+            
+            if(show_past_records) data = db.getAllReservationsofUser(user_id);
+            else data = db.getFutureReservationsofUser(user_id);
+            
+            var show = from x in data
+                       select new{ ID=x.Id,
+                                   Date= x.StartTime.Date.ToString(DATE_FORMAT),
+                                   From= x.StartTime.TimeOfDay,
+                                   To= x.EndTime.TimeOfDay,
+                                   RoomNumber = x.Room.Number,
+                                   Reservee = x.User.UserName
+                                   };
 
-            StartTimePicker.Format  = DateTimePickerFormat.Custom;
-            StartTimePicker.CustomFormat= TIME_PICKER_FORMAT;
-
-            EndTimePicker.Format = DateTimePickerFormat.Custom;
-            EndTimePicker.CustomFormat = TIME_PICKER_FORMAT;
-
+            ReservationsDataGridView.DataSource= show.ToList();
         }
 
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-
+        private void CreateReservation_Click(object sender, EventArgs e) {
+            CreateReservation creator =  new CreateReservation(db.getUser(loggedInAsUser));
+            creator.Show();
         }
 
-        private void UserForm_Load(object sender, EventArgs e)
-        {
-
+        private void ShowPastReservationsCHB_CheckedChanged(object sender, EventArgs e) {
+            UpdteResevationsGridview();
         }
 
-        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
-        {
+        private void ReservationsDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+            int row = e.RowIndex;
 
-        }
+            int reservation_id = (int) ReservationsDataGridView.Rows[row].Cells[0].Value;
 
-        private void labelTime_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonMake_Click(object sender, EventArgs e) {
-
-        }
-
-        private void buttonPick_Click(object sender, EventArgs e) {
-
+            EditReservationForm editor = new EditReservationForm(reservation_id, loggedInAsUser);
+            editor.Show();
         }
     }
 }

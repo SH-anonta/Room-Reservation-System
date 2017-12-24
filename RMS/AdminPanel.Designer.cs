@@ -560,6 +560,7 @@
             this.RoomDataGridView.Size = new System.Drawing.Size(663, 365);
             this.RoomDataGridView.TabIndex = 0;
             this.RoomDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RoomDataGridView_CellContentClick);
+            this.RoomDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RoomDataGridView_CellDoubleClick);
             // 
             // tableLayoutPanel7
             // 
@@ -668,7 +669,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(666, 469);
+            this.tabPage8.Size = new System.Drawing.Size(675, 469);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Create";
             this.tabPage8.UseVisualStyleBackColor = true;
