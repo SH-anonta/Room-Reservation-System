@@ -10,7 +10,10 @@ using System.Windows.Forms;
 
 namespace RMS {
     public partial class LoginForm : Form {
-        const string ERROR_MESSAGE_LOGIN_FAILD= "Login Failed: The requested account does not exist.";
+        
+
+        private const string ERROR_MESSAGE_LOGIN_FAILD= "Login Failed: The requested account does not exist.";
+        private MainDBFacade db = MainDBFacade.getMainDBFacade();
 
         public LoginForm() {
             InitializeComponent();
@@ -24,11 +27,26 @@ namespace RMS {
             string uname = UserNameTextBox.Text;
             string password = PasswordTextBox.Text;
 
-            showLoginFaildError();
+            if (!db.LoginIsValid(uname, password)) {
+                showLoginFaildError();
+                return;
+            }
+            
+            if(db.userIsAdmin(uname)) {
+                AdminPanel admin_window = new AdminPanel(uname);
+                admin_window.Show();
+
+                admin_window.FormClosed += (x, y) => this.Close();
+                this.Hide();
+            }
+            else{
+                //TODO OPEN USER 
+            }
+            
         }
 
-        // helper methods
 
+        // helper methods
         private void showLoginFaildError() {
             MessageBox.Show(ERROR_MESSAGE_LOGIN_FAILD);
         }

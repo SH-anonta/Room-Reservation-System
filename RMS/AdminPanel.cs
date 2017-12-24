@@ -7,8 +7,11 @@ namespace RMS {
     public partial class AdminPanel : Form {
         MainDBFacade dbFacade = MainDBFacade.getMainDBFacade();
         const string COMBOBOX_ALLOPTIOPNS_NAME= MainDBFacade.COMBOBOX_ALL_OPTIOPNS_NAME;
+        private readonly string loggedInUserName;
 
-        public AdminPanel() {
+        public AdminPanel(string user_name) {
+            loggedInUserName= user_name;
+
             InitializeComponent();
             hideTabHeaders();
         }
@@ -184,6 +187,28 @@ namespace RMS {
             RoutineExceptionsGridView.DataSource= show;
         }
 
+        private void UpdteResevationsGridview() {
+            const string DATE_FORMAT= "dd-MMMM-yy";
+            
+            bool show_past_records = ShowPastReservationsCHB.Checked;
+            
+            List<Reservation> data = null;
+            
+            if(show_past_records) data = dbFacade.getAllReservations();
+            else data = dbFacade.getFutureReservations();
+            
+            var show = from x in data
+                       select new{ ID=x.Id,
+                                   Date= x.StartTime.Date.ToString(DATE_FORMAT),
+                                   From= x.StartTime.TimeOfDay,
+                                   To= x.EndTime.TimeOfDay,
+                                   RoomNumber = x.Room.Number,
+                                   Reservee = x.User.UserName
+                                   };
+
+            ReservationsGridView.DataSource= show.ToList();
+        }
+
         private void RoomDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
 
         }
@@ -205,6 +230,7 @@ namespace RMS {
             UpdateUserDataGridView();
             UpdateRoomDataGridView();
             UpdateRoutineExceptionGridView();
+            UpdteResevationsGridview();
         }
 
         private void loadUserTypeCB() {
@@ -307,6 +333,14 @@ namespace RMS {
 
         private void tableLayoutPanel11_Paint(object sender, PaintEventArgs e) {
 
+        }
+
+        private void ShowPastReservationsCHB_CheckedChanged(object sender, EventArgs e) {
+            UpdteResevationsGridview();
+        }
+
+        private void CreateReservationButton_Click(object sender, EventArgs e) {
+            CreateReservation creator =  new CreateReservation(dbFacade.getUser(loggedInUserName));
         }
     }
 }

@@ -8,6 +8,9 @@ using System.Diagnostics;
 namespace RMS {
    // Singleton class that handles all db query and update operation for this application
     class MainDBFacade {
+        const string USER_TYPE_NAME_ADMIN= "Admin";
+        const string USER_TYPE_NAME= "User";
+
         // This constant string is used thorugh out the application's Comboboxes to imply all results should be shown
         public const string COMBOBOX_ALL_OPTIOPNS_NAME= "Any";
 
@@ -177,7 +180,18 @@ namespace RMS {
 
         // Return Routine exceptions that have a date set to today's or later
         public List<RoutineException> getFutureRoutineExceptions() {
-            return db.RoutineExceptions.Where(x => x.Date.Date >= DateTime.Now.Date).OrderBy(x=>x.Date).ToList();
+            DateTime today = DateTime.Now.Date;
+            return db.RoutineExceptions.Where(x => x.Date.Date >= today).OrderBy(x=>x.Date).ToList();
+        }
+
+
+        public List<Reservation> getAllReservations() {
+            return db.Reservations.ToList();
+        }
+
+        public List<Reservation> getFutureReservations() {
+            DateTime today = DateTime.Now.Date;
+            return db.Reservations.Where(x=> x.StartTime.Date >= today).ToList();
         }
 
         // Filters (getters that return bsed on constraints)
@@ -219,6 +233,8 @@ namespace RMS {
 
             return data;
         }
+
+
 
         // Updaters
 
@@ -302,6 +318,20 @@ namespace RMS {
 
         public bool RoutineExceptionWihDateExists(DateTime date) {
             return db.RoutineExceptions.FirstOrDefault(x => x.Date.Date == date.Date) != null;
+        }
+
+        public bool LoginIsValid(string uname, string password) {
+            User user = db.Users.FirstOrDefault(x=>x.UserName == uname);
+
+            // if account with given uesrname does not exist
+            if(user == null) return false;
+
+            // check for password match
+            return HashGenerator.hasho(password).ToString() == user.Password;
+        }
+
+        public bool userIsAdmin(string user_name) {
+            return getUser(user_name).UserType.TypeName == USER_TYPE_NAME_ADMIN;
         }
 
 
