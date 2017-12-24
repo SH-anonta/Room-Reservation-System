@@ -11,7 +11,7 @@ namespace RMS {
         // This constant string is used thorugh out the application's Comboboxes to imply all results should be shown
         public const string COMBOBOX_ALL_OPTIOPNS_NAME= "Any";
 
-        private DBDataContext db = new DBDataContext();
+        private DBDataContext db;
 
         private static MainDBFacade single_object;
 
@@ -24,7 +24,7 @@ namespace RMS {
         }
 
         private MainDBFacade() {
-
+             db = new DBDataContext();
         }
 
         // Cretors
@@ -56,6 +56,24 @@ namespace RMS {
             room.RoomCapacity = capacity;
 
             db.Rooms.InsertOnSubmit(room);
+            db.SubmitChanges();
+        }
+
+        public void createReservation(DateTime start, DateTime end, int reservee_user_id, int room_id, string description) {
+
+            if (roomIsOccupied(start, end, room_id)) {
+                throw new RoomUnavalableException("This room is occupied during the specified time interval");
+            }
+
+            Reservation reserv = new Reservation();
+            reserv.StartTime = start;
+            reserv.EndTime = end;
+            reserv.Room = getRoomByID(room_id);
+            reserv.User = getUserById(reservee_user_id);
+            reserv.Description = description;
+
+
+            db.Reservations.InsertOnSubmit(reserv);
             db.SubmitChanges();
         }
 
@@ -94,19 +112,29 @@ namespace RMS {
         }
 
         // Readers
+        public User getUserById(int id) {
+            return db.Users.FirstOrDefault(x=> x.Id == id);
+        }
+
+        public WeekDay getWeekDayByName(string day_name) {
+            return db.WeekDays.FirstOrDefault(x=>x.Name.ToLower() == day_name.ToLower());
+        }
+
         public IEnumerable<string> getUserTypeNames() {
             return from x in db.UserTypes
                     select x.TypeName;
         }
-
         
+        public Room getRoomByID(int id) {
+            return db.Rooms.FirstOrDefault(x=> x.Id == id);
+        }
+
         public List<string> getRoomTypeNames() {
             var data = from x in db.RoomTypes
                        select x.TypeName;
 
             return data.ToList();
         }
-
         
         public List<string> getAnnexNames(){
             var data = from x in db.Annexes
@@ -129,6 +157,22 @@ namespace RMS {
 
         public RoutineException getRoutineException(int id) {
             return db.RoutineExceptions.First(x => x.Id == id);
+        }
+
+        public int getRoomIdFormRoomNumber(string room_number) {
+            return db.Rooms.First(x => x.Number == room_number).Id;
+        }
+
+        public WeekDay getWeekdayOfDate(DateTime date) {
+            date = date.Date;
+            RoutineException exception = db.RoutineExceptions.FirstOrDefault(x=> x.Date.Date == date);
+
+            if(exception != null) {
+                return exception.WeekDay;
+            }
+            else{
+                return getWeekDayByName(date.DayOfWeek.ToString());
+            }
         }
 
         // Return Routine exceptions that have a date set to today's or later
@@ -216,6 +260,23 @@ namespace RMS {
         }
 
         //  Utility
+        public bool timeRangesOverlaps(DateTime st1, DateTime nd1, DateTime st2, DateTime nd2) {
+            return !(nd1 <= st2 || nd2 <= st1);
+        }
+
+        public bool roomIsOccupied(DateTime start, DateTime end, int room_id) {
+
+            Room room = getRoomByID(room_id);
+            var conflicts = room.Reservations.FirstOrDefault(x=> timeRangesOverlaps(x.StartTime, x.EndTime, start, end));
+            
+            // if an existing reservation has the same time
+            if(conflicts != null) return true;
+
+            //TODO add check for conflicts with regular classes
+            //room.RegularClasses 
+            
+            return false;
+        }
 
         public int UserTypeNameToID(string type_name) {
             return db.UserTypes.FirstOrDefault(x => x.TypeName == type_name).Id;
@@ -243,6 +304,7 @@ namespace RMS {
             return db.RoutineExceptions.FirstOrDefault(x => x.Date.Date == date.Date) != null;
         }
 
+
         /*
          * User name:
          *  length must be between 4-20 characters long (inclusive)
@@ -259,6 +321,11 @@ namespace RMS {
     class DuplicateRecordException: Exception {
         public DuplicateRecordException(){}
         public DuplicateRecordException(string msg): base(msg) {}
+    }
+
+    class RoomUnavalableException: Exception {
+        public RoomUnavalableException(){}
+        public RoomUnavalableException(string msg): base(msg) {}
     }
     
 
