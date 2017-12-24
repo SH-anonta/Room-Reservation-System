@@ -27,17 +27,17 @@
             this.Time = new System.Windows.Forms.Label();
             this.DatePicker = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Roomlabel = new System.Windows.Forms.Label();
-            this.RoomNumberTB = new System.Windows.Forms.TextBox();
-            this.PicRandomRoomButton = new System.Windows.Forms.Button();
             this.StartTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.ReservationDescriptionRTB = new System.Windows.Forms.RichTextBox();
-            this.MakeReservationButton = new System.Windows.Forms.Button();
             this.EndTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ReservationDescriptionRTB = new System.Windows.Forms.RichTextBox();
+            this.RoomNumberTB = new System.Windows.Forms.TextBox();
+            this.Roomlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.RoomTypeCB = new System.Windows.Forms.ComboBox();
+            this.PicRandomRoomButton = new System.Windows.Forms.Button();
+            this.MakeReservationButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,46 +104,6 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Start Time";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 210);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Description";
-            // 
-            // Roomlabel
-            // 
-            this.Roomlabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Roomlabel.AutoSize = true;
-            this.Roomlabel.Location = new System.Drawing.Point(3, 173);
-            this.Roomlabel.Name = "Roomlabel";
-            this.Roomlabel.Size = new System.Drawing.Size(73, 13);
-            this.Roomlabel.TabIndex = 1;
-            this.Roomlabel.Text = "Room number";
-            // 
-            // RoomNumberTB
-            // 
-            this.RoomNumberTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomNumberTB.Location = new System.Drawing.Point(92, 170);
-            this.RoomNumberTB.Name = "RoomNumberTB";
-            this.RoomNumberTB.Size = new System.Drawing.Size(181, 20);
-            this.RoomNumberTB.TabIndex = 4;
-            // 
-            // PicRandomRoomButton
-            // 
-            this.PicRandomRoomButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PicRandomRoomButton.Location = new System.Drawing.Point(168, 272);
-            this.PicRandomRoomButton.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
-            this.PicRandomRoomButton.Name = "PicRandomRoomButton";
-            this.PicRandomRoomButton.Size = new System.Drawing.Size(105, 25);
-            this.PicRandomRoomButton.TabIndex = 2;
-            this.PicRandomRoomButton.Text = "Pick For Me";
-            this.PicRandomRoomButton.UseVisualStyleBackColor = true;
-            this.PicRandomRoomButton.Click += new System.EventHandler(this.PicRandomRoomButton_Click);
-            // 
             // StartTimePicker
             // 
             this.StartTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -163,6 +123,25 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "End Time";
             // 
+            // EndTimePicker
+            // 
+            this.EndTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.EndTimePicker.Location = new System.Drawing.Point(92, 90);
+            this.EndTimePicker.Name = "EndTimePicker";
+            this.EndTimePicker.ShowUpDown = true;
+            this.EndTimePicker.Size = new System.Drawing.Size(181, 20);
+            this.EndTimePicker.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 210);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Description";
+            // 
             // ReservationDescriptionRTB
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.ReservationDescriptionRTB, 2);
@@ -173,26 +152,23 @@
             this.ReservationDescriptionRTB.TabIndex = 6;
             this.ReservationDescriptionRTB.Text = "";
             // 
-            // MakeReservationButton
+            // RoomNumberTB
             // 
-            this.MakeReservationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.MakeReservationButton.Location = new System.Drawing.Point(168, 315);
-            this.MakeReservationButton.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
-            this.MakeReservationButton.Name = "MakeReservationButton";
-            this.MakeReservationButton.Size = new System.Drawing.Size(105, 30);
-            this.MakeReservationButton.TabIndex = 3;
-            this.MakeReservationButton.Text = "Make Reservation";
-            this.MakeReservationButton.UseVisualStyleBackColor = true;
-            this.MakeReservationButton.Click += new System.EventHandler(this.MakeReservationButton_Click);
+            this.RoomNumberTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.RoomNumberTB.Location = new System.Drawing.Point(92, 170);
+            this.RoomNumberTB.Name = "RoomNumberTB";
+            this.RoomNumberTB.Size = new System.Drawing.Size(181, 20);
+            this.RoomNumberTB.TabIndex = 4;
             // 
-            // EndTimePicker
+            // Roomlabel
             // 
-            this.EndTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.EndTimePicker.Location = new System.Drawing.Point(92, 90);
-            this.EndTimePicker.Name = "EndTimePicker";
-            this.EndTimePicker.ShowUpDown = true;
-            this.EndTimePicker.Size = new System.Drawing.Size(181, 20);
-            this.EndTimePicker.TabIndex = 12;
+            this.Roomlabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Roomlabel.AutoSize = true;
+            this.Roomlabel.Location = new System.Drawing.Point(3, 173);
+            this.Roomlabel.Name = "Roomlabel";
+            this.Roomlabel.Size = new System.Drawing.Size(73, 13);
+            this.Roomlabel.TabIndex = 1;
+            this.Roomlabel.Text = "Room number";
             // 
             // label1
             // 
@@ -213,6 +189,30 @@
             this.RoomTypeCB.Size = new System.Drawing.Size(181, 21);
             this.RoomTypeCB.TabIndex = 14;
             // 
+            // PicRandomRoomButton
+            // 
+            this.PicRandomRoomButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PicRandomRoomButton.Location = new System.Drawing.Point(168, 272);
+            this.PicRandomRoomButton.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
+            this.PicRandomRoomButton.Name = "PicRandomRoomButton";
+            this.PicRandomRoomButton.Size = new System.Drawing.Size(105, 25);
+            this.PicRandomRoomButton.TabIndex = 2;
+            this.PicRandomRoomButton.Text = "Pick For Me";
+            this.PicRandomRoomButton.UseVisualStyleBackColor = true;
+            this.PicRandomRoomButton.Click += new System.EventHandler(this.PicRandomRoomButton_Click);
+            // 
+            // MakeReservationButton
+            // 
+            this.MakeReservationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.MakeReservationButton.Location = new System.Drawing.Point(168, 315);
+            this.MakeReservationButton.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
+            this.MakeReservationButton.Name = "MakeReservationButton";
+            this.MakeReservationButton.Size = new System.Drawing.Size(105, 30);
+            this.MakeReservationButton.TabIndex = 3;
+            this.MakeReservationButton.Text = "Make Reservation";
+            this.MakeReservationButton.UseVisualStyleBackColor = true;
+            this.MakeReservationButton.Click += new System.EventHandler(this.MakeReservationButton_Click);
+            // 
             // CreateReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +221,7 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "CreateReservation";
             this.Padding = new System.Windows.Forms.Padding(3);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateReservation";
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

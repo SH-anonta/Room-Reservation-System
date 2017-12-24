@@ -162,6 +162,11 @@ namespace RMS {
             return db.RoutineExceptions.First(x => x.Id == id);
         }
 
+        public RoutineException getRoutineExceptionOfDate(DateTime date) {
+            date = date.Date;   // important so only dates are compared their not time 
+            return db.RoutineExceptions.FirstOrDefault(x=> x.Date.Date == date);
+        }
+
         public int getRoomIdFormRoomNumber(string room_number) {
             return db.Rooms.First(x => x.Number == room_number).Id;
         }
@@ -176,6 +181,10 @@ namespace RMS {
             else{
                 return getWeekDayByName(date.DayOfWeek.ToString());
             }
+        }
+
+        public List<RegularClass> getRegularClasses() {
+            return db.RegularClasses.ToList();
         }
 
         // Return Routine exceptions that have a date set to today's or later
@@ -280,18 +289,36 @@ namespace RMS {
             return !(nd1 <= st2 || nd2 <= st1);
         }
 
-        public bool roomIsOccupied(DateTime start, DateTime end, int room_id) {
+        public bool timeOfDayRangeOverlaps(DateTime st1, DateTime nd1, DateTime st2, DateTime nd2) {
+            return !(nd1.TimeOfDay <= st2.TimeOfDay || nd2.TimeOfDay <= st1.TimeOfDay);
+        }
 
+        public bool roomIsOccupied(DateTime start, DateTime end, int room_id) {
             Room room = getRoomByID(room_id);
+
+            // check for conflicts with other reservation
             var conflicts = room.Reservations.FirstOrDefault(x=> timeRangesOverlaps(x.StartTime, x.EndTime, start, end));
             
             // if an existing reservation has the same time
             if(conflicts != null) return true;
 
-            //TODO add check for conflicts with regular classes
-            //room.RegularClasses 
+
+            // check for conflicts with regular classes
+            WeekDay weekday = getWeekDayByName(start.DayOfWeek.ToString());
+
+            // check if this day follows regular routine schedules
+            RoutineException exception=  getRoutineExceptionOfDate(start);
+            if(exception != null) {
+                weekday = exception.WeekDay;
+            }
+
+           
+            var regular_clases = room.RegularClasses.Where(x=>x.WeekDay == weekday);
+            var conflicts2 = regular_clases.FirstOrDefault(x=>timeOfDayRangeOverlaps(x.StartTime, x.EndTime, start, end));
+
+            if(conflicts2  == null) return false;
+            else return true;
             
-            return false;
         }
 
         public int UserTypeNameToID(string type_name) {

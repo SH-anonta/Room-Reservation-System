@@ -231,6 +231,7 @@ namespace RMS {
             UpdateRoomDataGridView();
             UpdateRoutineExceptionGridView();
             UpdteResevationsGridview();
+            updateRegularClassesDGV();
         }
 
         private void loadUserTypeCB() {
@@ -341,6 +342,30 @@ namespace RMS {
 
         private void CreateReservationButton_Click(object sender, EventArgs e) {
             CreateReservation creator =  new CreateReservation(dbFacade.getUser(loggedInUserName));
+            creator.Show();
         }
+
+
+        private void updateRegularClassesDGV() {
+            var data=  dbFacade.getRegularClasses();
+
+            var show = data.Select(x=> new{
+                            ID= x.Id,
+                            Day= x.WeekDay.Name,
+                            Room= x.Room.Number,
+                            Start = x.StartTime.TimeOfDay,
+                            End = x.EndTime.TimeOfDay,
+                            CourseID= x.CourseID,
+                            Section = x.CourseSection
+                        });
+            
+            RegularClassesDGV.DataSource = show.ToList();
+        }
+
+        private void RefreshRegularClassesDGV_Click(object sender, EventArgs e) {
+            updateRegularClassesDGV();
+        }
+
+        
     }
 }

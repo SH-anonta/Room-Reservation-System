@@ -40,7 +40,11 @@ namespace RMS {
                 this.Hide();
             }
             else{
-                //TODO OPEN USER 
+                UserForm user_window = new UserForm(uname);
+                user_window.Show();
+
+                user_window.FormClosed += (x, y) => this.Close();
+                this.Hide();
             }
             
         }

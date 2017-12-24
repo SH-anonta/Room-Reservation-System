@@ -14,9 +14,12 @@ namespace RMS {
         // spaces are prepended to the format so the text appears at the center
         private const string TIME_PICKER_FORMAT= "         hh:mm tt";
         private const string DATE_PICKER_FORMAT= " dd-MMMM-yyyy";
-
-        public UserForm() {
+        private string loggedInAsUser;
+        public UserForm(string user_name) {
+            loggedInAsUser= user_name;
+            
             InitializeComponent();
+            
             DatePicker.Format = DateTimePickerFormat.Custom;
             DatePicker.CustomFormat = DATE_PICKER_FORMAT;
 
