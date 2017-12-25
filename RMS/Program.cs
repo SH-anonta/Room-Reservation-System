@@ -14,8 +14,8 @@ namespace RMS {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
-            //Application.Run(new LoginForm());
-            Application.Run(new AdminPanel("admin"));
+            Application.Run(new LoginForm());
+            //Application.Run(new AdminPanel("admin"));
             //Application.Run(new UserForm("user"));
             //Application.Run(new CreateReservation());
             //Application.Run(new MaintenanceStaffForm());

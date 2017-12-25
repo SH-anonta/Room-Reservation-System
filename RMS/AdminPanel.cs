@@ -187,7 +187,7 @@ namespace RMS {
             RoutineExceptionsGridView.DataSource= show;
         }
 
-        private void UpdteReservationsGridview() {
+        private void UpdateReservationsGridview() {
             const string DATE_FORMAT= "dd-MMMM-yy";
             
             bool show_past_records = ShowPastReservationsCHB.Checked;
@@ -230,7 +230,7 @@ namespace RMS {
             UpdateUserDataGridView();
             UpdateRoomDataGridView();
             UpdateRoutineExceptionGridView();
-            UpdteReservationsGridview();
+            UpdateReservationsGridview();
             updateRegularClassesDGV();
         }
 
@@ -316,6 +316,8 @@ namespace RMS {
             
             CreateRoutineExceptionForm creator = new CreateRoutineExceptionForm();
             creator.Show();
+
+            creator.FormClosed += (x, y) => UpdateRoutineExceptionGridView();
         }
 
         private void RoutineExceptionsShowEntriesCHB_CheckedChanged(object sender, EventArgs e) {
@@ -340,12 +342,13 @@ namespace RMS {
         }
 
         private void ShowPastReservationsCHB_CheckedChanged(object sender, EventArgs e) {
-            UpdteReservationsGridview();
+            UpdateReservationsGridview();
         }
 
         private void CreateReservationButton_Click(object sender, EventArgs e) {
             CreateReservation creator =  new CreateReservation(dbFacade.getUser(loggedInUserName));
             creator.Show();
+            creator.FormClosed += (x, y) => UpdateReservationsGridview();
         }
 
 
@@ -376,7 +379,7 @@ namespace RMS {
 
             EditReservationForm editor = new EditReservationForm(reservation_id, loggedInUserName);
             editor.Show();
-            editor.FormClosed += (x,y) => UpdteReservationsGridview();
+            editor.FormClosed += (x,y) => UpdateReservationsGridview();
         }
 
         private void RoomDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {

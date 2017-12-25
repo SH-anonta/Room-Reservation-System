@@ -79,6 +79,7 @@ namespace RMS {
 
             if(success){
                 MessageBox.Show("Reservations made");
+                this.Close();
             }
 
         }

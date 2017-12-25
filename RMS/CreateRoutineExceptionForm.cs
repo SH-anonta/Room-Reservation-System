@@ -35,7 +35,7 @@ namespace RMS {
             
             if(success){
                 MessageBox.Show("Room exception created");
-
+                this.Close();
             }
         }
     }
