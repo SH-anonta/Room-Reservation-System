@@ -96,14 +96,22 @@ namespace RMS {
             string uname = UserNameTB.Text;
             string pass = PasswordTB.Text;
             string user_type_name = CreateAccountTypeTB.Text;
+            
 
-            if(dbFacade.UserNameExists(uname))
-                MessageBox.Show("This username is not avalable");
-            else {
+            
+
+            try {
                 dbFacade.createAccount(uname, pass, dbFacade.UserTypeNameToID(user_type_name));
                 MessageBox.Show("Account Created");
-
             }
+            catch(DuplicateRecordException ex) {
+                MessageBox.Show(ex.Message, "Error");
+            }
+            catch (InvalidDataException ex) {
+                MessageBox.Show(ex.Message, "Error");
+            }
+
+            
         }
 
         private void DeleteSelectedAccount_Click(object sender, EventArgs e) {

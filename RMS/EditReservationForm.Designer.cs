@@ -27,13 +27,13 @@
             this.Time = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.RoomNumberTB = new System.Windows.Forms.TextBox();
-            this.Roomlabel = new System.Windows.Forms.Label();
-            this.CancleReservationButton = new System.Windows.Forms.Button();
             this.DateTB = new System.Windows.Forms.TextBox();
             this.StartTimeTB = new System.Windows.Forms.TextBox();
             this.EndTimeTB = new System.Windows.Forms.TextBox();
+            this.Roomlabel = new System.Windows.Forms.Label();
+            this.RoomNumberTB = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CancleReservationButton = new System.Windows.Forms.Button();
             this.ReservationDescriptionTB = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -99,47 +99,6 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "End Time";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 170);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Description";
-            // 
-            // RoomNumberTB
-            // 
-            this.RoomNumberTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomNumberTB.Location = new System.Drawing.Point(92, 130);
-            this.RoomNumberTB.Name = "RoomNumberTB";
-            this.RoomNumberTB.ReadOnly = true;
-            this.RoomNumberTB.Size = new System.Drawing.Size(100, 20);
-            this.RoomNumberTB.TabIndex = 4;
-            // 
-            // Roomlabel
-            // 
-            this.Roomlabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Roomlabel.AutoSize = true;
-            this.Roomlabel.Location = new System.Drawing.Point(3, 133);
-            this.Roomlabel.Name = "Roomlabel";
-            this.Roomlabel.Size = new System.Drawing.Size(73, 13);
-            this.Roomlabel.TabIndex = 1;
-            this.Roomlabel.Text = "Room number";
-            // 
-            // CancleReservationButton
-            // 
-            this.CancleReservationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancleReservationButton.Location = new System.Drawing.Point(166, 236);
-            this.CancleReservationButton.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
-            this.CancleReservationButton.Name = "CancleReservationButton";
-            this.CancleReservationButton.Size = new System.Drawing.Size(105, 29);
-            this.CancleReservationButton.TabIndex = 3;
-            this.CancleReservationButton.Text = "Cancle reservation";
-            this.CancleReservationButton.UseVisualStyleBackColor = true;
-            this.CancleReservationButton.Click += new System.EventHandler(this.CancleReservationButton_Click);
-            // 
             // DateTB
             // 
             this.DateTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -167,6 +126,47 @@
             this.EndTimeTB.Size = new System.Drawing.Size(100, 20);
             this.EndTimeTB.TabIndex = 17;
             // 
+            // Roomlabel
+            // 
+            this.Roomlabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Roomlabel.AutoSize = true;
+            this.Roomlabel.Location = new System.Drawing.Point(3, 133);
+            this.Roomlabel.Name = "Roomlabel";
+            this.Roomlabel.Size = new System.Drawing.Size(73, 13);
+            this.Roomlabel.TabIndex = 1;
+            this.Roomlabel.Text = "Room number";
+            // 
+            // RoomNumberTB
+            // 
+            this.RoomNumberTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.RoomNumberTB.Location = new System.Drawing.Point(92, 130);
+            this.RoomNumberTB.Name = "RoomNumberTB";
+            this.RoomNumberTB.ReadOnly = true;
+            this.RoomNumberTB.Size = new System.Drawing.Size(100, 20);
+            this.RoomNumberTB.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 170);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Description";
+            // 
+            // CancleReservationButton
+            // 
+            this.CancleReservationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CancleReservationButton.Location = new System.Drawing.Point(166, 236);
+            this.CancleReservationButton.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
+            this.CancleReservationButton.Name = "CancleReservationButton";
+            this.CancleReservationButton.Size = new System.Drawing.Size(105, 29);
+            this.CancleReservationButton.TabIndex = 3;
+            this.CancleReservationButton.Text = "Cancle reservation";
+            this.CancleReservationButton.UseVisualStyleBackColor = true;
+            this.CancleReservationButton.Click += new System.EventHandler(this.CancleReservationButton_Click);
+            // 
             // ReservationDescriptionTB
             // 
             this.ReservationDescriptionTB.Location = new System.Drawing.Point(92, 163);
@@ -183,6 +183,7 @@
             this.ClientSize = new System.Drawing.Size(290, 276);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "EditReservationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditReservationForm";
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

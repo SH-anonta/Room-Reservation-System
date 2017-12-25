@@ -31,11 +31,34 @@ namespace RMS {
              db = new DBDataContext();
         }
 
+
+        // validators
+        public void throwExceptionForInvalidUserData(string username, string password, int userTypeId) {
+            var errors = new List<string>();
+
+            bool valid= true;
+
+            if(username.Length < 4) {
+                valid= false;
+                errors.Add("User name can not be less 4 charecters long");
+            }
+                
+            if(password.Length < 8) {
+                valid= false;
+                errors.Add("Password can not be less 8 charecters long");
+            }
+            
+            if(valid == false)
+                throw new InvalidDataException(string.Join("\n",errors));
+        }
+
         // Cretors
         public void createAccount(string uname, string password, int userTypeID) {
             if(UserNameExists(uname) == true) {
                 throw new DuplicateRecordException(string.Format("Username {0} already exists in database", uname));
             }
+
+            throwExceptionForInvalidUserData(uname, password, userTypeID);
 
             User u = new User();
             u.UserName = uname;
@@ -267,7 +290,7 @@ namespace RMS {
         }
 
         public List<Room> filterRoomsByNumberTypeAnnex(string number, string type, string annex_name) {
-            var data = db.Rooms.ToList();
+            var data = db.Rooms.OrderBy(x=>x.Number).ToList();
 
             if(number != "") {
                  data = (from x in data
@@ -462,6 +485,11 @@ namespace RMS {
     class NoRoomFoundException: Exception {
         public NoRoomFoundException(){}
         public NoRoomFoundException(string msg): base(msg) {}
+    }
+
+    class InvalidDataException: Exception {
+        public InvalidDataException(){}
+        public InvalidDataException(string msg): base(msg) {}
     }
 
     class HashGenerator {

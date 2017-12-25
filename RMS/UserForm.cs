@@ -48,6 +48,7 @@ namespace RMS {
         private void CreateReservation_Click(object sender, EventArgs e) {
             CreateReservation creator =  new CreateReservation(db.getUser(loggedInAsUser));
             creator.Show();
+            creator.FormClosed += (x,y) => UpdteResevationsGridview();
         }
 
         private void ShowPastReservationsCHB_CheckedChanged(object sender, EventArgs e) {
@@ -61,6 +62,9 @@ namespace RMS {
 
             EditReservationForm editor = new EditReservationForm(reservation_id, loggedInAsUser);
             editor.Show();
+            editor.FormClosed += (x,y) => UpdteResevationsGridview();
         }
     }
 }
+
+
