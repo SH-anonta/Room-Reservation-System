@@ -37,11 +37,21 @@ namespace RMS {
         private void SaveButton_Click(object sender, EventArgs e) {
             
             string room_name  = RoomNameTB.Text;
+            string room_type = RoomTypeCB.Text;
+            string annex_name = AnnexCB.Text;
+            string room_capacity = RoomCapacityTB.Text;
+
             if(room_name == "") {
                 room_name = to_edit_room_number;
             }
 
-            db.updateRoom(to_edit_room_number, room_name, RoomTypeCB.Text, AnnexCB.Text, int.Parse(RoomCapacityTB.Text));
+            string error_msg = "";
+            if(!DataValidator.validateRoomData(to_edit_room_number, room_name, room_type, annex_name, room_capacity, out error_msg)) {
+                MessageBox.Show(error_msg, "Error");
+                return;
+            }
+
+            db.updateRoom(to_edit_room_number, room_name, room_type, annex_name, int.Parse(room_capacity));
 
             MessageBox.Show("Changes saved");
             this.Close();

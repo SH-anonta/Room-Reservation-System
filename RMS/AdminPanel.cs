@@ -301,7 +301,7 @@ namespace RMS {
                 string r = room_number.Split(',')[1];
                 string error_msg = "";
 
-                if(!DataValidator.validateRoomDataForCreator("11111", "", room_type, annex_name, room_capacity, out error_msg)) {
+                if(!DataValidator.validateRoomData("11111", "", room_type, annex_name, room_capacity, out error_msg)) {
                     MessageBox.Show(error_msg, "Error");
                     return;
                 }
@@ -322,7 +322,7 @@ namespace RMS {
                 }
 
                 string error_msg = "";
-                if(!DataValidator.validateRoomDataForCreator(room_number, room_name, room_type, annex_name, room_capacity, out error_msg)) {
+                if(!DataValidator.validateRoomData(room_number, room_name, room_type, annex_name, room_capacity, out error_msg)) {
                     MessageBox.Show(error_msg, "Error");
                     return;
                 }

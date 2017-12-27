@@ -26,9 +26,10 @@ namespace RMS {
         private void LoginButton_Click(object sender, EventArgs e) {
             string uname = UserNameTextBox.Text;
             string password = PasswordTextBox.Text;
-
-            if (!db.LoginIsValid(uname, password)) {
-                showLoginFaildError();
+            
+            string error_msg= "";
+            if (!DataValidator.validateLogin(uname, password, out error_msg)) {
+                MessageBox.Show(error_msg);
                 return;
             }
             
@@ -47,12 +48,6 @@ namespace RMS {
                 this.Hide();
             }
             
-        }
-
-
-        // helper methods
-        private void showLoginFaildError() {
-            MessageBox.Show(ERROR_MESSAGE_LOGIN_FAILD);
         }
     }
 }

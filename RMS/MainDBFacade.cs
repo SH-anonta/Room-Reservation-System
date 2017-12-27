@@ -434,30 +434,14 @@ namespace RMS {
 
         public bool LoginIsValid(string uname, string password) {
             User user = db.Users.FirstOrDefault(x=>x.UserName == uname);
-
-            // if account with given uesrname does not exist
-            if(user == null) return false;
-
-            // check for password match
             return HashGenerator.hasho(password).ToString() == user.Password;
         }
+
 
         public bool userIsAdmin(string user_name) {
             return getUser(user_name).UserType.TypeName == USER_TYPE_NAME_ADMIN;
         }
-
-
-        /*
-         * User name:
-         *  length must be between 4-20 characters long (inclusive)
-         *  characters can only be alhabets, (numbers, spaces, and symbols are not allowed)
-         */
-
-        /*
-         * Password:
-         *  length must be between 8-50 characters long (inclusive)
-         *  All characters are allowed
-         */
+        
     }
 
     class DuplicateRecordException: Exception {
@@ -595,17 +579,24 @@ namespace RMS {
         }
 
         static private bool roomNumberIsValid(string room_number) {
-            foreach(char ch in room_number) {
-                if(!(ch >= '0' && ch <= '9'))
+
+            try {
+                int n = int.Parse(room_number);
+
+                if(n < 1) {
                     return false;
+                }
+            }
+            catch (FormatException ex){
+                return false;
             }
 
             return true;
         }
 
-        static private bool roomNameIsValid(string room_number) {
-            foreach(char ch in room_number) {
-                if(!(ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z' || ch == ' ')) {
+        static private bool roomNameIsValid(string room_name) {
+            foreach(char ch in room_name) {
+                if(!(ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z' || ch >= '0' && ch  <= '9' || ch == ' ')) {
                     return false;
                 }
             }
@@ -613,7 +604,20 @@ namespace RMS {
             return true;
         }
 
-        public static bool validateRoomDataForCreator(string number, string name, string type, string annex, string capacity, out string error_msg) {
+        static private bool roomCapacityIsValid(string capacity) {
+
+            try {
+                int n = int.Parse(capacity);
+                if(n < 1) return false;
+            }
+            catch(FormatException ex) {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool validateRoomData(string number, string name, string type, string annex, string capacity, out string error_msg) {
             var errors = new List<string>();
             bool valid = true;
 
@@ -623,15 +627,16 @@ namespace RMS {
                 error_msg =  "One or more required fields are empty";
                 return false;
             }
-            if (int.Parse(capacity) == 0) {
+
+            if (!roomCapacityIsValid(capacity)) {
                 valid= false;
-                errors.Add("Room capacity can not be zero");
+                errors.Add("Invalid room capacity");
             }
             if (!roomNumberIsValid(number)) {
                 valid= false;
-                errors.Add("Room number may only contain numaric charecters");
+                errors.Add("Invalid room number");
             }
-            if (name != "" && !roomNameIsValid(number)) {
+            if (name != "" && !roomNameIsValid(name)) {
                 valid= false;
                 errors.Add("Room name may only contain lapha-numaric charecters and spaces");
             }
@@ -665,6 +670,26 @@ namespace RMS {
             }
                 
             
+            return true;
+        }
+
+        public static bool validateLogin(string uname, string password, out string error_msg) {
+            if(uname.Trim() == "" || password.Trim() == "") {
+                error_msg= "One or more required fields are empty";
+                return false;
+            }
+            if(!db.UserNameExists(uname)) {
+                error_msg= "The requested account does not exist";
+                return false;
+            }
+
+            
+            if(!db.LoginIsValid(uname, password)) {
+                error_msg= "Wrong password";
+                return false;
+            }
+
+            error_msg= "";
             return true;
         }
     }

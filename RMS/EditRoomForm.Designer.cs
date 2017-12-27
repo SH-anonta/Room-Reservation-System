@@ -41,10 +41,9 @@
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnCount = 2;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
             this.tableLayoutPanel5.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label12, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label13, 0, 2);
@@ -55,8 +54,8 @@
             this.tableLayoutPanel5.Controls.Add(this.RoomCapacityTB, 1, 4);
             this.tableLayoutPanel5.Controls.Add(this.RoomTypeCB, 1, 2);
             this.tableLayoutPanel5.Controls.Add(this.AnnexCB, 1, 3);
-            this.tableLayoutPanel5.Controls.Add(this.SaveButton, 1, 5);
-            this.tableLayoutPanel5.Controls.Add(this.DeleteButton, 1, 6);
+            this.tableLayoutPanel5.Controls.Add(this.SaveButton, 0, 5);
+            this.tableLayoutPanel5.Controls.Add(this.DeleteButton, 0, 6);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -67,8 +66,8 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(242, 283);
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(242, 279);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // label11
@@ -127,7 +126,7 @@
             this.RoomNumberTB.Location = new System.Drawing.Point(89, 10);
             this.RoomNumberTB.Name = "RoomNumberTB";
             this.RoomNumberTB.ReadOnly = true;
-            this.RoomNumberTB.Size = new System.Drawing.Size(121, 20);
+            this.RoomNumberTB.Size = new System.Drawing.Size(141, 20);
             this.RoomNumberTB.TabIndex = 6;
             // 
             // RoomNameTB
@@ -135,7 +134,7 @@
             this.RoomNameTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.RoomNameTB.Location = new System.Drawing.Point(89, 50);
             this.RoomNameTB.Name = "RoomNameTB";
-            this.RoomNameTB.Size = new System.Drawing.Size(121, 20);
+            this.RoomNameTB.Size = new System.Drawing.Size(141, 20);
             this.RoomNameTB.TabIndex = 7;
             // 
             // RoomCapacityTB
@@ -143,7 +142,7 @@
             this.RoomCapacityTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.RoomCapacityTB.Location = new System.Drawing.Point(89, 170);
             this.RoomCapacityTB.Name = "RoomCapacityTB";
-            this.RoomCapacityTB.Size = new System.Drawing.Size(121, 20);
+            this.RoomCapacityTB.Size = new System.Drawing.Size(141, 20);
             this.RoomCapacityTB.TabIndex = 9;
             // 
             // RoomTypeCB
@@ -152,7 +151,7 @@
             this.RoomTypeCB.FormattingEnabled = true;
             this.RoomTypeCB.Location = new System.Drawing.Point(89, 89);
             this.RoomTypeCB.Name = "RoomTypeCB";
-            this.RoomTypeCB.Size = new System.Drawing.Size(121, 21);
+            this.RoomTypeCB.Size = new System.Drawing.Size(141, 21);
             this.RoomTypeCB.TabIndex = 10;
             // 
             // AnnexCB
@@ -161,12 +160,14 @@
             this.AnnexCB.FormattingEnabled = true;
             this.AnnexCB.Location = new System.Drawing.Point(89, 129);
             this.AnnexCB.Name = "AnnexCB";
-            this.AnnexCB.Size = new System.Drawing.Size(121, 21);
+            this.AnnexCB.Size = new System.Drawing.Size(141, 21);
             this.AnnexCB.TabIndex = 11;
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(89, 203);
+            this.SaveButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel5.SetColumnSpan(this.SaveButton, 2);
+            this.SaveButton.Location = new System.Drawing.Point(70, 209);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(102, 23);
             this.SaveButton.TabIndex = 5;
@@ -176,7 +177,9 @@
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(89, 243);
+            this.DeleteButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel5.SetColumnSpan(this.DeleteButton, 2);
+            this.DeleteButton.Location = new System.Drawing.Point(70, 248);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(102, 23);
             this.DeleteButton.TabIndex = 12;
@@ -188,7 +191,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(242, 283);
+            this.ClientSize = new System.Drawing.Size(242, 279);
             this.Controls.Add(this.tableLayoutPanel5);
             this.Name = "EditRoomForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
