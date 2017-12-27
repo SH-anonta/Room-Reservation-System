@@ -38,9 +38,7 @@
             this.UsersDataGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.SearchByNameTextBox = new System.Windows.Forms.TextBox();
-            this.AccountTypeCB = new System.Windows.Forms.ComboBox();
             this.searchlable = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.DeleteSelectedAccount = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -61,8 +59,6 @@
             this.RoomNumberSearchTB = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.RoomTypeFIlterCB = new System.Windows.Forms.ComboBox();
-            this.RoomNameSearchTB = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.AnnexFilterCB = new System.Windows.Forms.ComboBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
@@ -97,6 +93,8 @@
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.RegularClassesDGV = new System.Windows.Forms.DataGridView();
             this.RefreshRegularClassesDGV = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.AccountTypeCB = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -353,17 +351,6 @@
             this.SearchByNameTextBox.TabIndex = 6;
             this.SearchByNameTextBox.TextChanged += new System.EventHandler(this.SearchByNameTextBox_TextChanged);
             // 
-            // AccountTypeCB
-            // 
-            this.AccountTypeCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.AccountTypeCB.FormattingEnabled = true;
-            this.AccountTypeCB.Location = new System.Drawing.Point(93, 50);
-            this.AccountTypeCB.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
-            this.AccountTypeCB.Name = "AccountTypeCB";
-            this.AccountTypeCB.Size = new System.Drawing.Size(152, 21);
-            this.AccountTypeCB.TabIndex = 7;
-            this.AccountTypeCB.SelectedIndexChanged += new System.EventHandler(this.AccountTypeCB_SelectedIndexChanged);
-            // 
             // searchlable
             // 
             this.searchlable.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -373,16 +360,6 @@
             this.searchlable.Size = new System.Drawing.Size(60, 13);
             this.searchlable.TabIndex = 9;
             this.searchlable.Text = "User Name";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 54);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Account Type";
             // 
             // DeleteSelectedAccount
             // 
@@ -566,12 +543,10 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 442F));
             this.tableLayoutPanel7.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.RoomNumberSearchTB, 1, 0);
-            this.tableLayoutPanel7.Controls.Add(this.label10, 2, 1);
-            this.tableLayoutPanel7.Controls.Add(this.RoomTypeFIlterCB, 3, 0);
-            this.tableLayoutPanel7.Controls.Add(this.RoomNameSearchTB, 1, 1);
-            this.tableLayoutPanel7.Controls.Add(this.label9, 0, 1);
-            this.tableLayoutPanel7.Controls.Add(this.label8, 2, 0);
-            this.tableLayoutPanel7.Controls.Add(this.AnnexFilterCB, 3, 1);
+            this.tableLayoutPanel7.Controls.Add(this.label8, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.RoomTypeFIlterCB, 1, 1);
+            this.tableLayoutPanel7.Controls.Add(this.label10, 2, 0);
+            this.tableLayoutPanel7.Controls.Add(this.AnnexFilterCB, 3, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -604,7 +579,7 @@
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(291, 58);
+            this.label10.Location = new System.Drawing.Point(291, 15);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(37, 13);
             this.label10.TabIndex = 5;
@@ -614,35 +589,17 @@
             // 
             this.RoomTypeFIlterCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.RoomTypeFIlterCB.FormattingEnabled = true;
-            this.RoomTypeFIlterCB.Location = new System.Drawing.Point(361, 11);
+            this.RoomTypeFIlterCB.Location = new System.Drawing.Point(85, 54);
             this.RoomTypeFIlterCB.Name = "RoomTypeFIlterCB";
             this.RoomTypeFIlterCB.Size = new System.Drawing.Size(140, 21);
             this.RoomTypeFIlterCB.TabIndex = 3;
             this.RoomTypeFIlterCB.SelectedIndexChanged += new System.EventHandler(this.RoomTypeFIlterCB_SelectedIndexChanged);
             // 
-            // RoomNameSearchTB
-            // 
-            this.RoomNameSearchTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomNameSearchTB.Location = new System.Drawing.Point(85, 54);
-            this.RoomNameSearchTB.Name = "RoomNameSearchTB";
-            this.RoomNameSearchTB.Size = new System.Drawing.Size(149, 20);
-            this.RoomNameSearchTB.TabIndex = 6;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 58);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(66, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Room Name";
-            // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(291, 15);
+            this.label8.Location = new System.Drawing.Point(3, 58);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 13);
             this.label8.TabIndex = 1;
@@ -652,7 +609,7 @@
             // 
             this.AnnexFilterCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.AnnexFilterCB.FormattingEnabled = true;
-            this.AnnexFilterCB.Location = new System.Drawing.Point(361, 54);
+            this.AnnexFilterCB.Location = new System.Drawing.Point(361, 11);
             this.AnnexFilterCB.Name = "AnnexFilterCB";
             this.AnnexFilterCB.Size = new System.Drawing.Size(140, 21);
             this.AnnexFilterCB.TabIndex = 7;
@@ -674,7 +631,7 @@
             this.tableLayoutPanel5.ColumnCount = 3;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.81633F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.18367F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 442F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 443F));
             this.tableLayoutPanel5.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label12, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label13, 0, 2);
@@ -807,7 +764,7 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(220, 7);
+            this.label16.Location = new System.Drawing.Point(219, 7);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(289, 26);
             this.label16.TabIndex = 12;
@@ -817,7 +774,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(220, 47);
+            this.label3.Location = new System.Drawing.Point(219, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(234, 26);
             this.label3.TabIndex = 13;
@@ -864,7 +821,7 @@
             // tableLayoutPanel11
             // 
             this.tableLayoutPanel11.ColumnCount = 1;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 677F));
             this.tableLayoutPanel11.Controls.Add(this.CreateReservationButton, 0, 1);
             this.tableLayoutPanel11.Controls.Add(this.ShowPastReservationsCHB, 0, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -953,7 +910,7 @@
             this.tableLayoutPanel9.ColumnCount = 3;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.63112F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.36887F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 191F));
             this.tableLayoutPanel9.Controls.Add(this.CreateRoutineException, 2, 1);
             this.tableLayoutPanel9.Controls.Add(this.RoutineExceptionsShowEntriesCHB, 2, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1035,6 +992,27 @@
             this.RefreshRegularClassesDGV.UseVisualStyleBackColor = true;
             this.RefreshRegularClassesDGV.Click += new System.EventHandler(this.RefreshRegularClassesDGV_Click);
             // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 54);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Account Type";
+            // 
+            // AccountTypeCB
+            // 
+            this.AccountTypeCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.AccountTypeCB.FormattingEnabled = true;
+            this.AccountTypeCB.Location = new System.Drawing.Point(93, 50);
+            this.AccountTypeCB.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
+            this.AccountTypeCB.Name = "AccountTypeCB";
+            this.AccountTypeCB.Size = new System.Drawing.Size(152, 21);
+            this.AccountTypeCB.TabIndex = 7;
+            this.AccountTypeCB.SelectedIndexChanged += new System.EventHandler(this.AccountTypeCB_SelectedIndexChanged);
+            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1102,9 +1080,7 @@
         private System.Windows.Forms.DataGridView UsersDataGridView;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TextBox SearchByNameTextBox;
-        private System.Windows.Forms.ComboBox AccountTypeCB;
         private System.Windows.Forms.Label searchlable;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
@@ -1145,8 +1121,6 @@
         private System.Windows.Forms.Button DeleteSelectedAccount;
         private System.Windows.Forms.Button AnnexPanelButton;
         private System.Windows.Forms.TabPage tabPage9;
-        private System.Windows.Forms.TextBox RoomNameSearchTB;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.DataGridView RoutineExceptionsGridView;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
@@ -1162,5 +1136,7 @@
         private System.Windows.Forms.CheckBox ShowPastReservationsCHB;
         private System.Windows.Forms.Button CreateReservationButton;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox AccountTypeCB;
+        private System.Windows.Forms.Label label6;
     }
 }
