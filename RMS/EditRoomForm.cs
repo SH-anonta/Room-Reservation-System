@@ -23,6 +23,9 @@ namespace RMS {
         public void LoadFormData() {
             int id = db.getRoomIdFormRoomNumber(to_edit_room_number);
             Room room = db.getRoomByID(id);
+            
+            RoomTypeCB.DataSource = db.getRoomTypeNames();
+            AnnexCB.DataSource = db.getAnnexNames();
 
             RoomNumberTB.Text= room.Number;
             RoomNameTB.Text= room.Name;

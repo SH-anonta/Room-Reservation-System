@@ -191,6 +191,7 @@
             this.ClientSize = new System.Drawing.Size(242, 283);
             this.Controls.Add(this.tableLayoutPanel5);
             this.Name = "EditRoomForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditRoomForm";
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();

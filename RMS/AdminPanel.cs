@@ -98,18 +98,22 @@ namespace RMS {
             string user_type_name = CreateAccountTypeTB.Text;
             
 
-            
+            string error_msg= "";
+
+            if(!DataValidator.validateUserDataForCreator(uname, pass,user_type_name, out error_msg)) {
+                MessageBox.Show(error_msg, "Error");
+                return;
+            }
 
             try {
                 dbFacade.createAccount(uname, pass, dbFacade.UserTypeNameToID(user_type_name));
+                UpdateUserDataGridView();
                 MessageBox.Show("Account Created");
             }
             catch(DuplicateRecordException ex) {
                 MessageBox.Show(ex.Message, "Error");
             }
-            catch (InvalidDataException ex) {
-                MessageBox.Show(ex.Message, "Error");
-            }
+            
 
             
         }
@@ -280,16 +284,30 @@ namespace RMS {
 
         private void CreateRoomButton_Click(object sender, EventArgs e) {
             string room_number = RoomNumberTB.Text;
+            string room_type = RoomTypeCB.Text;
+            string annex_name = AnnexCB.Text;
+            string room_capacity = RoomCapacityTB.Text;
 
             bool operation_successfull= true;
 
             // if a range of numbers in given
             if (room_number.Contains(",")){
+                if (!DataValidator.validateRoomNumberRange(room_number)) {
+                    MessageBox.Show("Invalid room number range");
+                    return;
+                }
+
                 string l = room_number.Split(',')[0];
                 string r = room_number.Split(',')[1];
+                string error_msg = "";
+
+                if(!DataValidator.validateRoomDataForCreator("11111", "", room_type, annex_name, room_capacity, out error_msg)) {
+                    MessageBox.Show(error_msg, "Error");
+                    return;
+                }
 
                 try {
-                    dbFacade.createRooms(l, r, RoomTypeCB.Text, AnnexCB.Text, int.Parse(RoomCapacityTB.Text));
+                    dbFacade.createRooms(l, r, room_type, annex_name , int.Parse(room_capacity));
                 }
                 catch(DuplicateRecordException exc) {
                     MessageBox.Show(String.Format("{0}", exc.Message), "Error");
@@ -298,8 +316,15 @@ namespace RMS {
             }
             else {
                 string room_name  = RoomNameTB.Text;
+
                 if(room_name == "") {
                     room_name = room_number;
+                }
+
+                string error_msg = "";
+                if(!DataValidator.validateRoomDataForCreator(room_number, room_name, room_type, annex_name, room_capacity, out error_msg)) {
+                    MessageBox.Show(error_msg, "Error");
+                    return;
                 }
 
                 try {
@@ -398,6 +423,14 @@ namespace RMS {
             EditRoomForm editor = new EditRoomForm(room_number);
             editor.Show();
             editor.FormClosed += (x, y) => UpdateRoomDataGridView();
+        }
+
+        private void SearchReservationByRoomNumberTB_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void SearchReservationByReserveeTB_TextChanged(object sender, EventArgs e) {
+
         }
     }
 }

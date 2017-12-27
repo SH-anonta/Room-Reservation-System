@@ -83,14 +83,9 @@
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.ReservationsGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.ShowPastReservationsCHB = new System.Windows.Forms.CheckBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.CreateReservationButton = new System.Windows.Forms.Button();
+            this.ShowPastReservationsCHB = new System.Windows.Forms.CheckBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.RoutineExceptionsGridView = new System.Windows.Forms.DataGridView();
@@ -98,10 +93,10 @@
             this.CreateRoutineException = new System.Windows.Forms.Button();
             this.RoutineExceptionsShowEntriesCHB = new System.Windows.Forms.CheckBox();
             this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.RefreshRegularClassesDGV = new System.Windows.Forms.Button();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.RegularClassesDGV = new System.Windows.Forms.DataGridView();
+            this.RefreshRegularClassesDGV = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -333,7 +328,7 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 356F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 213F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 222F));
             this.tableLayoutPanel3.Controls.Add(this.SearchByNameTextBox, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.AccountTypeCB, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.searchlable, 0, 0);
@@ -406,7 +401,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(666, 469);
+            this.tabPage6.Size = new System.Drawing.Size(675, 469);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Create";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -679,7 +674,7 @@
             this.tableLayoutPanel5.ColumnCount = 3;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.81633F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.18367F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 439F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 441F));
             this.tableLayoutPanel5.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label12, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label13, 0, 2);
@@ -692,6 +687,7 @@
             this.tableLayoutPanel5.Controls.Add(this.AnnexCB, 1, 3);
             this.tableLayoutPanel5.Controls.Add(this.CreateRoomButton, 1, 6);
             this.tableLayoutPanel5.Controls.Add(this.label16, 2, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label3, 2, 1);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 7;
@@ -758,7 +754,7 @@
             // RoomNumberTB
             // 
             this.RoomNumberTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomNumberTB.Location = new System.Drawing.Point(93, 10);
+            this.RoomNumberTB.Location = new System.Drawing.Point(92, 10);
             this.RoomNumberTB.Name = "RoomNumberTB";
             this.RoomNumberTB.Size = new System.Drawing.Size(121, 20);
             this.RoomNumberTB.TabIndex = 6;
@@ -766,7 +762,7 @@
             // RoomNameTB
             // 
             this.RoomNameTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomNameTB.Location = new System.Drawing.Point(93, 50);
+            this.RoomNameTB.Location = new System.Drawing.Point(92, 50);
             this.RoomNameTB.Name = "RoomNameTB";
             this.RoomNameTB.Size = new System.Drawing.Size(121, 20);
             this.RoomNameTB.TabIndex = 7;
@@ -774,7 +770,7 @@
             // RoomCapacityTB
             // 
             this.RoomCapacityTB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.RoomCapacityTB.Location = new System.Drawing.Point(93, 170);
+            this.RoomCapacityTB.Location = new System.Drawing.Point(92, 170);
             this.RoomCapacityTB.Name = "RoomCapacityTB";
             this.RoomCapacityTB.Size = new System.Drawing.Size(121, 20);
             this.RoomCapacityTB.TabIndex = 9;
@@ -783,7 +779,7 @@
             // 
             this.RoomTypeCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.RoomTypeCB.FormattingEnabled = true;
-            this.RoomTypeCB.Location = new System.Drawing.Point(93, 89);
+            this.RoomTypeCB.Location = new System.Drawing.Point(92, 89);
             this.RoomTypeCB.Name = "RoomTypeCB";
             this.RoomTypeCB.Size = new System.Drawing.Size(121, 21);
             this.RoomTypeCB.TabIndex = 10;
@@ -792,14 +788,14 @@
             // 
             this.AnnexCB.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.AnnexCB.FormattingEnabled = true;
-            this.AnnexCB.Location = new System.Drawing.Point(93, 129);
+            this.AnnexCB.Location = new System.Drawing.Point(92, 129);
             this.AnnexCB.Name = "AnnexCB";
             this.AnnexCB.Size = new System.Drawing.Size(121, 21);
             this.AnnexCB.TabIndex = 11;
             // 
             // CreateRoomButton
             // 
-            this.CreateRoomButton.Location = new System.Drawing.Point(93, 232);
+            this.CreateRoomButton.Location = new System.Drawing.Point(92, 232);
             this.CreateRoomButton.Name = "CreateRoomButton";
             this.CreateRoomButton.Size = new System.Drawing.Size(121, 23);
             this.CreateRoomButton.TabIndex = 5;
@@ -811,12 +807,11 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(223, 7);
+            this.label16.Location = new System.Drawing.Point(221, 7);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(289, 26);
             this.label16.TabIndex = 12;
-            this.label16.Text = "GIve comma separeted values for creating a range of rooms\r\nIn that case room name" +
-    "s will be set to room numbers:";
+            this.label16.Text = "GIve comma separeted values for creating a range of rooms\r\nIe. 1101, 1105";
             // 
             // tabPage3
             // 
@@ -862,14 +857,8 @@
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 331F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 650F));
-            this.tableLayoutPanel11.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel11.Controls.Add(this.label5, 0, 1);
-            this.tableLayoutPanel11.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel11.Controls.Add(this.textBox2, 1, 1);
-            this.tableLayoutPanel11.Controls.Add(this.label19, 2, 0);
-            this.tableLayoutPanel11.Controls.Add(this.ShowPastReservationsCHB, 2, 1);
-            this.tableLayoutPanel11.Controls.Add(this.dateTimePicker1, 3, 0);
             this.tableLayoutPanel11.Controls.Add(this.CreateReservationButton, 3, 1);
+            this.tableLayoutPanel11.Controls.Add(this.ShowPastReservationsCHB, 3, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
@@ -879,73 +868,6 @@
             this.tableLayoutPanel11.Size = new System.Drawing.Size(677, 97);
             this.tableLayoutPanel11.TabIndex = 1;
             this.tableLayoutPanel11.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel11_Paint);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Room number";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 66);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Reservee";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox1.Location = new System.Drawing.Point(108, 14);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox2.Location = new System.Drawing.Point(108, 63);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
-            // 
-            // label19
-            // 
-            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(439, 18);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(30, 13);
-            this.label19.TabIndex = 4;
-            this.label19.Text = "Date";
-            // 
-            // ShowPastReservationsCHB
-            // 
-            this.ShowPastReservationsCHB.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ShowPastReservationsCHB.AutoSize = true;
-            this.ShowPastReservationsCHB.Location = new System.Drawing.Point(439, 64);
-            this.ShowPastReservationsCHB.Name = "ShowPastReservationsCHB";
-            this.ShowPastReservationsCHB.Size = new System.Drawing.Size(98, 17);
-            this.ShowPastReservationsCHB.TabIndex = 5;
-            this.ShowPastReservationsCHB.Text = "show past data";
-            this.ShowPastReservationsCHB.UseVisualStyleBackColor = true;
-            this.ShowPastReservationsCHB.CheckedChanged += new System.EventHandler(this.ShowPastReservationsCHB_CheckedChanged);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(553, 14);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(112, 20);
-            this.dateTimePicker1.TabIndex = 6;
             // 
             // CreateReservationButton
             // 
@@ -957,6 +879,28 @@
             this.CreateReservationButton.Text = "Create new";
             this.CreateReservationButton.UseVisualStyleBackColor = true;
             this.CreateReservationButton.Click += new System.EventHandler(this.CreateReservationButton_Click);
+            // 
+            // ShowPastReservationsCHB
+            // 
+            this.ShowPastReservationsCHB.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ShowPastReservationsCHB.AutoSize = true;
+            this.ShowPastReservationsCHB.Location = new System.Drawing.Point(553, 16);
+            this.ShowPastReservationsCHB.Name = "ShowPastReservationsCHB";
+            this.ShowPastReservationsCHB.Size = new System.Drawing.Size(98, 17);
+            this.ShowPastReservationsCHB.TabIndex = 5;
+            this.ShowPastReservationsCHB.Text = "show past data";
+            this.ShowPastReservationsCHB.UseVisualStyleBackColor = true;
+            this.ShowPastReservationsCHB.CheckedChanged += new System.EventHandler(this.ShowPastReservationsCHB_CheckedChanged);
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(689, 501);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Flags";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // tabPage5
             // 
@@ -1001,7 +945,7 @@
             this.tableLayoutPanel9.ColumnCount = 3;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.63112F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.36887F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 189F));
             this.tableLayoutPanel9.Controls.Add(this.CreateRoutineException, 2, 1);
             this.tableLayoutPanel9.Controls.Add(this.RoutineExceptionsShowEntriesCHB, 2, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1047,27 +991,6 @@
             this.tabPage9.Text = "RegularClasses";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
-            // RefreshRegularClassesDGV
-            // 
-            this.RefreshRegularClassesDGV.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.RefreshRegularClassesDGV.Location = new System.Drawing.Point(605, 23);
-            this.RefreshRegularClassesDGV.Name = "RefreshRegularClassesDGV";
-            this.RefreshRegularClassesDGV.Size = new System.Drawing.Size(75, 23);
-            this.RefreshRegularClassesDGV.TabIndex = 3;
-            this.RefreshRegularClassesDGV.Text = "Refresh";
-            this.RefreshRegularClassesDGV.UseVisualStyleBackColor = true;
-            this.RefreshRegularClassesDGV.Click += new System.EventHandler(this.RefreshRegularClassesDGV_Click);
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(689, 501);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Flags";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
             // tableLayoutPanel12
             // 
             this.tableLayoutPanel12.ColumnCount = 1;
@@ -1088,10 +1011,32 @@
             this.RegularClassesDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RegularClassesDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RegularClassesDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RegularClassesDGV.Location = new System.Drawing.Point(3, 72);
+            this.RegularClassesDGV.Location = new System.Drawing.Point(3, 71);
             this.RegularClassesDGV.Name = "RegularClassesDGV";
-            this.RegularClassesDGV.Size = new System.Drawing.Size(677, 420);
+            this.RegularClassesDGV.Size = new System.Drawing.Size(677, 421);
             this.RegularClassesDGV.TabIndex = 3;
+            // 
+            // RefreshRegularClassesDGV
+            // 
+            this.RefreshRegularClassesDGV.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.RefreshRegularClassesDGV.Location = new System.Drawing.Point(605, 22);
+            this.RefreshRegularClassesDGV.Name = "RefreshRegularClassesDGV";
+            this.RefreshRegularClassesDGV.Size = new System.Drawing.Size(75, 23);
+            this.RefreshRegularClassesDGV.TabIndex = 3;
+            this.RefreshRegularClassesDGV.Text = "Refresh";
+            this.RefreshRegularClassesDGV.UseVisualStyleBackColor = true;
+            this.RefreshRegularClassesDGV.Click += new System.EventHandler(this.RefreshRegularClassesDGV_Click);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(221, 47);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(234, 26);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Leave empty to set name same as room number\r\nFor range of rooms numbers, This fie" +
+    "ld is ignored";
             // 
             // AdminPanel
             // 
@@ -1212,18 +1157,13 @@
         private System.Windows.Forms.Button CreateRoutineException;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.DataGridView ReservationsGridView;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.CheckBox ShowPastReservationsCHB;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button CreateReservationButton;
         private System.Windows.Forms.Button RefreshRegularClassesDGV;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private System.Windows.Forms.DataGridView RegularClassesDGV;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private System.Windows.Forms.CheckBox ShowPastReservationsCHB;
+        private System.Windows.Forms.Button CreateReservationButton;
+        private System.Windows.Forms.Label label3;
     }
 }

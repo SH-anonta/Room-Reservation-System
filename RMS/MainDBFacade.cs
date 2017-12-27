@@ -32,33 +32,11 @@ namespace RMS {
         }
 
 
-        // validators
-        public void throwExceptionForInvalidUserData(string username, string password, int userTypeId) {
-            var errors = new List<string>();
-
-            bool valid= true;
-
-            if(username.Length < 4) {
-                valid= false;
-                errors.Add("User name can not be less 4 charecters long");
-            }
-                
-            if(password.Length < 8) {
-                valid= false;
-                errors.Add("Password can not be less 8 charecters long");
-            }
-            
-            if(valid == false)
-                throw new InvalidDataException(string.Join("\n",errors));
-        }
-
         // Cretors
         public void createAccount(string uname, string password, int userTypeID) {
             if(UserNameExists(uname) == true) {
                 throw new DuplicateRecordException(string.Format("Username {0} already exists in database", uname));
             }
-
-            throwExceptionForInvalidUserData(uname, password, userTypeID);
 
             User u = new User();
             u.UserName = uname;
@@ -239,12 +217,12 @@ namespace RMS {
 
 
         public List<Reservation> getAllReservations() {
-            return db.Reservations.ToList();
+            return db.Reservations.OrderBy(x=>x.StartTime).ToList();
         }
 
         public List<Reservation> getFutureReservations() {
             DateTime today = DateTime.Now.Date;
-            return db.Reservations.Where(x=> x.StartTime.Date >= today).ToList();
+            return db.Reservations.Where(x=> x.StartTime.Date >= today).OrderBy(x=>x.StartTime).ToList();
         }
 
         
@@ -254,6 +232,14 @@ namespace RMS {
 
         public RoomType getRoomType(int id) {
             return db.RoomTypes.First(x=>x.Id == id);
+        }
+
+        public bool roomTypeExists(string type_name) {
+            return db.RoomTypes.FirstOrDefault(x=>x.TypeName == type_name) != null;
+        }
+
+        public bool annexExists(string annex_name) {
+            return db.Annexes.FirstOrDefault(x=>x.Name == annex_name) != null;
         }
 
         //returns room number as staring
@@ -313,7 +299,9 @@ namespace RMS {
             return data;
         }
 
-
+        public bool accountTypeExists(string type_name) {
+            return db.UserTypes.FirstOrDefault(x=>x.TypeName == type_name) != null;
+        }
 
         // Updaters
 
@@ -522,4 +510,162 @@ namespace RMS {
 
     }
 
+
+    class DataValidator{
+        private static MainDBFacade db = MainDBFacade.getMainDBFacade();
+
+
+        // validators
+        private static bool usernameIsValid(string uname) {
+            foreach(char ch in uname) {
+                if(!(ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z')) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+        
+
+
+        public static bool validateUserDataForCreator(string uname, string password, string account_type, out string error_msg) {
+            var errors = new List<string>();
+
+            if (password == "" || uname == "" || account_type == "") {
+                error_msg= "One or more required fields are empty";
+                return false;
+            }
+
+            bool valid= true;
+
+            if(uname.Length < 4) {
+                valid= false;
+                errors.Add("User name can not be less 4 charecters long");
+            }
+            if (!usernameIsValid(uname)) {
+                valid= false;
+                errors.Add("Username may only contain alphabets");
+            }
+            if (!db.accountTypeExists(account_type)) {
+                valid= false;
+                errors.Add("Invalid account type");
+            }
+            if(password.Length < 8) {
+                valid= false;
+                errors.Add("Password can not be less 8 charecters long");
+            }
+            
+            
+            error_msg=  string.Join("\n",errors);
+            return valid;
+                
+        }
+
+        public static bool validateUserDataForEditor(string uname, string password, string account_type, out string error_msg) {
+            var errors = new List<string>();
+            
+            if (uname == "" || account_type == "") {
+                error_msg= "One or more required fields are empty";
+                return false;
+            }
+
+            bool valid= true;
+
+            if(uname.Length < 4) {
+                valid= false;
+                errors.Add("User name can not be less 4 charecters long");
+            }
+            if (!usernameIsValid(uname)) {
+                valid= false;
+                errors.Add("Username may only contain alphabets");
+            }
+            if (!db.accountTypeExists(account_type)) {
+                valid= false;
+                errors.Add("Invalid account type");
+            }
+            if(password != "" && password.Length < 8) {
+                valid= false;
+                errors.Add("Password can not be less 8 charecters long");
+            }
+            
+            
+            error_msg=  string.Join("\n",errors);
+            return valid;
+                
+        }
+
+        static private bool roomNumberIsValid(string room_number) {
+            foreach(char ch in room_number) {
+                if(!(ch >= '0' && ch <= '9'))
+                    return false;
+            }
+
+            return true;
+        }
+
+        static private bool roomNameIsValid(string room_number) {
+            foreach(char ch in room_number) {
+                if(!(ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z' || ch == ' ')) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool validateRoomDataForCreator(string number, string name, string type, string annex, string capacity, out string error_msg) {
+            var errors = new List<string>();
+            bool valid = true;
+
+            error_msg="";
+
+            if(number == "" || type =="" || annex == "" || capacity == "") {
+                error_msg =  "One or more required fields are empty";
+                return false;
+            }
+            if (int.Parse(capacity) == 0) {
+                valid= false;
+                errors.Add("Room capacity can not be zero");
+            }
+            if (!roomNumberIsValid(number)) {
+                valid= false;
+                errors.Add("Room number may only contain numaric charecters");
+            }
+            if (name != "" && !roomNameIsValid(number)) {
+                valid= false;
+                errors.Add("Room name may only contain lapha-numaric charecters and spaces");
+            }
+            if (!db.roomTypeExists(type)) {
+                valid= false;
+                errors.Add("Invalid room type");
+            }
+            if (!db.annexExists(annex)) {
+                valid= false;
+                errors.Add("Invalid annex name");
+            }
+
+            error_msg=  string.Join("\n",errors);
+            return valid;
+        }
+
+        public static bool validateRoomNumberRange(string room_number_range) {
+
+            var chunks = room_number_range.Split(',');
+
+            if(chunks.Length != 2) return false;
+
+            try {
+                int l = int.Parse(chunks[0].Trim());
+                int r = int.Parse(chunks[1].Trim());
+
+                if(l > r) return false;
+            }
+            catch(FormatException ex) {
+                return false;
+            }
+                
+            
+            return true;
+        }
+    }
 }

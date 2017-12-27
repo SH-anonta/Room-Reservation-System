@@ -21,7 +21,21 @@ namespace RMS {
 
         private void SaveButton_Click(object sender, EventArgs e) {
             // The modified user entry is returned
-            user_acocunt = db.updateUserAccount(user_acocunt.UserName, UserNameTB.Text, UserAccountTypeCB.Text, PasswordTB.Text);
+
+            string new_uname = UserNameTB.Text;
+            string account_type =  UserAccountTypeCB.Text;
+            string new_password = PasswordTB.Text;
+
+
+            string error_msg= "";
+            if(!DataValidator.validateUserDataForEditor(new_uname, new_password,account_type,  out error_msg)) {
+                MessageBox.Show(error_msg, "Error");
+                return;
+            }
+            
+            user_acocunt = db.updateUserAccount(user_acocunt.UserName, new_uname, account_type, new_password);
+            
+
             MessageBox.Show("Changes Saved");
             this.Close();
         }
