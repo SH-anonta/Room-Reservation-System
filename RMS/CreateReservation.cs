@@ -40,13 +40,27 @@ namespace RMS {
             DateTime date = DatePicker.Value;
             DateTime start  = StartTimePicker.Value;
             DateTime end  = EndTimePicker.Value;
+            string description = ReservationDescriptionRTB.Text;
+            string room_number = RoomNumberTB.Text;
+            string room_type = RoomTypeCB.Text;
+
 
             // create datetimes with given date and time of day. second is always 0
             DateTime start_time = new DateTime(date.Year, date.Month, date.Day, start.Hour, start.Minute, 0);
             DateTime end_time = new DateTime(date.Year, date.Month, date.Day, end.Hour, end.Minute, 0);
 
+            
+            
+
+            string error_msg= "";
+            if(!DataValidator.validateReservationDataForRoomPicker(start, end, description, room_type, out error_msg)) {
+                MessageBox.Show(error_msg, "Error");
+                return;
+            }
+
+
             try {
-                string picked_room = db.getRandomAvalableRoom(start_time, end_time, db.getRoomTypeIdfromName(RoomTypeCB.Text));
+                string picked_room = db.getRandomAvalableRoom(start_time, end_time, db.getRoomTypeIdfromName(room_type));
                 RoomNumberTB.Text= picked_room;
             }
             catch (NoRoomFoundException ex) {
@@ -60,17 +74,27 @@ namespace RMS {
             DateTime date = DatePicker.Value;
             DateTime start  = StartTimePicker.Value;
             DateTime end  = EndTimePicker.Value;
+            string description = ReservationDescriptionRTB.Text;
+            string room_number = RoomNumberTB.Text;
+            string room_type = RoomTypeCB.Text;
 
             // create datetimes with given date and time of day. second is always 0
             DateTime start_time = new DateTime(date.Year, date.Month, date.Day, start.Hour, start.Minute, 0);
             DateTime end_time = new DateTime(date.Year, date.Month, date.Day, end.Hour, end.Minute, 0);
 
-            int room_id = db.getRoomIdFormRoomNumber(RoomNumberTB.Text);
+            
+
+            string error_msg= "";
+            if(!DataValidator.validateReservationData(start, end, description, room_number, room_type, out error_msg)) {
+                MessageBox.Show(error_msg, "Error");
+                return;
+            }
 
             bool success = false;
+            int room_id = db.getRoomIdFormRoomNumber(room_number );
 
             try{
-                db.createReservation(start_time, end_time, reservee.Id, room_id, ReservationDescriptionRTB.Text);
+                db.createReservation(start_time, end_time, reservee.Id, room_id, description);
                 success = true;
             }
             catch(RoomUnavalableException ex) {
@@ -81,6 +105,10 @@ namespace RMS {
                 MessageBox.Show("Reservations made");
                 this.Close();
             }
+
+        }
+
+        private void RoomNumberTB_DoubleClick(object sender, EventArgs e) {
 
         }
     }

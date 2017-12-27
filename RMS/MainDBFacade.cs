@@ -242,6 +242,10 @@ namespace RMS {
             return db.Annexes.FirstOrDefault(x=>x.Name == annex_name) != null;
         }
 
+        public bool weekdayExists(string weekday_name) {
+            return db.WeekDays.FirstOrDefault(x=>x.Name == weekday_name)!= null;
+        }
+
         //returns room number as staring
         public string getRandomAvalableRoom(DateTime start, DateTime end, int room_type_id) {
             RoomType room_type = getRoomType(room_type_id);
@@ -511,7 +515,6 @@ namespace RMS {
         }
         
 
-
         public static bool validateUserDataForCreator(string uname, string password, string account_type, out string error_msg) {
             var errors = new List<string>();
 
@@ -691,6 +694,70 @@ namespace RMS {
 
             error_msg= "";
             return true;
+        }
+
+        public static bool validateReservationData(DateTime start, DateTime end, string description, string roomNumber,string room_type, out string error_msg) {
+            var errors = new List<string>();
+            bool valid= true;
+            
+            if(description.Trim() == "" || roomNumber.Trim() == "") {
+                error_msg= "One or more required fields are empty";
+                return false;
+            }
+
+            if(start > end) {
+                valid= false;
+                errors.Add("Invalid reservation time");
+            }
+
+            if (!db.roomTypeExists(room_type)) {
+                valid= false;
+                errors.Add("Invalid room type");
+            }
+            
+            error_msg=  string.Join("\n",errors);
+            return valid;
+        }
+
+        public static bool validateReservationDataForRoomPicker(DateTime start, DateTime end, string description, string room_type, out string error_msg) {
+            var errors = new List<string>();
+            bool valid= true;
+            
+            if(description.Trim() == "") {
+                error_msg= "One or more required fields are empty";
+                return false;
+            }
+            if(start > end) {
+                valid= false;
+                errors.Add("Invalid reservation time");
+            }
+
+            if (!db.roomTypeExists(room_type)) {
+                valid= false;
+                errors.Add("Invalid room type");
+            }
+            
+            error_msg=  string.Join("\n",errors);
+            return valid;
+        }
+
+        public static bool validateRoutineException(string weekday, out string error_msg) {
+            var errors = new List<string>();
+            bool valid = true;
+
+            
+            if(weekday.Trim() == "") {
+                error_msg= "One or more required fields are empty";
+                return false;
+            }
+
+            if (!db.weekdayExists(weekday)) {
+                valid = false;
+                errors.Add("Invalid weekday");
+            }
+
+            error_msg=  string.Join("\n",errors);
+            return valid;
         }
     }
 }

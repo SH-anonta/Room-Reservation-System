@@ -35,6 +35,13 @@ namespace RMS {
         }
 
         private void SaveButton_Click(object sender, EventArgs e) {
+            string weekday = WeekDayCB.Text;
+            string error_msg= "";
+            if (!DataValidator.validateRoutineException(weekday, out error_msg)) {
+                MessageBox.Show(error_msg, "Error");
+                return;
+            }
+
             db.UpdateRoutineException(routine_exception, WeekDayCB.Text);
             MessageBox.Show("Changes saved");
             this.Close();

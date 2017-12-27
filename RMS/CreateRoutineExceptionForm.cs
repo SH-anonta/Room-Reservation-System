@@ -23,9 +23,16 @@ namespace RMS {
 
         private void CreateButton_Click(object sender, EventArgs e) {
             bool success = true;
+            string weekday = WeekDayCB.Text;
+
+            string error_msg= "";
+            if (!DataValidator.validateRoutineException(weekday, out error_msg)) {
+                MessageBox.Show(error_msg, "Error");
+                return;
+            }
 
             try {
-                db.createRoutineException(ExceptionDateDTP.Value, WeekDayCB.Text);
+                db.createRoutineException(ExceptionDateDTP.Value, weekday);
             }
             catch(DuplicateRecordException ex) {
                 success = false;
@@ -34,7 +41,7 @@ namespace RMS {
 
             
             if(success){
-                MessageBox.Show("Room exception created");
+                MessageBox.Show("Routine exception created");
                 this.Close();
             }
         }
