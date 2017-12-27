@@ -58,8 +58,25 @@ namespace RMS {
         }
 
         private void DeleteButton_Click(object sender, EventArgs e) {
-            db.deleteRoom(to_edit_room_number);
-            MessageBox.Show("Room deleted");
+
+            if (db.roomHasReservations(to_edit_room_number)) {
+                var confirmResult =  MessageBox.Show("This room has existing reservations, delete them alogn with this room?", "Confirm Delete!!", MessageBoxButtons.YesNo);
+
+                if(confirmResult == DialogResult.Yes) {
+                    db.deleteAllReservationsOfRoom(to_edit_room_number);
+                    db.deleteRoom(to_edit_room_number);
+                    MessageBox.Show("Room deleted");
+
+                }
+                else {
+                    return;
+                }
+            }
+            else {
+                db.deleteRoom(to_edit_room_number);
+                MessageBox.Show("Room deleted");
+            }
+            
             this.Close();
         }
 

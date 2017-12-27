@@ -209,6 +209,26 @@ namespace RMS {
             return db.RegularClasses.ToList();
         }
 
+        public List<Reservation> getReservationsOfRoom(string room_number) {
+            Room room = db.Rooms.First(x=> x.Number == room_number);
+            return room.Reservations.ToList();
+        }
+
+        public bool roomHasReservations(string room_number) {
+            Room room = db.Rooms.First(x=> x.Number == room_number);
+            return room.Reservations.Count(x=> true) != 0;
+        }
+
+        public void deleteAllReservationsOfRoom(string room_number) {
+            Room room = db.Rooms.First(x=> x.Number == room_number);
+
+            foreach(Reservation res in room.Reservations) {
+                db.Reservations.DeleteOnSubmit(res);
+            }
+
+            db.SubmitChanges();
+        }
+
         // Return Routine exceptions that have a date set to today's or later
         public List<RoutineException> getFutureRoutineExceptions() {
             DateTime today = DateTime.Now.Date;
