@@ -247,11 +247,11 @@ namespace RMS {
         }
 
         //returns room number as staring
-        public string getRandomAvalableRoom(DateTime start, DateTime end, int room_type_id) {
+        public string getRandomAvalableRoom(DateTime start, DateTime end, int min_capacity, int room_type_id) {
             RoomType room_type = getRoomType(room_type_id);
 
             //get rooms that are of room_type and are avalable during the start and end time interval
-            List<string> rooms = room_type.Rooms.Where(x=> !roomIsOccupied(start, end, x.Id)).Select(x=>x.Number).ToList();
+            List<string> rooms = room_type.Rooms.Where(x=> x.RoomCapacity >= min_capacity && !roomIsOccupied(start, end, x.Id)).Select(x=>x.Number).ToList();
             int count = rooms.Count;
 
             if(count == 0) {
@@ -719,7 +719,7 @@ namespace RMS {
             return valid;
         }
 
-        public static bool validateReservationDataForRoomPicker(DateTime start, DateTime end, string description, string room_type, out string error_msg) {
+        public static bool validateReservationDataForRoomPicker(DateTime start, DateTime end, string description, string room_type, string min_capacity, out string error_msg) {
             var errors = new List<string>();
             bool valid= true;
             
@@ -735,6 +735,11 @@ namespace RMS {
             if (!db.roomTypeExists(room_type)) {
                 valid= false;
                 errors.Add("Invalid room type");
+            }
+
+            if (!roomCapacityIsValid(min_capacity)) {
+                valid= false;
+                errors.Add("Invalid room capacity");
             }
             
             error_msg=  string.Join("\n",errors);
