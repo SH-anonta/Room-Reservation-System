@@ -282,6 +282,13 @@ namespace RMS {
             return rooms[picked];
         }
 
+        public List<Room> getAvalableRooms(DateTime start, DateTime end, int min_capacity, int room_type_id) {
+            RoomType room_type = getRoomType(room_type_id);
+
+            //get rooms that are of room_type and are avalable during the start and end time interval
+            return room_type.Rooms.Where(x=> x.RoomCapacity >= min_capacity && !roomIsOccupied(start, end, x.Id)).ToList();
+        }
+
 
         // Filters (getters that return bsed on constraints)
         public List<User> filterUsersByNameAndType(string name, string type) {

@@ -107,7 +107,32 @@ namespace RMS {
         }
 
         private void RoomNumberTB_DoubleClick(object sender, EventArgs e) {
+            DateTime date = DatePicker.Value;
+            DateTime start  = StartTimePicker.Value;
+            DateTime end  = EndTimePicker.Value;
+            string description = ReservationDescriptionRTB.Text;
+            string room_number = RoomNumberTB.Text;
+            string room_type = RoomTypeCB.Text;
+            string min_capacity = MinCapacityTB.Text;
 
+            // create datetimes with given date and time of day. second is always 0
+            DateTime start_time = new DateTime(date.Year, date.Month, date.Day, start.Hour, start.Minute, 0);
+            DateTime end_time = new DateTime(date.Year, date.Month, date.Day, end.Hour, end.Minute, 0);
+
+            string error_msg= "";
+            if(!DataValidator.validateReservationDataForRoomPicker(start, end, description, room_type, min_capacity, out error_msg)) {
+                MessageBox.Show(error_msg, "Error");
+                return;
+            }
+
+            int capacity =  int.Parse(min_capacity);
+
+
+
+            var data = db.getAvalableRooms(start_time, end_time, capacity, db.getRoomTypeIdfromName(room_type));
+
+            AvalableRoomsView viewer = new AvalableRoomsView(data);
+            viewer.Show();
         }
     }
 }
